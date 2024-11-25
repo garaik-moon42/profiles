@@ -1,0 +1,58 @@
+{
+    "personalData": {
+        "firstName": "",
+        "lastName": "",
+        "title": "",
+        "introduction": "",
+        "languages": []
+
+    },
+    "skills": {
+        "technicalSkills": {
+            "programmingLanguages": [],
+            "frameworksAndLibraries": [],
+            "databases": [],
+            "devOpsAndCloud": [],
+            "toolsAndTechnologies": [],
+            "operatingSystems": [],
+            "testingAndQA": [],
+            "specializedDomains": [],
+            "developmentMethodologies": []
+        },
+        "softSkills": {
+            "communication": [],
+            "teamCollaboration": [],
+            "problemSolving": [],
+            "leadership": [],
+            "timeManagement": [],
+            "adaptability": [],
+            "creativityAndInnovation": [],
+            "clientInteraction": []
+        }
+    },
+    "education": [
+        {
+            "degree": "M.Sc.",
+            "field": "Computer Science Engineering",
+            "institution": "Óbuda University, John Von Neumann Faculty",
+            "start": "2018",
+            "end": "2020"
+        }
+    ],
+    "certificates": [
+        {
+            "name": "",
+            "organization": "",
+            "date": "",
+            "expiration": "",
+            "id": "",
+            "url": ""
+        }
+    ],
+    "interests": {
+        {
+            "name": "",
+            "description": ""
+        }
+    }
+}
