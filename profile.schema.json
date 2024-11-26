@@ -116,8 +116,18 @@
       ]
     },
     "education": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/degree"
+      },
+      "minItems": 1
     },
-    "certificates": {},
+    "certificates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/certificate"
+      }
+    },
     "experience": {
       "type": "array",
       "items": {
@@ -142,10 +152,55 @@
   },
   "$defs": {
     "degree": {
-      "type": "object"
+      "type": "object",
+      "degree": {
+        "type": "string"
+      },
+      "field": {
+        "type": "string"
+      },
+      "institution": {
+        "type": "string"
+      },
+      "start": {
+        "type": "string"
+      },
+      "end": {
+        "type": "string"
+      },
+      "required": [
+        "degree",
+        "field",
+        "institution",
+        "end"
+      ]
     },
     "certificate": {
-      "type": "object"
+      "type": "object",
+      "name": {
+        "type": "string"
+      },
+      "organization": {
+        "type": "string"
+      },
+      "date": {
+        "type": "string"
+      },
+      "expiration": {
+        "type": "string",
+        "format": "date"
+      },
+      "id": {
+        "type": "string"
+      },
+      "url": {
+        "type": "string"
+      },
+      "required": [
+        "name",
+        "organization",
+        "date"
+      ]
     },
     "job": {
       "type": "object",
