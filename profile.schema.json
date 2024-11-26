@@ -5,110 +5,145 @@
   "description": "Engineer profile from MOON42",
   "type": "object",
   "properties": {
-    "type": "object",
-    "personalData": {},
-    "skills": {
+    "personalData": {
       "type": "object",
-      "technical": {
-        "type": "object",
-        "programmingLanguages": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+      "properties": {
+        "firstName": {
+          "type": "string"
         },
-        "frameworksAndLibraries": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "lastName": {
+          "type": "string"
         },
-        "databases": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "title": {
+          "type": "string"
         },
-        "devOpsAndCloud": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "introduction": {
+          "type": "string"
         },
-        "toolsAndTechnologies": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "operatingSystems": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "testingAndQA": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "specializedDomains": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "developmentMethodologies": {
+        "languages": {
           "type": "array",
           "items": {
             "type": "string"
           }
         }
       },
-      "soft": {
-        "communication": {
-          "type": "boolean"
+      "required": [
+        "firstName",
+        "lastName",
+        "title",
+        "introduction",
+        "languages"
+      ]
+    },
+    "skills": {
+      "type": "object",
+      "properties": {
+        "technical": {
+          "type": "object",
+          "properties": {
+            "programmingLanguages": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "frameworksAndLibraries": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "databases": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "devOpsAndCloud": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "toolsAndTechnologies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "operatingSystems": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "testingAndQA": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "specializedDomains": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "developmentMethodologies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
         },
-        "teamCollaboration": {
-          "type": "boolean"
-        },
-        "problemSolving": {
-          "type": "boolean"
-        },
-        "leadership": {
-          "type": "boolean"
-        },
-        "timeManagement": {
-          "type": "boolean"
-        },
-        "adaptability": {
-          "type": "boolean"
-        },
-        "creativityAndInnovation": {
-          "type": "boolean"
-        },
-        "clientInteraction": {
-          "type": "boolean"
-        },
-        "emotionalIntelligence": {
-          "type": "boolean"
-        },
-        "attentionToDetail": {
-          "type": "boolean"
-        },
-        "required": [
-          "communication",
-          "teamCollaboration",
-          "problemSolving",
-          "leadership",
-          "timeManagement",
-          "adaptability",
-          "creativityAndInnovation",
-          "clientInteraction",
-          "emotionalIntelligence",
-          "attentionToDetail"
-        ]
+        "soft": {
+          "type": "object",
+          "properties": {
+            "communication": {
+              "type": "boolean"
+            },
+            "teamCollaboration": {
+              "type": "boolean"
+            },
+            "problemSolving": {
+              "type": "boolean"
+            },
+            "leadership": {
+              "type": "boolean"
+            },
+            "timeManagement": {
+              "type": "boolean"
+            },
+            "adaptability": {
+              "type": "boolean"
+            },
+            "creativityAndInnovation": {
+              "type": "boolean"
+            },
+            "clientInteraction": {
+              "type": "boolean"
+            },
+            "emotionalIntelligence": {
+              "type": "boolean"
+            },
+            "attentionToDetail": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "communication",
+            "teamCollaboration",
+            "problemSolving",
+            "leadership",
+            "timeManagement",
+            "adaptability",
+            "creativityAndInnovation",
+            "clientInteraction",
+            "emotionalIntelligence",
+            "attentionToDetail"
+          ]
+        }
       },
       "required": [
         "technical",
@@ -141,32 +176,34 @@
         "$ref": "#/$defs/interest"
       },
       "minItems": 1
-    },
-    "required": [
-      "personalData",
-      "skills",
-      "education",
-      "experience",
-      "interests"
-    ]
+    }
   },
+  "required": [
+    "personalData",
+    "skills",
+    "education",
+    "experience",
+    "interests"
+  ],
   "$defs": {
     "degree": {
       "type": "object",
-      "degree": {
-        "type": "string"
-      },
-      "field": {
-        "type": "string"
-      },
-      "institution": {
-        "type": "string"
-      },
-      "start": {
-        "type": "string"
-      },
-      "end": {
-        "type": "string"
+      "properties": {
+        "degree": {
+          "type": "string"
+        },
+        "field": {
+          "type": "string"
+        },
+        "institution": {
+          "type": "string"
+        },
+        "start": {
+          "type": "string"
+        },
+        "end": {
+          "type": "string"
+        }
       },
       "required": [
         "degree",
@@ -177,24 +214,25 @@
     },
     "certificate": {
       "type": "object",
-      "name": {
-        "type": "string"
-      },
-      "organization": {
-        "type": "string"
-      },
-      "date": {
-        "type": "string"
-      },
-      "expiration": {
-        "type": "string",
-        "format": "date"
-      },
-      "id": {
-        "type": "string"
-      },
-      "url": {
-        "type": "string"
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "organization": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "expiration": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
       },
       "required": [
         "name",
@@ -204,26 +242,26 @@
     },
     "job": {
       "type": "object",
-      "role": {
-        "type": "string"
-      },
-      "company": {
-        "type": "string"
-      },
-      "start": {
-        "type": "string",
-        "format": "date"
-      },
-      "end": {
-        "type": "string",
-        "format": "date"
-      },
-      "projects": {
-        "type": "array",
-        "items": {
-          "$ref": "#/$defs/project"
+      "properties": {
+        "role": {
+          "type": "string"
         },
-        "minItems": 1
+        "company": {
+          "type": "string"
+        },
+        "start": {
+          "type": "string"
+        },
+        "end": {
+          "type": "string"
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/project"
+          },
+          "minItems": 1
+        }
       },
       "required": [
         "role",
@@ -235,25 +273,27 @@
     },
     "project": {
       "type": "object",
-      "name": {
-        "type": "string"
-      },
-      "location": {
-        "type": "string"
-      },
-      "responsibilities": {
-        "type": "array",
-        "items": {
+      "properties": {
+        "name": {
           "type": "string"
         },
-        "minItems": 1
-      },
-      "techStack": {
-        "type": "array",
-        "items": {
+        "location": {
           "type": "string"
         },
-        "minItems": 1
+        "responsibilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "techStack": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        }
       },
       "required": [
         "name",
@@ -264,11 +304,13 @@
     },
     "interest": {
       "type": "object",
-      "name": {
-        "type": "string"
-      },
-      "description": {
-        "type": "string"
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
       },
       "required": [
         "name",
