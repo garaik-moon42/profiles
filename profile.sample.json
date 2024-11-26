@@ -49,10 +49,32 @@
             "url": ""
         }
     ],
-    "interests": {
+    "experience": [
+        {
+            "role": "Senior Full Stack Developer",
+            "company": "MOON42 RDI Ltd.",
+            "start": "01/2024",
+            "end": "Present",
+            "projects": [
+                {
+                    "name": "4Spend",
+                    "location": "Budapest, Hungary",
+                    "responsibilities": [
+                        "Ongoing feature implementation from scratch",
+                        "Created optimized queries for large database requests",
+                        "Fault analysis and alerting through sales data"
+                    ],
+                    "techStack": [
+                        ".NET", "ExpressJS", "PostgreSQL", "RabbitMQ", "Redis"
+                    ]
+                }
+            ]
+        }
+    ],
+    "interests": [
         {
             "name": "",
             "description": ""
         }
-    }
+    ]
 }

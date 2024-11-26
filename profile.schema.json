@@ -1,0 +1,224 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/product.schema.json",
+  "title": "Profile",
+  "description": "Engineer profile from MOON42",
+  "type": "object",
+  "properties": {
+    "type": "object",
+    "personalData": {},
+    "skills": {
+      "type": "object",
+      "technical": {
+        "type": "object",
+        "programmingLanguages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "frameworksAndLibraries": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "databases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "devOpsAndCloud": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "toolsAndTechnologies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "operatingSystems": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "testingAndQA": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "specializedDomains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "developmentMethodologies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "soft": {
+        "communication": {
+          "type": "boolean"
+        },
+        "teamCollaboration": {
+          "type": "boolean"
+        },
+        "problemSolving": {
+          "type": "boolean"
+        },
+        "leadership": {
+          "type": "boolean"
+        },
+        "timeManagement": {
+          "type": "boolean"
+        },
+        "adaptability": {
+          "type": "boolean"
+        },
+        "creativityAndInnovation": {
+          "type": "boolean"
+        },
+        "clientInteraction": {
+          "type": "boolean"
+        },
+        "emotionalIntelligence": {
+          "type": "boolean"
+        },
+        "attentionToDetail": {
+          "type": "boolean"
+        },
+        "required": [
+          "communication",
+          "teamCollaboration",
+          "problemSolving",
+          "leadership",
+          "timeManagement",
+          "adaptability",
+          "creativityAndInnovation",
+          "clientInteraction",
+          "emotionalIntelligence",
+          "attentionToDetail"
+        ]
+      },
+      "required": [
+        "technical",
+        "soft"
+      ]
+    },
+    "education": {
+    },
+    "certificates": {},
+    "experience": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/job"
+      },
+      "minItems": 1
+    },
+    "interests": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/interest"
+      },
+      "minItems": 1
+    },
+    "required": [
+      "personalData",
+      "skills",
+      "education",
+      "experience",
+      "interests"
+    ]
+  },
+  "$defs": {
+    "degree": {
+      "type": "object"
+    },
+    "certificate": {
+      "type": "object"
+    },
+    "job": {
+      "type": "object",
+      "role": {
+        "type": "string"
+      },
+      "company": {
+        "type": "string"
+      },
+      "start": {
+        "type": "string",
+        "format": "date"
+      },
+      "end": {
+        "type": "string",
+        "format": "date"
+      },
+      "projects": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/project"
+        },
+        "minItems": 1
+      },
+      "required": [
+        "role",
+        "company",
+        "start",
+        "end",
+        "projects"
+      ]
+    },
+    "project": {
+      "type": "object",
+      "name": {
+        "type": "string"
+      },
+      "location": {
+        "type": "string"
+      },
+      "responsibilities": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1
+      },
+      "techStack": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1
+      },
+      "required": [
+        "name",
+        "location",
+        "responsibilities",
+        "techStack"
+      ]
+    },
+    "interest": {
+      "type": "object",
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "required": [
+        "name",
+        "description"
+      ]
+    }
+  }
+}
