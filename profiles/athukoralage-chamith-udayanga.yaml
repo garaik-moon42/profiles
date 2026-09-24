@@ -1,0 +1,247 @@
+# yaml-language-server: $schema=../schemas/profile.schema.json
+# DRAFT — editorial decision pending; candidate questions have been resolved.
+metadata:
+  id: athukoralage-chamith-udayanga
+  schemaVersion: '1.0'
+  language: en
+personalData:
+  firstName: Chamith Udayanga
+  lastName: Athukoralage
+  title: Senior Software Developer
+  introduction: Senior Software Developer with over seven years of experience designing and developing scalable
+    backend services, microservices, and cloud-native systems. Experienced in Go, Java/Spring Boot, Kotlin,
+    React, PostgreSQL, Kafka, Docker, and Kubernetes, with a focus on system design, API development, performance
+    optimization, observability, and production reliability across fintech, mobility, and enterprise platforms.
+    Currently pursuing a part-time MSc in Data Science and Artificial Intelligence at the University of Moratuwa.
+  languages:
+  - Sinhala (native)
+  - English (professional working proficiency)
+  contacts:
+  - type: phone
+    value: +94 76 227 8118
+  - type: email
+    value: Udayangaac@gmail.com
+  - type: other
+    value: 'Stack Overflow: www.stackoverflow.com/users/5626522'
+  - type: github
+    value: www.github.com/udayangaac
+  - type: linkedin
+    value: www.linkedin.com/in/udayangaac
+  - type: website
+    value: www.chamith.me
+skills:
+  technical:
+    programmingLanguages:
+    - Go
+    - Java
+    - Kotlin
+    - JavaScript
+    - SQL
+    frameworksAndLibraries:
+    - Gin
+    - Fiber
+    - Spring Boot
+    - React
+    databases:
+    - PostgreSQL
+    - MongoDB
+    - MySQL
+    - Elasticsearch
+    - RocksDB
+    devOpsAndCloud:
+    - Google Cloud Platform
+    - Google Cloud Storage
+    - CircleCI
+    - AWS
+    - Docker
+    - Kubernetes
+    - Google Kubernetes Engine (GKE)
+    - CI/CD
+    - Git
+    toolsAndTechnologies:
+    - Apache Kafka
+    - Prometheus
+    - Grafana
+    - RESTful APIs
+    - Swagger/OpenAPI
+    - Scrive API
+    - Uber H3
+    - Open Source Routing Machine (OSRM)
+    - SAP S/4HANA APIs
+    developmentMethodologies:
+    - Test-Driven Development
+    - Code reviews
+    - Technical documentation
+    - Agile
+    - Scrum
+    - SOLID principles
+    - Design patterns
+    specializedDomains:
+    - Distributed systems
+    - Microservices
+    - Event-driven architecture
+    - API design
+    - Payment processing
+    - Fleet management
+    - Performance optimization
+    - Observability
+    ai:
+    - Deep learning
+    - Computer vision
+    - AI-generated image detection
+    - ConvNeXt
+    - EVA02
+    - Hybrid deep learning architectures for image detection
+  soft:
+  - Technical leadership
+  - Mentoring
+  - Cross-team collaboration
+education:
+- level: master
+  name: Master of Science in Data Science and Artificial Intelligence
+  institution: Faculty of Engineering, University of Moratuwa
+  start: "2025/01"
+  end: null
+- level: bachelor
+  name: Bachelor of Science of Engineering in Electrical and Information Engineering
+  institution: Faculty of Engineering, University of Ruhuna
+  start: "2013/05"
+  end: "2017/11"
+certificates:
+- name: AWS Academy Graduate – AWS Academy Cloud Data Pipeline Builder
+  organization: Amazon Web Services (AWS)
+  date: "2025/02"
+- name: Fundamentals of Deep Learning
+  organization: NVIDIA
+  date: "2025/07"
+experience:
+- role: Senior Software Engineer
+  start: "2026/05"
+  end: "2026/07"
+  projects:
+  - name: Enterprise Agreement Management
+    responsibilities:
+    - Developed backend and frontend features for enterprise agreement management systems using Kotlin, React,
+      PostgreSQL, and cloud-native architecture.
+    location: Singapore; remote from Sri Lanka
+    techStack:
+    - Kotlin
+    - React
+    - PostgreSQL
+  company: Lexagle
+- role: Technical Lead
+  start: "2026/02"
+  end: "2026/04"
+  projects:
+  - name: Document Management and Storage Services
+    responsibilities:
+    - Led architecture and development of a document management service for a car rental platform, integrating
+      the Scrive API for e-signing and identity verification using Go, Fiber, PostgreSQL, Swagger/OpenAPI,
+      Docker, CircleCI, and Kubernetes (GKE).
+    - Architected and delivered a centralized storage adapter using Go, Fiber, and Google Cloud Storage
+      as a reusable document management layer across services.
+    - Improved code quality, test coverage, and delivery efficiency through structured code reviews, automated
+      testing, and standardized development practices.
+    - Mentored backend engineers through code reviews and system design discussions.
+    location: Canada; remote from Sri Lanka
+    techStack:
+    - Go
+    - Fiber
+    - Google Cloud Storage
+    - Kubernetes (GKE)
+    - Docker
+    - CircleCI
+    - Swagger/OpenAPI
+    - PostgreSQL
+    - Scrive API
+  company: Creo360 Inc
+- role: Consultant
+  start: "2025/10"
+  end: "2026/01"
+  projects:
+  - name: Toyota Financial Services Integration
+    responsibilities:
+    - Architected and developed middleware integrating a car rental platform with Toyota Financial Services
+      through SAP S/4HANA APIs, including financial business logic and transaction synchronization.
+    - Diagnosed and resolved critical production issues to improve reliability and stability.
+    location: Canada; remote from Sri Lanka
+    techStack:
+    - SAP S/4HANA APIs
+  company: Creo360 Inc
+- role: Associate Technical Lead
+  start: "2021/12"
+  end: "2025/09"
+  projects:
+  - name: Payment Processing and Vehicle Tracking Services
+    responsibilities:
+    - Developed scalable Go microservices integrating payment processing, vehicle tracking, damage monitoring,
+      parking management, and fleet management platforms.
+    - Reduced API p95 latency by 30% by optimizing Go APIs, reducing CPU and memory usage, and implementing
+      reusable in-memory caching.
+    - Designed and developed reusable Go libraries and CLI tools invoked by the legacy COBOL core system
+      to enable HTTP integrations with external platforms, overcoming integration limitations within the legacy environment.
+    - Established engineering practices through reviews and mentoring, including TDD, SOLID principles, design
+      patterns, and Go concurrency patterns.
+    - Owned backend delivery from architecture to production with caching, rate limiting, and retries.
+    location: Colombo, Sri Lanka
+    techStack:
+    - Go
+    - COBOL
+    - HTTP
+  company: Creo 360 (Pvt) Ltd
+- role: Senior Software Engineer
+  start: "2020/10"
+  # Candidate confirmed: overlap with Creo 360 reflects remaining annual leave and handover.
+  end: "2022/01"
+  projects:
+  - name: Search, Delivery and Mobility Services
+    responsibilities:
+    - Designed high-throughput SKU and outlet search services using Go, Elasticsearch, and RocksDB.
+    - Optimized passenger and merchant APIs written in Go to exceed 1,000 RPS with sub-20 ms latency.
+    - Mentored junior engineers and guided code quality, distributed systems, and performance optimization
+      practices.
+    - Contributed to platform architecture discussions.
+    - Improved observability through logs, metrics, and profiling for faster root-cause analysis.
+    - Built a Kafka event lifecycle service using Go to improve event processing reliability across delivery microservices.
+    location: Nugegoda, Sri Lanka
+    techStack:
+    - Go
+    - Elasticsearch
+    - RocksDB
+    - Apache Kafka
+  company: Digital Mobility Solutions Lanka PLC (PickMe)
+- role: Software Engineer
+  start: "2018/10"
+  end: "2020/09"
+  projects:
+  - name: Merchant and Real-Time Tracking Services
+    responsibilities:
+    - Implemented a centralized in-memory cache for SKU and outlet management using Go, Uber H3, and OSRM,
+      reducing duplicated logic and improving API latency.
+    - Developed backend APIs for merchant web and Android applications using Go, Kafka event streaming, and TDD.
+    - Conducted load tests on monitoring APIs, established performance baselines, and identified bottlenecks.
+    - Refactored delivery and ride-hailing real-time tracking APIs.
+    - Developed a real-time merchant heartbeat service using Go to track availability and support dynamic operational
+      decisions.
+    location: Nugegoda, Sri Lanka
+    techStack:
+    - Go
+    - Uber H3
+    - Open Source Routing Machine (OSRM)
+    - Apache Kafka
+  company: Digital Mobility Solutions Lanka PLC (PickMe)
+
+interests:
+- name: Exploring New Technologies
+  description: Enjoys exploring new technologies in his free time to learn new things.
+- name: Playing the Guitar
+  description: Enjoys playing the guitar as one of the hobbies that help him relax and develop creativity and strategic thinking.
+- name: Reading Books
+  description: Enjoys reading books as one of the hobbies that help him relax, learn new things, and develop creativity and strategic thinking.
+- name: Playing Chess
+  description: Enjoys playing chess as one of the hobbies that help him relax and develop creativity and strategic thinking.
+
+# SOURCE INFORMATION PENDING CLARIFICATION / EDITORIAL DECISION
+# TODO EDITOR: Confirm placement of membership and publication in existing narrative fields; no dedicated schema fields exist. Preserve the following source information pending that decision.
+# Membership: Associate Member, Institution of Engineers, Sri Lanka; membership number AM-31180.
+# Publication: Hybrid ConvNeXt and EVA02 Architecture for Detecting AI-Generated Images; International Conference on Artificial Intelligence in Multidisciplinary Applications; M. Y. B. Ranasinghe, A. C. Udayanga, and K. M. D. B. Kanakaratne; 2025.

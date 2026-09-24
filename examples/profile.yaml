@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../schemas/profile.schema.json
+# Kitalált személy és adatok; a szerkezetet bemutató példa.
+metadata:
+  id: anna-minta
+  schemaVersion: "1.0"
+  language: en
+personalData:
+  firstName: Anna
+  lastName: Minta
+  title: Senior Software Developer
+  introduction: >-
+    Anna develops **enterprise web applications** and mentors developers.
+  languages:
+  - Hungarian (native)
+  - English (intermediate, professional reading and writing)
+  contacts:
+  - type: email
+    value: anna@example.com
+  - type: mobile
+    value: "+36 30 123 4567"
+  - type: mobile
+    value: "+36 70 123 4567"
+  - type: linkedin
+    value: https://www.linkedin.com/in/example-profile
+skills:
+  technical:
+    programmingLanguages:
+    - C#
+    - TypeScript
+    frameworksAndLibraries:
+    - ASP.NET Core
+    - React
+    databases:
+    - PostgreSQL
+    devOpsAndCloud:
+    - Docker
+    testingAndQA:
+    - xUnit
+  soft:
+  - Clear communication
+  - Team collaboration
+  - Pragmatic problem solving
+  - Mentoring junior developers
+education:
+- level: bachelor
+  name: Computer Science
+  institution: Example University
+  start: '2016'
+  end: '2020'
+certificates:
+- name: Example Cloud Certificate
+  organization: Example Training Provider
+  date: '2023'
+experience:
+- role: Senior Software Developer
+  company: Example Software Ltd.
+  start: '2022'
+  end: null # Folyamatban lévő munkaviszony.
+  projects:
+  - name: Internal Business Platform
+    start: "2023/04"
+    end: null
+    location: Budapest, Hungary (remote)
+    responsibilities:
+    - Implemented backend APIs and automated integration tests.
+    - Mentored two developers.
+    techStack:
+    - C#
+    - ASP.NET Core
+    - PostgreSQL
+  - name: Team Process Improvement
+    location: Budapest, Hungary
+    responsibilities:
+    - Facilitated team retrospectives and improved collaboration practices.
+interests:
+- name: Hiking
+  description: Exploring new trails on weekends.

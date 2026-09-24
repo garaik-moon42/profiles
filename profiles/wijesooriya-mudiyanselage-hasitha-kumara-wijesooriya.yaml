@@ -1,0 +1,266 @@
+# yaml-language-server: $schema=../schemas/profile.schema.json
+# DRAFT — candidate clarification pending; TODO comments identify unresolved data.
+#
+# EMAIL DRAFT — prepared for forwarding, not sent.
+# Subject: Clarifications for your professional profile
+#
+# Dear Hasitha,
+#
+# Thank you for sharing your CV. To prepare an accurate professional profile,
+# could you please clarify the following points?
+# 1. Please confirm your given name(s) and family name. We provisionally recorded Wijesooriya
+#    Mudiyanselage Hasitha Kumara / Wijesooriya.
+# 2. Please provide the start and completion year (and month, if known) of your BSc (Hons) Computing
+#    at Wrexham Glyndwr University.
+# 3. Please provide the completion or issue dates for the certifications and professional training
+#    listed in your CV. Please confirm the awarding organizations, particularly for Microservices
+#    Foundations & Serverless and Microservices for AWS, where none is listed. Where a line combines
+#    courses, please confirm whether they are separate certificates.
+# 4. For your Otelier roles, should the location remain Global Operations, as written in the CV, or
+#    can you provide a more specific work location or remote arrangement?
+#
+# Years alone are sufficient if you do not know the months. Please indicate
+# explicitly if a course or position is ongoing.
+#
+# Thank you for your help.
+# Best regards,
+# MOON42 team
+#
+metadata:
+  id: wijesooriya-mudiyanselage-hasitha-kumara-wijesooriya
+  schemaVersion: '1.0'
+  language: en
+personalData:
+  # TODO name split: provisional; awaiting candidate confirmation.
+  firstName: Wijesooriya Mudiyanselage Hasitha Kumara
+  # TODO family name: provisional; awaiting candidate confirmation.
+  lastName: Wijesooriya
+  title: Senior Software Engineer | Technical Lead | Cloud & Distributed Systems | AI
+  introduction: Senior Software Engineer and Technical Lead with over fourteen years of experience designing,
+    developing, and leading enterprise solutions across logistics, hospitality, and ERP domains. Experienced
+    in .NET, ASP.NET Core, C#, Angular, SQL Server, MongoDB, AWS, and Microsoft Azure, with a focus on architecture,
+    cloud-native applications, distributed systems, modernization, and business process automation. Provides
+    hands-on technical leadership, production troubleshooting, code reviews, and mentoring across the software
+    development lifecycle. Expanding expertise in Artificial Intelligence, Agentic AI architectures, and AI-assisted
+    software engineering.
+  languages:
+  - Sinhala (native, C2)
+  - English (professional, C1)
+  contacts:
+  - type: email
+    value: hasithaemail@gmail.com
+  - type: mobile
+    value: +94 771505265
+  - type: linkedin
+    value: linkedin.com/in/hasithawijesooriya
+  - type: github
+    value: github.com/HasithaKW
+skills:
+  technical:
+    programmingLanguages:
+    - C#
+    - JavaScript
+    - TypeScript
+    - HTML
+    - CSS
+    frameworksAndLibraries:
+    - .NET
+    - .NET Core
+    - ASP.NET MVC
+    - ASP.NET Core
+    - Web API
+    - Angular
+    - Bootstrap
+    databases:
+    - Microsoft SQL Server
+    - Azure SQL
+    - MongoDB
+    devOpsAndCloud:
+    - AWS Lambda
+    - Amazon S3
+    - Amazon SQS
+    - Amazon SNS
+    - AWS Step Functions
+    - Amazon CloudWatch
+    - Microsoft Azure
+    - Azure App Services
+    - Git
+    - Bitbucket
+    - CI/CD pipelines
+    specializedDomains:
+    - Distributed systems
+    - Microservices
+    - Cloud-native applications
+    - Serverless architecture
+    - Event-driven architecture
+    - RESTful APIs
+    - Logistics
+    - Hospitality
+    - ERP
+    - Business process automation
+    developmentMethodologies:
+    - Agile
+    - Scrum
+    - Software Development Life Cycle
+    - Code reviews
+    ai:
+    - Artificial Intelligence (developing expertise)
+    - Agentic AI architectures (developing expertise)
+    - AI-assisted software engineering (developing expertise)
+  soft:
+  - Technical leadership
+  - Mentoring
+  - Cross-functional collaboration
+  - Problem solving
+  - Customer and stakeholder collaboration
+education:
+# TODO education/0/start: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+# TODO education/0/end: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+- level: bachelor
+  name: BSc (Hons) Computing
+  institution: Wrexham Glyndwr University
+experience:
+- role: Independent Software Consultant (Contract/Freelance)
+  start: 2025/09
+  end: 2026/06
+  projects:
+  - name: Logistics and ERP Solutions
+    responsibilities:
+    - Led the complete SDLC from requirements and architecture through development, testing, deployment, and
+      production support.
+    - Developed enterprise logistics and ERP solutions using .NET Core, ASP.NET MVC, C#, Angular, SQL Server,
+      MongoDB, JavaScript, and RESTful APIs.
+    - Architected scalable backend services and REST APIs for business automation and operational workflows.
+    - Developed ERP modules for shipment management, warehouse operations, customer management, billing, and
+      reporting.
+    location: Sri Lanka
+    techStack:
+    - .NET Core
+    - ASP.NET MVC
+    - C#
+    - Angular
+    - SQL Server
+    - MongoDB
+    - JavaScript
+    - RESTful APIs
+  company: Air Courier Service International
+- role: Associate Engineering Tech Lead
+  start: 2025/04
+  end: 2025/09
+  projects:
+  - name: Enterprise Applications and Technical Leadership
+    responsibilities:
+    - Provided technical leadership and acted as a subject matter expert while remaining hands-on in application
+      design and development.
+    - Designed, developed, and maintained enterprise applications.
+    - Led problem solving, code reviews, debugging, and performance optimization.
+    - Collaborated with engineering and cross-functional teams to deliver scalable solutions.
+    - Investigated and resolved complex production issues to improve stability.
+    location: Global Operations
+    techStack:
+    - C#
+    - .NET
+    - ASP.NET Core
+    - SQL Server
+    - RESTful APIs
+  company: Otelier (formerly MDO Global Pvt Ltd)
+- role: Senior Software Engineer
+  start: 2022/09
+  end: 2025/03
+  projects:
+  - name: Distributed Enterprise Applications
+    responsibilities:
+    - Designed, developed, and maintained enterprise software solutions.
+    - Served as a subject matter expert and primary technical contact for technical decisions, solution design,
+      and complex problem solving.
+    - Developed RESTful APIs and backend services supporting distributed applications and business workflows.
+    - Resolved critical production issues and optimized application and database performance.
+    - Conducted code reviews and implemented enhancements following development best practices.
+    - Collaborated with cross-functional teams throughout the SDLC.
+    location: Global Operations
+    techStack:
+    - C#
+    - .NET Core
+    - ASP.NET Core
+    - SQL Server
+    - Angular
+  company: Otelier (formerly MDO Global Pvt Ltd)
+- role: Software Engineer
+  start: 2021/02
+  end: 2022/08
+  projects:
+  - name: Enterprise Application Modernization
+    responsibilities:
+    - Designed, developed, and maintained enterprise software solutions.
+    - Updated legacy applications to modern .NET technologies and coding standards.
+    - Developed RESTful APIs and backend services.
+    - Collaborated with QA and engineering teams on scalable, high-performance applications.
+    - Maintained codebases and participated in peer reviews.
+    location: Global Operations
+    techStack:
+    - C#
+    - ASP.NET Core
+    - Angular
+    - SQL Server
+  company: Otelier (formerly MDO Global Pvt Ltd)
+- role: Software Engineer
+  start: 2019/01
+  end: 2021/01
+  projects:
+  - name: Enterprise Software Development
+    responsibilities:
+    - Developed enterprise applications using Microsoft .NET technologies.
+    - Developed scalable backend components, RESTful APIs, and database solutions.
+    - Collaborated with development and QA teams throughout the SDLC.
+    - Reviewed architecture and implemented performance improvements.
+    location: Sri Lanka
+    techStack:
+    - Microsoft .NET
+    - RESTful APIs
+  company: DPJ Holdings
+- role: Software Engineering Manager
+  start: 2017/12
+  end: 2018/12
+  projects:
+  - name: Enterprise Software Engineering and Team Leadership
+    responsibilities:
+    - Led the engineering team while participating in design, coding, and architecture.
+    - Developed enterprise software using Microsoft .NET.
+    - Mentored engineers through code reviews and technical guidance.
+    - Worked with customers and stakeholders to translate requirements into technical solutions.
+    location: Sri Lanka
+    techStack:
+    - Microsoft .NET
+  company: Antron Express
+- role: Software Engineer
+  start: 2012/08
+  end: 2017/11
+  projects:
+  - name: Web Applications and Backend Services
+    responsibilities:
+    - Developed web applications, backend services, and database solutions using Microsoft .NET.
+    - Collaborated with management, internal teams, and development partners on design status and project progress.
+    - Developed solutions meeting functional, scalability, and performance requirements.
+    - Evaluated and improved architecture with engineering colleagues.
+    location: Sri Lanka
+    techStack:
+    - Microsoft .NET
+  company: Antron Express
+
+# SOURCE INFORMATION PENDING CLARIFICATION / EDITORIAL DECISION
+# TODO EDITOR: Preserve the achievement Batch Top Graduate, Wrexham Glyndwr University in an appropriate narrative field after confirming placement.
+# TODO certificates: Dates are absent for every entry below. Confirm awarding organizations and whether combined entries represent separate certificates before creating objects.
+# Microservices Foundations & Serverless and Microservices for AWS — organization not stated.
+# The Complete Guide to Build Serverless Applications on AWS — Udemy.
+# Learning Cloud Computing: Serverless Computing — LinkedIn.
+# AWS Essential Training for Developers & Learning AWS for Developers — LinkedIn.
+# Become an ASP.NET Core Developer — LinkedIn.
+# Building and Securing RESTful APIs in ASP.NET Core — LinkedIn.
+# ASP.NET Core: Security & ASP.NET Core: Razor Pages — LinkedIn.
+# Learning Entity Framework Core — LinkedIn.
+# Learning TypeScript — LinkedIn.
+# Learning Jenkins — LinkedIn.
+# Cybersecurity Training — Ntiva.
+# General Data Protection Regulation V6N (GDPR) — COFENSE.
+# Agentic AI Fundamentals: Architectures, Frameworks and Applications — LinkedIn.
+# Prompt Engineering with ChatGPT — LinkedIn.

@@ -1,0 +1,329 @@
+# yaml-language-server: $schema=../schemas/profile.schema.json
+# DRAFT — candidate clarification pending; TODO comments identify unresolved data.
+#
+# EMAIL DRAFT — prepared for forwarding, not sent.
+# Subject: Clarifications for your professional profile
+#
+# Dear Umar,
+#
+# Thank you for sharing your CV. To prepare an accurate professional profile,
+# could you please clarify the following points?
+# 1. Please provide the start and end year (and month, if known) for all three qualifications:
+#    Advanced Software Engineering at the University of Westminster, Higher Diploma in Information
+#    Technology, and Diploma in Information Technology at the University of Colombo School of
+#    Computing.
+# 2. For the entry M.Sc. in Advanced Software Engineering (Postgraduate Certificate), please confirm
+#    the exact award received: a completed MSc, a postgraduate certificate, or ongoing study. Please
+#    also clarify the qualification levels of both diplomas.
+# 3. For the freelance consultant role, please confirm whether we should use Self-employed as the
+#    organization and provide the work or project location.
+# 4. Your CV refers to SVN (Bitbucket) for the Associate Lead role at Pearson. Please clarify which
+#    version-control system and repository hosting service were used.
+# 5. Please list your spoken languages and proficiency levels; these are not provided in your CV.
+# 6. Please confirm your given name and family name. We recorded Umar / Firdausi.
+#
+# Years alone are sufficient if you do not know the months. Please indicate
+# explicitly if a course or position is ongoing.
+#
+# Thank you for your help.
+# Best regards,
+# MOON42 team
+#
+metadata:
+  id: umar-firdausi
+  schemaVersion: '1.0'
+  language: en
+personalData:
+  # TODO name split: provisional; awaiting candidate confirmation.
+  firstName: Umar
+  # TODO family name: provisional; awaiting candidate confirmation.
+  lastName: Firdausi
+  title: Software Engineering Professional
+  introduction: Software Engineering Professional experienced in designing, developing, testing, deploying,
+    and maintaining scalable software systems and data-driven solutions. Expertise includes software architecture,
+    backend development, database design, cloud deployment, test automation, and AI/ML integration across the
+    software development lifecycle. Focused on performance, code quality, automation, analytical problem solving,
+    and cross-functional collaboration.
+  languages: []
+  contacts:
+  - type: email
+    value: umr.firdausi@gmail.com
+  - type: phone
+    value: +94 777 786 008
+  - type: linkedin
+    value: https://www.linkedin.com/in/umar-firdausi-12678484/
+skills:
+  technical:
+    programmingLanguages:
+    - Java
+    - Python
+    - JSON
+    frameworksAndLibraries:
+    - Scikit-learn
+    - Log4j
+    databases:
+    - PostgreSQL
+    devOpsAndCloud:
+    - AWS
+    - GCP
+    - Git
+    - Maven
+    - Jenkins
+    - CI/CD
+    testingAndQA:
+    - Jasmine
+    - Selenium
+    - REST Assured
+    - TestNG
+    - JUnit
+    - pytest
+    - JMeter
+    - Postman
+    - SoapUI
+    - Fiddler
+    - HP ALM
+    - TestLink
+    - Playwright
+    - Cypress
+    - Allure
+    - JaCoCo
+    - Functional testing
+    - Integration testing
+    - Regression testing
+    - Performance testing
+    - Reliability testing
+    - Test planning and estimation
+    - Test automation frameworks
+    toolsAndTechnologies:
+    - Kafka
+    - SubPub
+    - RabbitMQ
+    - Apigee
+    - IntelliJ
+    - Eclipse
+    - Confluence
+    - Jira
+    - ETL
+    - Sonar dashboards
+    specializedDomains:
+    - Microservices
+    - System design
+    - Requirements analysis
+    - Data analytics
+    - Resource planning and budgeting
+    ai:
+    - Predictive models
+    - AI-generated insights
+    - AI/ML integration
+  soft:
+  - Team leadership and coordination
+  - Clear communication
+  - Active listening
+  - Creative and analytical thinking
+  - Attention to detail
+  - Quick learning
+  - Cross-functional collaboration
+  - Time management
+  - Adaptability
+  - Teamwork
+  - Coaching and mentoring
+  - Hiring and development
+  - Conflict resolution
+education:
+# TODO education/0/level: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+# TODO education/0/start: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+# TODO education/0/end: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+- name: M.Sc. in Advanced Software Engineering (Postgraduate Certificate)
+  institution: University of Westminster, United Kingdom
+# TODO education/1/level: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+# TODO education/1/start: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+# TODO education/1/end: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+- name: Higher Diploma in Information Technology
+  institution: University of Colombo School of Computing, Sri Lanka
+# TODO education/2/level: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+# TODO education/2/start: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+# TODO education/2/end: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+- name: Diploma in Information Technology
+  institution: University of Colombo School of Computing, Sri Lanka
+experience:
+# TODO experience/0/company: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+- role: Freelance Software Consultant
+  start: 2025/10
+  end: 2026/06
+  projects:
+  # TODO experience/0/projects/0/location: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+  - name: POS Analytics Pilot and Engineering Hiring
+    responsibilities:
+    - Gathered requirements and designed architecture for a POS analytics pilot supporting reporting and forecasting.
+    - Built an ETL pipeline consolidating over 50 GB of fragmented sales data into PostgreSQL, reducing query
+      latency by 40%.
+    - Built an executive dashboard for real-time restaurant sales performance and business metrics.
+    - Integrated Scikit-learn predictive models and AI-generated insights for trend forecasting.
+    - Deployed the reporting database, ETL services, and dashboard on AWS.
+    - Designed test scenarios for ETL, data integrity, dashboard functionality, reporting accuracy, and predictive
+      model validation.
+    - Implemented automated ETL and data validation tests using pytest.
+    - Executed functional, integration, regression, and performance testing.
+    - Refined analytics and dashboard features based on stakeholder feedback.
+    - Worked with technology company stakeholders to draft engineering job descriptions and lead hiring.
+    techStack:
+    - PostgreSQL
+    - Scikit-learn
+    - AWS
+    - pytest
+- role: Lead
+  start: 2025/08
+  end: 2025/09
+  projects:
+  - name: Quality Assurance Leadership
+    responsibilities:
+    - Owned QA planning, execution, and reporting.
+    - Designed manual and automated test plans.
+    - Tested web, mobile, and backend systems.
+    - Built, maintained, and scaled automation frameworks.
+    - Defined engineering best practices across releases.
+    - Mentored engineering team members.
+    - Integrated testing into CI/CD with development teams.
+    - Managed defect tracking and resolution.
+    - Improved coverage, performance, and reliability.
+    - Validated release readiness and coordinated with stakeholders.
+    location: Remote
+  company: Troia Corporation
+- role: Associate Manager
+  start: 2022/12
+  end: 2025/05
+  projects:
+  - name: Quality Engineering Management
+    responsibilities:
+    - Collaborated with stakeholders to reduce delays and release impacts by 90%.
+    - Reviewed artifacts, deliverables, and timelines, improving timely delivery by 60% while maintaining reported
+      quality standards at 100%.
+    - Reviewed test plans and tracked execution, reporting 0% defect leakage.
+    - Led and mentored team members.
+    - Prepared estimates meeting agreed timelines at least 80% of the time.
+    - Led defect triages, reducing resolution delays by at least 70%.
+    - Led a project rebranding initiative and designed website wireframes with a projected traction increase
+      of at least 40%.
+    - Collaborated with peer managers to solve quality engineering issues.
+    - Resolved team conflicts and maintained 100% employee retention.
+    location: Colombo
+  company: Syscolabs (Pvt) Ltd
+- role: Lead
+  start: 2021/12
+  end: 2022/12
+  projects:
+  - name: Quality Engineering Practices and Automation
+    responsibilities:
+    - Established quality engineering practices across projects, securing 80% coverage.
+    - Implemented an API test automation framework providing 100% API testing automation.
+    - Owned projects from design through implementation.
+    - Improved hiring with management and talent acquisition partners.
+    - Mentored newly hired QE staff and maintained 100% retention.
+    - Used QE metrics to improve low-performing areas to over 50%.
+    location: Colombo
+  company: ConceptVines LLC (now Verdentra)
+- role: Senior Lead
+  start: 2021/11
+  end: 2021/12
+  projects:
+  - name: API Automation and DevOps Practices
+    responsibilities:
+    - Developed a REST Assured API automation framework maintaining team efficiency above 80% per sprint.
+    - Integrated Log4j and Allure reporting, increasing stakeholder collaboration by 80%.
+    - Integrated the API suite with Jenkins for CI/CD.
+    - Acted as DevOps Champion toward a goal of at least 70% DevOps success.
+    - Participated in architecture and solution design, reducing potential bugs by at least 30%.
+    location: Colombo
+    techStack:
+    - REST Assured
+    - Log4j
+    - Allure
+    - Jenkins
+  company: Pearson Lanka (Pvt) Ltd
+- role: Lead
+  start: 2018/04
+  end: 2021/10
+  projects:
+  - name: Inclusive Access and Next Generation Quality Engineering
+    responsibilities:
+    - Owned onboarding testing for the Inclusive Access business model.
+    - Joined as QE Lead at the product owner’s request based on communication and quality standards.
+    - Owned the end-to-end test effort for the Next Generation product line with integration teams.
+    - Built Jenkins pipelines triggered by source commits with multi-environment execution and Allure reporting,
+      increasing automated test execution efficiency by 80%.
+    - Designed a microservices performance testing strategy saving at least 30% time and effort.
+    - Trained team members on the automation framework and documented guidelines.
+    - Integrated JaCoCo automation code coverage into Sonar dashboards, improving automation effectiveness
+      by at least 30%.
+    - Reviewed QE and development code, repositories, and service logs to reduce issue resolution turnaround
+      by 30%.
+    location: Colombo
+    techStack:
+    - Jenkins
+    - Allure
+    - JaCoCo
+    - Sonar
+  company: Pearson Lanka (Pvt) Ltd
+- role: Associate Lead
+  start: 2016/04
+  end: 2018/03
+  projects:
+  - name: Microservices Quality Engineering
+    responsibilities:
+    - Remotely transitioned a microservices project from the US.
+    - Established a REST Assured service-level automation suite with 100% coverage as reported in the CV.
+    - Trained a novice QE team in manual and automated service-level testing.
+    - Designed and maintained automation repositories and a branching strategy, improving source management
+      by at least 60%.
+    - Integrated service-level tests into Jenkins for test and live environments, improving execution efficiency
+      by 80%.
+    - Investigated production incidents through logs and source code, reducing turnaround by 30%.
+    - Collaborated with global teams to support business operations.
+    location: Colombo
+    techStack:
+    - REST Assured
+    - Jenkins
+  company: Pearson Lanka (Pvt) Ltd
+- role: Senior Engineer
+  start: 2014/04
+  end: 2016/03
+  projects:
+  - name: Service-Level Automation and Data Center Changes
+    responsibilities:
+    - Acted as lead and prepared test plans for a critical data center change.
+    - Completed a project transition in Denver and maintained offshore collaboration with the product director.
+    - Maintained reported collaboration and communication levels above 80% with US and Sri Lankan stakeholders.
+    - Established a fully automated service-level framework integrated with CI/CD alongside development teams.
+    - Contributed to AWS A-B deployment pipelines and deployment troubleshooting, improving QE competency levels
+      by 75%.
+    location: Colombo; project transition in Denver, Colorado, USA
+    techStack:
+    - AWS
+  company: Pearson Lanka (Pvt) Ltd
+- role: Engineer
+  start: 2013/05
+  end: 2014/03
+  projects:
+  - name: Data Center Migration Testing
+    responsibilities:
+    - Planned and executed testing for a major data center migration, maintaining an error rate close to 0%.
+    - Tracked test execution progress, results, and artifacts in test and defect management tools.
+    location: Colombo
+  company: Pearson Lanka (Pvt) Ltd
+- role: QA Tester
+  start: 2011/01
+  end: 2013/05
+  projects:
+  - name: Automated and Exploratory Quality Assurance
+    responsibilities:
+    - Developed automated plans and scripts accounting for approximately 60% of manual test cases and detected
+      defects early.
+    - Supported high-reliability releases through thorough testing.
+    - Used an 80% test-to-break initiative and clarified ambiguous requirements to improve test plans.
+    location: Colombo
+  company: Virtusa Corp (Pvt) Ltd
+
+# SOURCE INFORMATION PENDING CLARIFICATION / EDITORIAL DECISION
+# TODO experience/6/projects/0: Clarify source wording SVN (Bitbucket); do not assume Git or Subversion. Repository management and branching responsibilities are retained in the profile.
+# TODO personalData/languages: Await candidate-provided spoken languages and levels.
+# Source technology label SubPub is retained as written; no expansion has been inferred.

@@ -1,0 +1,417 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Profile",
+  "description": "Engineer profile from MOON42",
+  "type": "object",
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$(?![\\s\\S])",
+          "description": "Stable profile identifier, independent of the display name."
+        },
+        "schemaVersion": {
+          "type": "string",
+          "const": "1.0"
+        },
+        "language": {
+          "type": "string",
+          "pattern": "^[a-z]{2,3}(-[A-Z]{2})?$(?![\\s\\S])",
+          "description": "Profile content language: lowercase 2-3 letter code, optionally with uppercase region, e.g. hu, en, en-GB. Not a full BCP 47 validator."
+        }
+      },
+      "required": [
+        "id",
+        "schemaVersion",
+        "language"
+      ]
+    },
+    "personalData": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "lastName": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "title": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "introduction": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "languages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "uniqueItems": true
+        },
+        "contacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/contact"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName",
+        "title",
+        "introduction",
+        "languages"
+      ],
+      "additionalProperties": false
+    },
+    "skills": {
+      "type": "object",
+      "properties": {
+        "technical": {
+          "type": "object",
+          "properties": {
+            "programmingLanguages": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "uniqueItems": true
+            },
+            "frameworksAndLibraries": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "uniqueItems": true
+            },
+            "databases": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "uniqueItems": true
+            },
+            "devOpsAndCloud": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "uniqueItems": true
+            },
+            "toolsAndTechnologies": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "uniqueItems": true
+            },
+            "operatingSystems": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "uniqueItems": true
+            },
+            "testingAndQA": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "uniqueItems": true
+            },
+            "specializedDomains": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "uniqueItems": true
+            },
+            "developmentMethodologies": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "uniqueItems": true
+            },
+            "ai": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "uniqueItems": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "soft": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "technical",
+        "soft"
+      ],
+      "additionalProperties": false
+    },
+    "education": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/degree"
+      },
+      "uniqueItems": true
+    },
+    "certificates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/certificate"
+      },
+      "uniqueItems": true
+    },
+    "experience": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/job"
+      },
+      "uniqueItems": true
+    },
+    "interests": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/interest"
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "metadata",
+    "personalData",
+    "skills"
+  ],
+  "$defs": {
+    "degree": {
+      "type": "object",
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": [
+            "secondary",
+            "vocational",
+            "college",
+            "university",
+            "bachelor",
+            "master",
+            "doctoral"
+          ]
+        },
+        "name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "institution": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "start": {
+          "$ref": "#/$defs/date"
+        },
+        "end": {
+          "description": "End date, or null if ongoing.",
+          "anyOf": [
+            {
+              "$ref": "#/$defs/date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "level",
+        "name",
+        "institution",
+        "start",
+        "end"
+      ],
+      "additionalProperties": false
+    },
+    "certificate": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "organization": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "date": {
+          "$ref": "#/$defs/date"
+        },
+        "expiration": {
+          "$ref": "#/$defs/date"
+        },
+        "id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "url": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      },
+      "required": [
+        "name",
+        "organization",
+        "date"
+      ],
+      "additionalProperties": false
+    },
+    "job": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "company": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "start": {
+          "$ref": "#/$defs/date"
+        },
+        "end": {
+          "description": "End date, or null if ongoing.",
+          "anyOf": [
+            {
+              "$ref": "#/$defs/date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/project"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "role",
+        "company",
+        "start",
+        "end"
+      ],
+      "additionalProperties": false
+    },
+    "project": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "location": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "responsibilities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "techStack": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "start": {
+          "$ref": "#/$defs/date"
+        },
+        "end": {
+          "description": "End date, or null if ongoing.",
+          "anyOf": [
+            {
+              "$ref": "#/$defs/date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "location",
+        "responsibilities"
+      ],
+      "additionalProperties": false
+    },
+    "interest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "description": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      },
+      "required": [
+        "name",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}(/(0[1-9]|1[0-2]))?$(?![\\s\\S])",
+      "description": "Year (YYYY) or year and month (YYYY/MM).",
+      "examples": [
+        "2026",
+        "2026/09"
+      ]
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "mobile",
+            "phone",
+            "email",
+            "linkedin",
+            "website",
+            "github",
+            "other"
+          ]
+        },
+        "value": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S",
+      "description": "Non-empty text containing at least one non-whitespace character."
+    }
+  },
+  "additionalProperties": false
+}

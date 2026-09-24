@@ -1,0 +1,295 @@
+# yaml-language-server: $schema=../schemas/profile.schema.json
+# DRAFT — candidate clarification pending; TODO comments identify unresolved data.
+#
+# EMAIL DRAFT — prepared for forwarding, not sent.
+# Subject: Clarifications for your professional profile
+#
+# Dear Miyuruhansi,
+#
+# Thank you for sharing your CV. To prepare an accurate professional profile,
+# could you please clarify the following points?
+# 1. Please confirm your given name(s) and family name, including the initials W.K.S. We provisionally
+#    recorded W.K.S. Miyuruhansi / Sarathchandra.
+# 2. In which year (and month, if known) did you begin your Bachelor of Technology at The Open
+#    University of Sri Lanka? We recorded completion in 2013.
+# 3. Please provide the work or project locations for each employer: QualitApps Asia, Beyond
+#    Technologies, Oensys Capital, Durdans Hospital, University of Moratuwa, PlusProOS, Shimon
+#    SoftHouse, Xiteb, Orit Trading Lanka, and eMerge Solutions. If a common location applies, please
+#    confirm it. Please distinguish your work location from client countries and indicate remote work
+#    where relevant.
+# 4. Please provide the issue dates and awarding organizations for the Agile (Jira), Python
+#    (Coursera), and Web Development PHP/MySQL (SLIIT) certificates. For Coursera, please identify the
+#    awarding organization if different from the platform.
+#
+# Years alone are sufficient if you do not know the months. Please indicate
+# explicitly if a course or position is ongoing.
+#
+# Thank you for your help.
+# Best regards,
+# MOON42 team
+#
+metadata:
+  id: w-k-s-miyuruhansi-sarathchandra
+  schemaVersion: '1.0'
+  language: en
+personalData:
+  # TODO name split: provisional; awaiting candidate confirmation.
+  firstName: W.K.S. Miyuruhansi
+  # TODO family name: provisional; awaiting candidate confirmation.
+  lastName: Sarathchandra
+  title: Senior Software Engineer
+  introduction: Senior Software Engineer with over ten years of experience across elder care, e-commerce, and
+    education. Experienced in PHP, Laravel, Symfony, WordPress, Vue.js, and React, automated CI/CD pipelines,
+    and AI-assisted development with GitHub Copilot and Grok. A proactive learner with experience in technical
+    ownership, architectural design, code reviews, and mentorship.
+  languages:
+  - English (C1, advanced)
+  - Sinhala (C2, native)
+  contacts:
+  - type: phone
+    value: +9474 222 1655
+  - type: email
+    value: miyuruhansi.sa@gmail.com
+  - type: linkedin
+    value: https://www.linkedin.com/in/miyuruhansi-sa/
+skills:
+  technical:
+    programmingLanguages:
+    - PHP
+    - JavaScript
+    - Java
+    frameworksAndLibraries:
+    - Laravel
+    - Symfony
+    - WordPress
+    - CodeIgniter
+    - Joomla
+    - Vue.js
+    - React
+    - Node.js
+    - Next.js
+    - Redux
+    - Tailwind CSS
+    databases:
+    - MySQL
+    - Redis
+    devOpsAndCloud:
+    - AWS S3
+    - AWS EC2
+    - cPanel
+    - GoDaddy
+    - Docker
+    - GitHub Actions
+    - GitHub Releases
+    - CI/CD
+    toolsAndTechnologies:
+    - Figma
+    - Miro
+    - Adobe Photoshop
+    - CorelDRAW
+    - Jira
+    - Twilio
+    testingAndQA:
+    - Unit testing
+    - Code reviews
+    - Quality assurance
+    - Manual assessment of AI output accuracy, bias, safety, and ethics
+    specializedDomains:
+    - Elder care systems
+    - E-commerce
+    - Education platforms
+    - ERP modernization
+    - Responsive design
+    ai:
+    - GitHub Copilot
+    - Grok
+    - AI-assisted development
+    - AI output evaluation
+  soft:
+  - Technical ownership
+  - Mentorship
+  - Technical leadership
+  - Training
+  - Continuous learning
+education:
+# TODO education/0/start: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+- level: bachelor
+  name: Bachelor of Technology in Computer Engineering
+  institution: The Open University of Sri Lanka
+  end: '2013'
+experience:
+- role: Senior Software Engineer
+  start: 2022/04
+  end: 2026/07
+  projects:
+  # TODO experience/0/projects/0/location: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+  - name: Scientist Collaboration Portal
+    responsibilities:
+    - Led full-stack development of a research portal using Laravel and Vue.js, with automated GitHub Releases
+      and CI/CD pipelines.
+    techStack:
+    - Laravel
+    - Vue.js
+    - GitHub Releases
+  # TODO experience/0/projects/1/location: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+  - name: Questionnaire System
+    responsibilities:
+    - Developed a questionnaire platform for the science community to collect research data, using Redis to
+      improve performance and scalability.
+    techStack:
+    - Laravel
+    - Redis
+  # TODO experience/0/projects/2/location: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+  - name: Technical Leadership and AI-Assisted Development
+    responsibilities:
+    - Performed code reviews focused on quality, security, and maintainability.
+    - Used GitHub Copilot and Grok to accelerate feature development and manually tested AI/LLM outputs for
+      bias, safety, ethics, and accuracy.
+    techStack:
+    - GitHub Copilot
+    - Grok
+  # TODO experience/0/projects/3/location: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+  - name: Odour Collect
+    responsibilities:
+    - Served as the main backend developer for the climate change application Odour Collect.
+    techStack:
+    - Laravel
+  # TODO experience/0/projects/4/location: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+  - name: CMS and E-commerce Platforms
+    responsibilities:
+    - Developed and maintained custom WordPress and e-commerce sites with integrated payment gateways for international
+      clients.
+    techStack:
+    - WordPress
+  # TODO experience/0/projects/5/location: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+  - name: University Student and Application Portals
+    responsibilities:
+    - Contributed to student management and application portals for a Spanish university.
+    techStack:
+    - Laravel
+    - Vue.js
+  # TODO experience/0/projects/6/location: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+  - name: Pharmaceutical ERP Modernization
+    responsibilities:
+    - Migrated a pharmaceutical ERP from CodeIgniter 2.2.5 to 3.1.10 to improve security and performance.
+    techStack:
+    - CodeIgniter 2.2.5
+    - CodeIgniter 3.1.10
+  company: QualitApps Asia (Pvt) Ltd
+- role: Senior Software Engineer (PHP/WP)
+  start: 2021/05
+  end: 2022/02
+  projects:
+  # TODO experience/1/projects/0/location: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+  - name: Health Websites and Delivery Improvements
+    responsibilities:
+    - Conducted Jira training to improve project management and team workflow.
+    - Developed responsive frontend and backend components for high-traffic health websites.
+    - Migrated servers to AWS to improve scalability and performance.
+    techStack:
+    - Jira
+    - WordPress
+    - AWS
+  company: Beyond Technologies Private Limited
+- role: Consultant Software Engineer
+  start: 2019/06
+  end: 2020/12
+  projects:
+  # TODO experience/2/projects/0/location: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+  - name: Elder Care System
+    responsibilities:
+    - Designed and developed an elder care system for a UK-based client.
+    - Conducted code reviews and quality assurance and created user manuals.
+    techStack:
+    - Symfony
+    - React
+    - Node.js
+  company: Oensys Capital (Pvt) Ltd
+- role: Software Engineer
+  start: 2017/06
+  end: 2018/08
+  projects:
+  # TODO experience/3/projects/0/location: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+  - name: Laboratory Reporting
+    responsibilities:
+    - Integrated laboratory reporting systems supporting online access and kiosk-based printing for patients.
+    techStack:
+    - CodeIgniter
+  company: Durdans Hospital PLC
+- role: Software Developer
+  start: 2017/02
+  end: 2017/06
+  projects:
+  # TODO experience/4/projects/0/location: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+  - name: Maths Tutor
+    responsibilities:
+    - Developed Java-based language translation components for the Maths Tutor educational system.
+    techStack:
+    - Java
+  company: University of Moratuwa
+- role: Software Engineer
+  start: 2015/04
+  end: 2016/12
+  projects:
+  # TODO experience/5/projects/0/location: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+  - name: Multi-Functional E-commerce Platform
+    responsibilities:
+    - Developed a UK-based platform combining an electrical products store, utility bill comparison, and social
+      networking.
+    - Conducted unit testing and supported business procedures to maintain stability.
+    techStack:
+    - CodeIgniter
+  company: PlusProOS (Pvt) Ltd
+- role: Associate Software Engineer
+  start: 2014/06
+  end: 2014/12
+  projects:
+  # TODO experience/6/projects/0/location: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+  - name: Telephone-Integrated Systems
+    responsibilities:
+    - Developed telephone-integrated systems for Japanese clients.
+    techStack:
+    - Twilio
+    - CodeIgniter
+  company: Shimon SoftHouse (Pvt) Ltd
+- role: Senior Software Developer
+  start: 2012/10
+  end: 2014/04
+  projects:
+  # TODO experience/7/projects/0/location: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+  - name: Custom CMS and Web Platforms
+    responsibilities:
+    - Customized WordPress for government authorities and augmented reality technology companies.
+    - Developed social networks and real estate websites for Australian clients.
+    techStack:
+    - WordPress
+    - CodeIgniter
+  company: Xiteb (Pvt) Ltd
+- role: Software Programmer
+  start: 2012/06
+  end: 2012/09
+  projects:
+  # TODO experience/8/projects/0/location: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+  - name: Intranet and ERP Systems
+    responsibilities:
+    - Developed and modified intranet modules and managed ERP systems.
+  company: Orit Trading Lanka (Pvt) Ltd
+- role: Trainee Software Developer
+  start: 2011/10
+  end: 2012/04
+  projects:
+  # TODO experience/9/projects/0/location: Missing or unresolved in source; ask candidate. Field intentionally omitted.
+  - name: Patient Registration, ERP and Web Development
+    responsibilities:
+    - Contributed to a patient registration system for Lanka Hospitals Corporation PLC and a pharmaceutical
+      ERP.
+    - Developed a shipping company website.
+    techStack:
+    - Joomla
+  company: eMerge Solutions (Pvt) Ltd
+
+# SOURCE INFORMATION PENDING CLARIFICATION / EDITORIAL DECISION
+# TODO EDITOR: Membership has no dedicated schema field. Confirm placement in the introduction.
+# Membership: Associate Member, Institution of Engineers, Sri Lanka (IESL), since 2014.
+# TODO certificates: Await dates and awarding organizations before creating certificate entries.
+# Source entries: Agile (Jira); Python (Coursera); Web Development PHP/MySQL (SLIIT).

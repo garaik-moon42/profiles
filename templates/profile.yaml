@@ -1,0 +1,83 @@
+# yaml-language-server: $schema=../schemas/profile.schema.json
+# Másold a profiles/<azonosito>.yaml helyre, majd cseréld ki a KITÖLTENDŐ értékeket.
+# A sablon szerkezetileg érvényes, de a helykitöltők nem kész profiladatok.
+# Két szóközös behúzás; a listákban ne ismételj azonos elemeket.
+metadata:
+  id: kitoltendo-azonosito # Stabil kisbetűs, ékezet nélküli azonosító; kötőjel használható.
+  schemaVersion: "1.0"
+  language: hu # A profil szövegének nyelve: pl. hu, en, en-GB.
+
+personalData:
+  firstName: "KITÖLTENDŐ: keresztnév"
+  lastName: "KITÖLTENDŐ: vezetéknév"
+  title: "KITÖLTENDŐ: szakmai megnevezés"
+  # Markdown használható. A | megőrzi a sortöréseket, a >- összefűzi a sorokat.
+  introduction: >-
+    KITÖLTENDŐ: rövid szakmai bemutatkozás, fő szakterületek és erősségek.
+  # Az üres listát cseréld felsorolásra, pl. languages: alatt - "Magyar (anyanyelv)".
+  languages: []
+  # Opcionális. Listaelemek hozzáadásakor töröld a [] jelet és vedd ki a kommenteket.
+  contacts: []
+  #   - type: email
+  #     value: "KITÖLTENDŐ: e-mail-cím"
+  #   - type: mobile
+  #     value: "KITÖLTENDŐ: mobilszám"
+  # Típusok: mobile, phone, email, linkedin, website, github, other.
+  # Azonos típus többször is szerepelhet, eltérő értékkel.
+
+skills:
+  # Minden kategória opcionális; az üresek elhagyhatók. A technical mező maradjon ({} is jó).
+  technical:
+    programmingLanguages: []
+    frameworksAndLibraries: []
+    databases: []
+    devOpsAndCloud: []
+    toolsAndTechnologies: []
+    operatingSystems: []
+    testingAndQA: []
+    specializedDomains: []
+    developmentMethodologies: []
+    ai: [] # AI-eszközök, technológiák és módszerek.
+  soft: [] # Szabad szöveges lista, pl. - "Csapatmunka". A mező maradjon meg.
+
+# Az alábbi négy lista opcionális: elhagyható vagy üresen hagyható.
+# Kitöltéshez töröld a [] jelet, és vedd ki a kívánt mintablokk kommentjeit.
+# Másolj további listaelemeket szükség szerint. A mintadátumokat is cseréld ki!
+# Dátum: "YYYY" vagy "YYYY/MM". end: null = folyamatban, nem ismeretlen.
+education: []
+#   - level: bachelor
+#     name: "KITÖLTENDŐ: a végzettség neve"
+#     institution: "KITÖLTENDŐ: oktatási intézmény"
+#     start: "2020/09"
+#     end: null
+# Szintek: secondary, vocational, college, university, bachelor, master, doctoral.
+# Mind az öt mező kötelező. Lezárt tanulmánynál az end is dátum legyen.
+
+certificates: []
+#   - name: "KITÖLTENDŐ: tanúsítvány neve"
+#     organization: "KITÖLTENDŐ: kiállító szervezet"
+#     date: "2024"
+#     expiration: "2027" # Opcionális, ismeretlen vagy nem alkalmazható esetben töröld.
+#     id: "KITÖLTENDŐ: tanúsítvány azonosítója" # Opcionális.
+#     url: "KITÖLTENDŐ: tanúsítvány hivatkozása" # Opcionális.
+
+experience: []
+#   - role: "KITÖLTENDŐ: munkakör"
+#     company: "KITÖLTENDŐ: munkáltató"
+#     start: "2022/04"
+#     end: null
+#     projects: # Opcionális; elhagyható vagy [] is lehet.
+#       - name: "KITÖLTENDŐ: projekt neve"
+#         location: "KITÖLTENDŐ: projekt helyszíne"
+#         start: "2023" # Opcionális, ismeretlen esetben töröld.
+#         end: null # Opcionális; ismeretlen vég esetén töröld, folyamatban lévőnél null.
+#         responsibilities: # Legalább egy nem üres elem kötelező.
+#           - "KITÖLTENDŐ: feladat, hozzájárulás vagy eredmény"
+#         techStack: # Opcionális; ha megadod, legalább egy elem kell. Egyébként töröld.
+#           - "KITÖLTENDŐ: technológia"
+# Munkaviszonynál a role, company, start és end kötelező.
+
+interests: []
+#   - name: "KITÖLTENDŐ: érdeklődési kör"
+#     description: >-
+#       KITÖLTENDŐ: rövid leírás (kötelező, Markdown is használható).

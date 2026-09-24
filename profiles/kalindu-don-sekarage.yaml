@@ -1,0 +1,211 @@
+# yaml-language-server: $schema=../schemas/profile.schema.json
+metadata:
+  id: kalindu-don-sekarage
+  schemaVersion: "1.0"
+  language: en
+
+personalData:
+  firstName: Kalindu Don
+  lastName: Sekarage
+  title: Senior Software Engineer
+  introduction: >-
+    Self-driven, strategic, and dedicated professional with over six years of
+    experience in AI/ML model development and deployment. Focused on achieving
+    objectives, improving process efficiency, solving problems, and providing
+    leadership. Experience includes generative AI applications, machine learning
+    infrastructure, business intelligence, and data analytics.
+  languages:
+    - English (fluent, professional proficiency)
+  contacts:
+    - type: mobile
+      value: "+94 770068658"
+
+skills:
+  technical:
+    programmingLanguages:
+      - Python
+      - JavaScript
+      - SQL
+      - VBA
+    frameworksAndLibraries:
+      - Django
+      - FastAPI
+      - Torch
+      - Keras
+      - TensorFlow
+      - Matplotlib
+      - NumPy
+      - Scikit-learn
+    databases:
+      - MongoDB
+      - PostgreSQL
+      - SQL Server Data Warehouse
+      - FAISS
+      - Pinecone
+      - Elasticsearch
+      - Google BigQuery
+    devOpsAndCloud:
+      - AWS
+      - Amazon EKS
+      - Amazon ECR
+      - Amazon EFS
+      - Google Cloud Platform
+      - Kubernetes
+      - Minikube
+      - Docker
+      - Git
+      - GitHub
+      - GitLab CI/CD
+      - GPU-enabled deployments
+    toolsAndTechnologies:
+      - Apache Airflow
+      - Power BI
+      - Tableau (basic)
+      - Excel
+      - ETL
+      - JWT authentication
+      - Role-based access control (RBAC)
+    specializedDomains:
+      - Business intelligence
+      - Sales forecasting
+      - Movie analytics
+      - Social media influencer discovery
+      - IT infrastructure and communication systems
+      - Multi-tenant application security
+    ai:
+      - Retrieval-augmented generation (RAG)
+      - ColBERT
+      - RAGatouille
+      - LangChain
+      - DSPy
+      - LangGraph
+      - Llama 2
+      - ReAct agents
+      - OpenHermes
+      - Ollama
+      - YOLO v4
+      - LSTM
+      - Deep learning for image analysis
+      - AI/ML model development and deployment
+  soft:
+    - Problem solving
+    - Strategic thinking
+    - Leadership and team management
+    - Client communication and requirements prioritization
+    - Project management
+    - Personnel training
+    - Continuous learning
+
+education:
+  - level: master
+    name: Master of Science in Artificial Intelligence
+    institution: University of Moratuwa
+    start: "2021/09"
+    end: "2024/07"
+  - level: bachelor
+    name: Bachelor of Science in Electrical & Electronic Engineering
+    institution: General Sir John Kotelawala Defense University
+    start: "2010/09"
+    end: "2014/12"
+
+experience:
+  - role: Senior Software Engineer
+    company: Aeturnum Lanka (Pvt) Ltd
+    start: "2024/06"
+    end: "2026/07"
+    projects:
+      - name: AI Application Development and Retrieval Pipelines
+        location: Sri Lanka
+        responsibilities:
+          - Developed a retrieval-augmented generation pipeline using ColBERT and RAGatouille for document retrieval and generation.
+          - Designed and scheduled an Apache Airflow pipeline to create document indexes and store them in FAISS using RAGatouille.
+          - Migrated from LangChain to DSPy to enable dynamic signature updates and improve system flexibility.
+          - Contributed to AI application backend development using Django.
+          - Queried and retrieved data from Google BigQuery for ColBERT model training and analysis.
+          - Designed and implemented an AI-powered user feedback collection agent with LangGraph, dynamic conversation flow, and stateful feedback categorization.
+          - Implemented JWT authentication and role-based access control with multi-tenant isolation across Super Admin, Admin, Teacher, and Student roles.
+        techStack:
+          - ColBERT
+          - RAGatouille
+          - Apache Airflow
+          - FAISS
+          - LangChain
+          - DSPy
+          - Django
+          - Google BigQuery
+          - LangGraph
+          - JWT
+
+  - role: Machine Learning Engineer
+    company: Chief Consulting
+    start: "2022/04"
+    end: "2024/07"
+    projects:
+      - name: Machine Learning Platforms and Deployment Infrastructure
+        location: Sri Lanka
+        responsibilities:
+          - Deployed an on-premises Kubernetes cluster using Minikube and NVIDIA GPU support for testing, reducing cloud deployment costs.
+          - Migrated the local Kubernetes cluster to Amazon EKS with cluster autoscaling.
+          - Configured Amazon EFS as cluster storage and HTTPS-enabled ingress connecting frontend and backend services.
+          - Created GitLab CI/CD pipelines for development and production environments.
+          - Worked on a movie rating platform covering premiered, non-premiered, and synthetic movies.
+          - Created a movie scene detection model using YOLO v4 to calculate cast interactions.
+          - Developed a local Llama 2 RAG implementation with Pinecone and LangChain for question answering over movie scripts.
+          - Developed a ReAct agent with LangChain to query Elasticsearch using OpenHermes running on Ollama.
+          - Applied deep learning to face shape, eye colour, and hair colour analysis for a social media influencer discovery platform.
+          - Designed and implemented a scalable microservices architecture using FastAPI.
+          - Researched emerging machine learning techniques and technologies.
+          - Managed projects to achieve organizational goals.
+        techStack:
+          - Kubernetes
+          - Minikube
+          - NVIDIA GPU
+          - Amazon EKS
+          - Amazon EFS
+          - GitLab CI/CD
+          - YOLO v4
+          - Llama 2
+          - Pinecone
+          - LangChain
+          - Elasticsearch
+          - OpenHermes
+          - Ollama
+          - FastAPI
+
+  - role: Data Analyst
+    company: Hybrid Analytics
+    start: "2020/07"
+    end: "2024/03"
+    projects:
+      - name: Sales Forecasting and Business Intelligence Solutions
+        location: Sri Lanka
+        responsibilities:
+          - Built an LSTM sales prediction model for a leading poultry supplier in Sri Lanka.
+          - Implemented Power BI analytics platforms for clients including Hemas Pharmaceuticals, Hemas FMCG, and MBSL.
+          - Created ETL processes to prepare data for analysis, particularly in SQL Server Data Warehouse.
+          - Created Power BI dashboards for data reporting and optimized existing dashboards.
+          - Managed the Power BI service portal, configured data gateways for scheduled refreshes, and assigned row-level security.
+          - Extracted, interpreted, and analyzed data to identify key metrics and produce actionable information.
+          - Designed data science and analytics platform solutions.
+          - Liaised with clients and prioritized delivery of their requirements.
+          - Automated Excel tasks using VBA to reduce manual workload.
+        techStack:
+          - LSTM
+          - Power BI
+          - SQL Server Data Warehouse
+          - Excel
+          - VBA
+
+  - role: Lieutenant
+    company: Sri Lanka Army
+    start: "2015/01"
+    end: "2022/05"
+    projects:
+      - name: IT Infrastructure, Communications and Operational Support
+        location: Sri Lanka
+        responsibilities:
+          - Managed and maintained critical IT infrastructure and advanced communication systems to support operational readiness.
+          - Analyzed and reported on operational ground situations to support informed decision-making.
+          - Represented the Sri Lanka Army in inter-army innovation competitions and contributed to technological advancements.
+          - Trained personnel on communication technologies and systems.
+          - Led and managed teams to achieve mission-critical objectives.

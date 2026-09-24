@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../schemas/profile.schema.json
+# Kitalált pályakezdő, folyamatban lévő tanulmányokkal.
+metadata:
+  id: bela-minta
+  schemaVersion: "1.0"
+  language: hu
+personalData:
+  firstName: Béla
+  lastName: Minta
+  title: Pályakezdő szoftverfejlesztő
+  introduction: >-
+    Informatikus hallgatóként **backend fejlesztéssel** szeretnék foglalkozni.
+  languages:
+    - Magyar (anyanyelv)
+skills:
+  technical: {}
+  soft: []
+education:
+  - level: bachelor
+    name: Mérnökinformatikus
+    institution: Példa Egyetem
+    start: "2024/09"
+    end: null
+experience: []
+interests: []
