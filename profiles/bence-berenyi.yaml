@@ -18,6 +18,17 @@ personalData:
     pipelines. Driven by curiosity and a love of craft, actively seeks out
     challenging projects that demand creative solutions, and believes great
     software should be elegant, useful, and a pleasure to work on.
+  introductionThirdPerson: >-
+    Bence is a passionate full-stack developer with 20 years of hands-on
+    experience, from crafting small webshops to architecting large-scale
+    distributed applications. Primarily backend-focused, Bence has deep
+    expertise in Node.js, TypeScript, NestJS, and Express, paired with solid
+    Angular skills on the frontend, and is equally comfortable designing schemas
+    for MongoDB and relational (SQL) databases, configuring Kubernetes clusters,
+    and building robust CI/CD pipelines. Driven by curiosity and a love of
+    craft, Bence actively seeks out challenging projects that demand creative
+    solutions, believing that great software should be elegant, useful, and a
+    pleasure to work on.
   languages:
     - Hungarian (native)
     - English (upper intermediate)
@@ -126,6 +137,7 @@ experience:
 
   - role: Team lead / Senior Software Engineer
     company: Jofogas.hu / Hasznaltauto.hu (Schibsted CMH Kft then Adevinta CMH Kft)
+    companyShortName: Jofogas.hu / Hasznaltauto.hu
     start: "2014/09"
     end: "2019/05"
     projects:
