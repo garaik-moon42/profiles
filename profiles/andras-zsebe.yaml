@@ -1,0 +1,184 @@
+# yaml-language-server: $schema=../schemas/profile.schema.json
+# DRAFT — candidate clarification pending; TODO comments identify unresolved data.
+#
+# EMAIL DRAFT — prepared for forwarding, not sent.
+# Subject: Clarifications for your professional profile
+#
+# Dear András,
+#
+# Thank you for sharing your CV. To complete your professional profile accurately,
+# could you please clarify the following points?
+# 1. Please provide the work location (city/country, or remote) for each position:
+#    freelance software developer (from 2022), Senior Developer at Asseco CE
+#    (2018 – 2022), and freelance software developer (2015 – 2018).
+# 2. For each of your advanced vocational qualifications (OKJ) — Internet Application
+#    Developer, System Designer, and Project Manager — please provide the training
+#    institution and the start and end year of the course.
+#
+# Thank you for your help.
+# Best regards,
+# MOON42 team
+
+metadata:
+  id: andras-zsebe
+  schemaVersion: "1.0"
+  language: en
+
+personalData:
+  firstName: András
+  lastName: Zsebe
+  title: Software Architect
+  introduction: >-
+    Software architect and developer focused on security, TypeScript,
+    JavaScript, Angular, and PHP. Analyzes client requirements from both
+    business and technological perspectives and delivers full lifecycle web
+    and backend projects, from requirements assessment through architecture
+    design and development to deployment and long-term support. Experience
+    includes designing the complete architecture of a medical software system
+    and building Node.js microservices, REST APIs, and secure integrations.
+  languages:
+    - Hungarian (native)
+    - English (professional, spoken and written)
+  contacts:
+    - type: mobile
+      value: "+36 30 292 0150"
+    - type: email
+      value: hu.zseand@gmail.com
+    - type: linkedin
+      value: https://www.linkedin.com/in/zseand/
+
+skills:
+  technical:
+    programmingLanguages:
+      - PHP (10+ years)
+      - JavaScript (10+ years)
+      - TypeScript
+      - HTML5 (10+ years)
+    frameworksAndLibraries:
+      - Node.js (8+ years)
+      - Angular
+      - React
+      - Cordova
+    databases:
+      - MariaDB
+      - MySQL
+      - NoSQL
+      - SQL optimization
+      - Data model planning
+    devOpsAndCloud:
+      - Docker
+      - CI/CD
+      - Git
+      - Linux server deployment and configuration
+      - Monitoring
+    toolsAndTechnologies:
+      - REST API
+      - API planning and integration
+      - SEO (10+ years)
+      - Authentication and payment system integration
+      - RFID
+    operatingSystems:
+      - Linux (10+ years)
+      - Android
+    specializedDomains:
+      - Healthcare software and clinical workflows
+      - Security and regulatory compliance
+      - Visitor access control systems
+      - RFID-based identification
+      - Networking and telecommunications fundamentals
+    developmentMethodologies:
+      - Microservice architecture (6+ years)
+      - Software architecture design
+      - Scalable system design
+      - Security by Design
+      - High-availability planning
+      - Performance optimization
+      - Incident diagnostics
+  soft:
+    - Requirements analysis
+    - End-to-end project delivery
+    - Client communication
+    - Deadline management
+
+education:
+  - level: vocational
+    name: Internet Application Developer (OKJ advanced vocational qualification)
+    # TODO institution: Missing in source; ask candidate. Field intentionally omitted.
+    # TODO start: Missing in source; ask candidate. Field intentionally omitted.
+    # TODO end: Missing in source; ask candidate. Field intentionally omitted.
+  - level: vocational
+    name: System Designer (OKJ advanced vocational qualification)
+    # TODO institution: Missing in source; ask candidate. Field intentionally omitted.
+    # TODO start: Missing in source; ask candidate. Field intentionally omitted.
+    # TODO end: Missing in source; ask candidate. Field intentionally omitted.
+  - level: vocational
+    name: Project Manager (OKJ advanced vocational qualification)
+    # TODO institution: Missing in source; ask candidate. Field intentionally omitted.
+    # TODO start: Missing in source; ask candidate. Field intentionally omitted.
+    # TODO end: Missing in source; ask candidate. Field intentionally omitted.
+
+experience:
+  - role: Software Developer
+    company: Freelance
+    start: "2022"
+    end: null
+    projects:
+      - name: Full Lifecycle Web and Backend Client Projects
+        # TODO location: Missing in source; ask candidate. Field intentionally omitted.
+        responsibilities:
+          - Analyzes client requirements from both business and technological perspectives and delivers full lifecycle web and backend projects, from requirements assessment through architecture design and development to deployment and long-term support.
+          - Develops Node.js- and PHP-based backend systems and HTML5 / Angular / React web applications, ensuring secure, scalable, and maintainable operation.
+          - Designs and implements REST APIs and microservices, and optimizes MySQL and MariaDB database structures.
+          - Integrates external services, including authentication and payment systems, ensuring stable and secure data connections.
+          - Maintains continuous communication with clients, manages deadlines, and ensures quality expectations are met throughout the project lifecycle.
+        techStack:
+          - Node.js
+          - PHP
+          - HTML5
+          - Angular
+          - React
+          - REST API
+          - MySQL
+          - MariaDB
+
+  - role: Senior Developer
+    company: Asseco CE
+    start: "2018"
+    end: "2022"
+    projects:
+      - name: Medical Software System
+        # TODO location: Missing in source; ask candidate. Field intentionally omitted.
+        responsibilities:
+          - Participated in enterprise system design from the very beginning.
+          - Developed the complete backend and frontend architecture of a medical software system from initial concept to production launch.
+          - Designed and implemented Node.js-based microservices and REST APIs, as well as backend logic for clinical workflows, supporting the digitalization of healthcare processes.
+          - Integrated external healthcare data sources, ensuring secure, auditable, and consistent data flow in a compliance environment.
+          - Created Docker containers, deployed and configured Linux servers, and implemented monitoring solutions to ensure stable operations.
+          - Implemented security and regulatory compliance requirements, supporting efficient team collaboration through structured Git-based version control.
+        techStack:
+          - Node.js
+          - REST API
+          - Docker
+          - Linux
+          - Git
+
+  - role: Software Developer
+    company: Freelance
+    start: "2015"
+    end: "2018"
+    projects:
+      - name: Visitor Access Control Mobile App and RFID Android Application
+        # TODO location: Missing in source; ask candidate. Field intentionally omitted.
+        responsibilities:
+          - Developed the mobile version of a visitor access control and information system, integrating it with the central remote system and optimizing Cordova plugin operation.
+          - Developed a native Android application for long-range RFID hardware, implementing bidirectional, real-time communication with the remote system and establishing the foundation for an RFID-based identification system usable in field environments.
+        techStack:
+          - Cordova
+          - Android
+          - RFID
+
+interests:
+  - name: Engineering and Natural Sciences
+    description: Interested in engineering and natural sciences.
+  - name: Sports
+    description: Enjoys doing sports and spending time with friends whenever possible.

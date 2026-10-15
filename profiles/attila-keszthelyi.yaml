@@ -1,0 +1,379 @@
+# yaml-language-server: $schema=../schemas/profile.schema.json
+# DRAFT — candidate clarification pending; TODO comments identify unresolved data.
+#
+# EMAIL DRAFT — prepared for forwarding, not sent.
+# Subject: Clarifications for your professional profile
+#
+# Dear Attila,
+#
+# Thank you for sharing your CV. To complete your professional profile accurately,
+# could you please clarify the following points?
+# 1. Please provide the start and end year (and month, if known) of your Bachelor of
+#    Science in Computer Engineering at Denes Gabor College.
+# 2. When did you complete the EPAM Academy intensive training course in Budapest?
+#    The year is sufficient; please also mention if you received a certificate.
+# 3. Where was your EZ-FRAZiE personal project developed (city/country, or remote)?
+#
+# Thank you for your help.
+# Best regards,
+# MOON42 team
+
+metadata:
+  id: attila-keszthelyi
+  schemaVersion: "1.0"
+  language: en
+
+personalData:
+  firstName: Attila
+  lastName: Keszthelyi
+  title: Software Engineer
+  introduction: >-
+    Experienced software engineer offering cutting-edge engineering solutions,
+    with expertise in managing all aspects of the software development life
+    cycle. Skilled in problem-solving and executing software tasks from start
+    to finish. Areas of expertise include clean coding, SOLID principles,
+    design patterns, test-driven development, progressive web apps, and
+    performance optimisation.
+  languages:
+    - Hungarian (native)
+  contacts:
+    - type: mobile
+      value: "(UK) 07761 112636"
+    - type: mobile
+      value: "(HU) +36-20/226-1778"
+    - type: email
+      value: syke80@gmail.com
+    - type: linkedin
+      value: www.linkedin.com/in/attila80
+
+skills:
+  technical:
+    programmingLanguages:
+      - TypeScript
+      - JavaScript
+      - Java
+      - PHP
+      - HTML5
+      - CSS3
+      - Sass
+    frameworksAndLibraries:
+      - React
+      - Redux
+      - Vue.js
+      - Angular
+      - AngularJS
+      - NgRx
+      - RxJS
+      - jQuery
+      - Backbone
+      - Underscore
+      - Lodash
+      - HighCharts
+      - Node.js
+      - Express
+      - Prisma ORM
+      - Spring Framework
+      - Spring MVC
+      - Spring Data
+      - JPA
+      - Hibernate
+      - AspectJ
+      - Smarty Light
+    databases:
+      - PostgreSQL
+      - MySQL
+      - Database design
+      - ORM
+    devOpsAndCloud:
+      - AWS
+      - AWS Lambda
+      - GCP
+      - Jenkins
+      - CodePipeline
+      - TeamCity
+      - Ansible
+      - Nginx
+      - Continuous delivery
+    toolsAndTechnologies:
+      - Git
+      - GitHub
+      - GitLab
+      - Bitbucket
+      - Jira
+      - Crucible
+      - Grafana
+      - Webpack
+      - Gulp
+      - Grunt
+      - Maven
+      - Eclipse
+      - WebStorm
+      - REST
+      - AJAX
+      - XPath
+      - Progressive Web App
+      - Trusted Web Activity
+      - On-site SEO
+    testingAndQA:
+      - Jest
+      - Vitest
+      - Cypress
+      - Selenium
+      - Karma
+      - JUnit
+      - Mockito
+      - Unit testing
+      - Integration testing
+      - End-to-end testing
+      - A/B testing
+    specializedDomains:
+      - Video streaming platforms
+      - Online betting
+      - E-commerce
+      - Product analytics
+      - Social networking websites
+      - High-traffic website optimisation
+    developmentMethodologies:
+      - Clean code
+      - SOLID principles
+      - Design patterns
+      - Dependency injection
+      - Test-driven development
+      - Agile methodologies
+      - Micro frontends
+      - Responsive web design
+      - Performance optimisation
+  soft:
+    - Problem-solving
+    - Breaking down complex initiatives into well-defined tickets
+    - Collaboration with product managers and other teams
+    - Cooperation with teams in different countries
+    - Code reviews
+    - Product vision and UX flow definition
+
+education:
+  - level: bachelor
+    name: Bachelor of Science in Computer Engineering
+    institution: Denes Gabor College, Budapest
+    # TODO start: Missing in source; ask candidate. Field intentionally omitted.
+    # TODO end: Missing in source; ask candidate. Field intentionally omitted.
+
+experience:
+  - role: Software Engineer
+    company: BBC
+    start: "2022/02"
+    end: null
+    projects:
+      - name: BBC iPlayer
+        location: London, UK
+        responsibilities:
+          - Contributed to the ongoing evolution of BBC iPlayer's web platform, integrating modern approaches and delivering features that enhance user experience in a highly competitive streaming market.
+          - Led epics by breaking down complex initiatives into well-defined tickets, collaborating with product managers and other teams to clarify high-level requirements and defining low-level technical details to ensure successful delivery.
+          - Delivered features in a micro frontends setup of independently deployable apps sharing common libraries, orchestrated and served via Nginx.
+          - Delivered features end-to-end, developing, testing, and deploying them safely to production.
+          - Practised continuous delivery, deploying every feature or bugfix to production as soon as completed.
+        techStack:
+          - TypeScript
+          - Node.js
+          - React
+          - Micro Frontends
+          - Jest
+          - AWS
+          - AWS Lambda
+          - A/B testing
+          - Nginx
+          - Git
+          - GitHub
+          - Jenkins
+          - CodePipeline
+          - Grafana
+
+  - role: Software Engineer (personal project)
+    company: EZ-FRAZiE
+    start: "2022/09"
+    end: "2025/04"
+    projects:
+      - name: EZ-FRAZiE English Learning Flashcard App (Play Store)
+        # TODO location: Missing in source; ask candidate. Field intentionally omitted.
+        responsibilities:
+          - Designed and developed the application end-to-end, establishing the architecture, implementing the frontend and backend, and ensuring scalable, maintainable performance.
+          - Defined the product vision and UX flows to balance user needs with technical feasibility.
+          - Selected the full tech stack and designed a modular architecture with clean separation of concerns.
+          - Optimized the database design for both transactional efficiency and analytical queries, including event-driven updates for user-facing statistics.
+          - Developed a cost-efficient data retention strategy to handle inactive and trial users without compromising performance.
+          - Built a custom database seeding solution to enable robust end-to-end testing in a data-dependent application.
+        techStack:
+          - TypeScript
+          - Vue.js
+          - Jest
+          - Cypress
+          - Node.js
+          - Express
+          - Prisma ORM
+          - PostgreSQL
+          - GCP
+
+  - role: Front-end Developer
+    company: Betsson Group
+    start: "2019/01"
+    end: "2022/02"
+    projects:
+      - name: Online Betting Sites
+        location: Budapest, HU
+        responsibilities:
+          - Participated in a greenfield project.
+        techStack:
+          - Angular 10
+          - NgRx
+          - RxJS
+          - Karma
+          - Jest
+          - Git
+          - GitHub
+          - Bitbucket
+          - TeamCity
+
+  - role: Front-end Developer
+    company: Accedo.tv
+    start: "2018/07"
+    end: "2018/11"
+    projects:
+      - name: White-Label Web Video Site
+        location: Budapest, HU
+        responsibilities:
+          - Developed new features in an existing codebase.
+        techStack:
+          - React
+          - Redux
+          - REST
+          - Git
+          - GitHub
+          - Webpack
+
+  - role: Front-end Developer
+    company: Brand View
+    start: "2017/07"
+    end: "2018/07"
+    projects:
+      - name: Price, Promotion, Product Content and Online Product Positioning Analytics Tool
+        location: Reading, UK
+        responsibilities:
+          - Developed new features in an existing codebase.
+        techStack:
+          - AngularJS
+          - Angular
+          - REST
+          - JavaScript
+          - AJAX
+          - Lodash
+          - HighCharts
+          - Git
+          - GitLab
+          - GitHub
+          - Gulp
+
+  - role: Full-stack Developer
+    company: EPAM Systems
+    start: "2015/04"
+    end: "2017/04"
+    projects:
+      - name: Burberry Mobile Webshop and EPAM Internal Feedback Tool
+        location: Budapest, Hungary
+        responsibilities:
+          - Developed new features in an existing codebase.
+          - Developed REST endpoints and UI.
+          - Created unit tests (JavaScript, Java), integration tests, and Selenium tests.
+          - Performed code reviews.
+          - Cooperated with other teams in different countries.
+        techStack:
+          - JavaScript
+          - AngularJS
+          - Backbone
+          - Underscore
+          - Jest
+          - Selenium
+          - AJAX
+          - Webpack
+          - Grunt
+          - Java
+          - Spring Framework
+          - Spring MVC
+          - Spring Data
+          - JPA
+          - Hibernate
+          - JUnit
+          - Mockito
+          - AspectJ
+          - REST
+          - XPath
+          - Git
+          - GitLab
+          - Eclipse
+          - WebStorm
+          - Maven
+          - Jenkins
+          - Ansible
+          - Jira
+          - Crucible
+
+  - role: Full-stack Developer
+    company: Quaestor
+    start: "2008/09"
+    end: "2015/03"
+    projects:
+      - name: Webshop Projects, Web Video Sites and VoIP Service Admin Interfaces
+        location: Budapest, Hungary
+        responsibilities:
+          - Developed APIs and UIs based on the company's PHP MVC framework.
+          - Implemented responsive web design.
+          - Built RESTful JSON web services.
+          - Performed on-site SEO and performance optimization.
+          - Integrated third-party services, including various payment gateways, analytics tools, and authentication.
+        techStack:
+          - Custom PHP MVC framework
+          - Smarty Light
+          - MySQL
+          - HTML5
+          - jQuery
+          - CSS3
+
+  - role: Site-builder
+    company: HowdyGroup Ltd
+    start: "2007/09"
+    end: "2008/08"
+    projects:
+      - name: Social Networking Websites for Eastern European Countries
+        location: Budapest, Hungary
+        responsibilities:
+          - Participated in designing a template system for social network websites.
+          - Optimised the sites for high traffic.
+        techStack:
+          - XHTML
+          - CSS 2.1
+          - jQuery
+
+  - role: Site-builder
+    company: Docler Holding
+    start: "2006/06"
+    end: "2007/09"
+    projects:
+      - name: Livejasmin.com and Its Clone Sites
+        location: Budapest, Hungary
+        responsibilities:
+          - Optimised the site for high traffic load (over 130 million hits a day).
+          - Participated in designing a PHP-based framework for the company's new websites.
+          - Refactored the site's templates to be fast and customisable for multiple sites.
+        techStack:
+          - XHTML
+          - jQuery
+
+interests: []
+
+# SOURCE INFORMATION PENDING CLARIFICATION / EDITORIAL DECISION
+# TODO EDITOR: EPAM Academy, Budapest, Hungary (training) has no date in the source and is not
+# a degree. Once the candidate provides the completion year, consider storing it as a certificate.
+# Source description: Intensive course to catch up with current technologies, covering
+# Introduction to Java SE and OOP; Object-Oriented Analysis and Design; Unit Testing, Mocking
+# and Test Driven Development; Version Control, Continuous Build and Integration; Clean Code and
+# Pair Programming; Spring Core, Spring MVC; Data Access Technologies; Front End Technologies;
+# Web Application Development; Building Web Services.

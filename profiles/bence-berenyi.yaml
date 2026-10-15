@@ -1,0 +1,141 @@
+# yaml-language-server: $schema=../schemas/profile.schema.json
+metadata:
+  id: bence-berenyi
+  schemaVersion: "1.0"
+  language: en
+
+personalData:
+  firstName: Bence
+  lastName: Berényi
+  title: Senior Software Engineer
+  introduction: >-
+    Passionate full-stack developer with 20 years of hands-on experience, from
+    crafting small webshops to architecting large-scale distributed
+    applications. Primarily backend-focused, with deep expertise in Node.js,
+    TypeScript, NestJS, and Express, paired with solid Angular skills on the
+    frontend. Equally comfortable designing schemas for MongoDB and relational
+    (SQL) databases, configuring Kubernetes clusters, and building robust CI/CD
+    pipelines. Driven by curiosity and a love of craft, actively seeks out
+    challenging projects that demand creative solutions, and believes great
+    software should be elegant, useful, and a pleasure to work on.
+  languages:
+    - Hungarian (native)
+    - English (upper intermediate)
+  contacts:
+    - type: email
+      value: berenyibenceee@gmail.com
+    - type: mobile
+      value: "+36 70 513 0214"
+    - type: linkedin
+      value: linkedin.com/in/bence-berenyi
+
+skills:
+  technical:
+    programmingLanguages:
+      - JavaScript
+      - TypeScript
+    frameworksAndLibraries:
+      - Node.js
+      - NestJS
+      - Express
+      - Angular
+      - RxJS
+      - SCSS
+    databases:
+      - MongoDB
+      - PostgreSQL
+      - Redis
+    devOpsAndCloud:
+      - Git
+      - Docker
+      - Kubernetes
+      - CI/CD
+      - Terraform
+      - AWS
+    toolsAndTechnologies:
+      - REST API
+    testingAndQA:
+      - Automated testing
+    specializedDomains:
+      - eSIM services
+      - Classified ad portals
+      - Large-scale data migration
+    developmentMethodologies:
+      - Cloud-native microservice architecture
+      - Responsive design
+    ai:
+      - AI component integration (text and voice based)
+  soft:
+    - Team coordination and leadership
+    - Mentoring junior developers
+    - Technical interviewing and hiring
+    - Collaboration with business stakeholders
+
+education:
+  - level: secondary
+    name: High School Diploma / IT
+    institution: Vocational High School / Neumann János SZKI
+    start: "2003"
+    end: "2007"
+
+certificates:
+  - name: Angular based Frontend development with TypeScript
+    organization: Cubix
+    date: "2025"
+  # Source abbreviation reads "CKE"; the certificate name is retained as written
+  # (typo "Administratior" corrected).
+  - name: Certified Kubernetes Administrator
+    organization: Linux Foundation
+    date: "2021"
+  - name: Node.js Service Developer (JSNSD)
+    organization: OpenJS
+    date: "2021"
+  - name: Node.js Application Developer (JSNAD)
+    organization: OpenJS
+    date: "2021"
+
+experience:
+  - role: Senior Node.js Engineer
+    company: Everguest (MGMT Group Kft then Vox Civitas Kft)
+    start: "2022/12"
+    end: "2026/04"
+    projects:
+      - name: Cloud-Native Microservice Platform with AI Integration
+        location: Budapest, Hungary
+        responsibilities:
+          - Designed and built a greenfield cloud-native Node.js microservice architecture deployed on Kubernetes (AWS).
+          - Integrated text- and voice-based AI components into services.
+          - Handled system optimisation, reliability improvements, and operational tasks.
+        techStack:
+          - Node.js
+          - Kubernetes
+          - AWS
+
+  - role: Tech lead / Senior Node.js Engineer
+    company: Magyar Telekom Nyrt
+    start: "2019/08"
+    end: "2022/12"
+    projects:
+      - name: eSIM Rollout and Sales Backend Services
+        location: Budapest, Hungary
+        responsibilities:
+          - Developed systems supporting the country-wide eSIM rollout for Apple Watch.
+          - Built and maintained backend services powering sales and customer-facing workflows.
+          - Introduced an automated testing process and framework, significantly improving code quality and deployment confidence.
+          - Mentored junior colleagues and participated in the technical interview and hiring process.
+
+  - role: Team lead / Senior Software Engineer
+    company: Jofogas.hu / Hasznaltauto.hu (Schibsted CMH Kft then Adevinta CMH Kft)
+    start: "2014/09"
+    end: "2019/05"
+    projects:
+      - name: Classified Ad Portals Development
+        location: Budapest, Hungary
+        responsibilities:
+          - Developed and maintained one of Hungary's largest classified ad portals with high traffic demands.
+          - Managed a large-scale data migration following a company acquisition.
+          - Led the transition to responsive design across the platform.
+          - Planned and implemented projects in close collaboration with business stakeholders.
+          - Coordinated the team, mentored junior developers, and assisted the technical recruitment process.
+
+interests: []

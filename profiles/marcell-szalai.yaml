@@ -1,0 +1,148 @@
+# yaml-language-server: $schema=../schemas/profile.schema.json
+# DRAFT — candidate clarification pending; TODO comments identify unresolved data.
+#
+# EMAIL DRAFT — prepared for forwarding, not sent.
+# Subject: Clarifications for your professional profile
+#
+# Dear Marcell,
+#
+# Thank you for sharing your CV. To complete your professional profile accurately,
+# could you please clarify the following points?
+# 1. Please provide the work location (city/country) for these positions:
+#    Lufthansa Systems Hungária (from July 2022), Warwick Racing (October 2021 –
+#    June 2022), and Pine Digital Studio (June 2020 – March 2022).
+# 2. Did you complete the MSc in Artificial Intelligence at Stockholm University
+#    (September 2022 – June 2023) and obtain the degree?
+# 3. Your CV lists Formula 1, tennis, running, and chess as hobbies. Could you add
+#    a short one-sentence description for each that we can include in your profile?
+#
+# Thank you for your help.
+# Best regards,
+# MOON42 team
+
+metadata:
+  id: marcell-szalai
+  schemaVersion: "1.0"
+  language: en
+
+personalData:
+  firstName: Marcell
+  lastName: Szalai
+  title: Software Developer
+  introduction: >-
+    Backend-oriented junior software developer with three years of
+    professional experience.
+  languages:
+    - Hungarian (native)
+    - English (native)
+    - German (intermediate)
+  contacts:
+    - type: mobile
+      value: "+36 70 570 7127"
+    - type: email
+      value: szalai.marcell136@gmail.com
+
+skills:
+  technical:
+    programmingLanguages:
+      - Go
+      - Python
+      - Java
+      - JavaScript
+      - HTML
+      - CSS
+      - Bash
+    databases:
+      - PostgreSQL
+    devOpsAndCloud:
+      - Docker
+      - Kubernetes
+      - Microsoft Azure
+      - Git
+      - GitHub
+    toolsAndTechnologies:
+      - WordPress
+      - Webflow
+      - MS Office (Word, Excel, PowerPoint)
+    operatingSystems:
+      - Linux
+    specializedDomains:
+      - Accounting systems
+      - Race car control systems
+    developmentMethodologies:
+      - Microservices architecture
+  soft:
+    - Logical thinking
+    - Problem solving
+    - Teamwork
+    - Presentation skills
+
+education:
+  # TODO education/0: Confirm with the candidate that the MSc was completed and awarded.
+  - level: master
+    name: MSc in Artificial Intelligence
+    institution: Stockholm University
+    start: "2022/09"
+    end: "2023/06"
+  - level: bachelor
+    name: BSc in Computer Science with Business Studies
+    institution: University of Warwick
+    start: "2019/09"
+    end: "2022/06"
+  # Source also lists Matura (érettségi) results: Mathematics (advanced level) 69%,
+  # English (advanced level) 94%, IT 94%, History 90%, Hungarian 88%.
+  - level: secondary
+    name: Secondary School Leaving Certificate (Matura)
+    institution: Eötvös József Gimnázium, Budapest
+    start: "2014/09"
+    end: "2019/06"
+
+experience:
+  - role: Software Developer
+    company: Lufthansa Systems Hungária
+    start: "2022/07"
+    end: null
+    projects:
+      - name: Microservice-Based Accounting System Backend
+        # TODO location: Missing in source (full-time, hybrid); ask candidate. Field intentionally omitted.
+        responsibilities:
+          - Backend development of a microservice-based accounting system in Go, in an international team.
+        techStack:
+          - Go
+
+  - role: Control Systems Engineer / Web Developer
+    company: Warwick Racing
+    start: "2021/10"
+    end: "2022/06"
+    projects:
+      - name: 2022 Race Car Control System and Team Website
+        # TODO location: Missing in source (part-time, on-site); ask candidate. Field intentionally omitted.
+        responsibilities:
+          - Programmed the control system of the 2022 race car.
+          - Implemented sensors, torque distribution control, and kinetic energy recovery.
+          - Tested the car.
+          - Built and maintained the website.
+
+  - role: Web Developer
+    company: Pine Digital Studio
+    start: "2020/06"
+    end: "2022/03"
+    projects:
+      - name: Client Websites
+        # TODO location: Missing in source (freelance, hybrid); ask candidate. Field intentionally omitted.
+        responsibilities:
+          - Built websites for various clients in Webflow and WordPress on a contract basis alongside university studies.
+        techStack:
+          - Webflow
+          - WordPress
+
+# TODO interests: Source lists Formula 1, Tennis, Running, and Chess without descriptions;
+# description is required. Await candidate-provided descriptions before adding entries.
+interests: []
+
+# SOURCE INFORMATION PENDING CLARIFICATION / EDITORIAL DECISION
+# TODO EDITOR: Publication has no dedicated schema field. Confirm placement (e.g. introduction).
+# Publication: Taheri, G., Szalai, M., Habibi, M., & Papapetrou, P. (2023). Unveiling Driver
+# Modules in Lung Cancer: A Clustering-Based Gene-Gene Interaction Network Analysis. bioRxiv,
+# 2023.11.01.565104. https://doi.org/10.1101/2023.11.01.565104
+# Not represented: category B driving licence (no corresponding schema field).

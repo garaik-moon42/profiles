@@ -1,0 +1,538 @@
+# yaml-language-server: $schema=../schemas/profile.schema.json
+# DRAFT — candidate clarification pending; TODO comments identify unresolved data.
+#
+# EMAIL DRAFT — prepared for forwarding, not sent.
+# Subject: Clarifications for your professional profile
+#
+# Dear Richárd,
+#
+# Thank you for sharing your CV. To complete your professional profile accurately,
+# could you please clarify the following points?
+# 1. In which year (and month, if known) did you start your BSc in Financial
+#    Engineering at Bayes Business School, City, University of London?
+# 2. Regarding the Bachelor of Business Administration at Goizueta Business School,
+#    Emory University (2015 – 2016): was a degree awarded, or was this a study
+#    abroad / exchange period as part of your BSc studies?
+#
+# Thank you for your help.
+# Best regards,
+# MOON42 team
+
+metadata:
+  id: richard-demeny
+  schemaVersion: "1.0"
+  language: en
+
+personalData:
+  firstName: Richárd
+  lastName: Demény
+  title: Senior Full Stack Developer
+  introduction: >-
+    Senior full stack developer with almost a decade of commercial experience.
+    Holds a BSc in Financial Engineering and transitioned into software
+    engineering. As a contractor, has contributed to 30+ web applications as a
+    frontend, backend, or full stack developer, with equal experience in
+    startups and enterprises. Brings extensive cloud (AWS and GCP) and Linux
+    infrastructure experience and works as an AI-native developer, using
+    Cursor daily. Preferred web application stack: Next.js, NestJS, Prisma,
+    and Hetzner.
+  languages:
+    - Hungarian (native)
+  contacts:
+    - type: mobile
+      value: "+44 7810 650 432"
+    - type: email
+      value: richard.demeny@icloud.com
+
+skills:
+  technical:
+    programmingLanguages:
+      - TypeScript
+      - JavaScript
+      - Python
+    frameworksAndLibraries:
+      - Node.js
+      - Next.js
+      - NestJS
+      - Express.js
+      - React
+      - Redux
+      - React Router
+      - TanStack Query (react-query)
+      - Angular
+      - Preact
+      - Material UI
+      - MUI X Data Grid
+      - AG Grid Enterprise
+      - Tailwind CSS
+      - styled-components
+      - Sass
+      - Apollo GraphQL
+      - Mongoose
+      - Prisma
+      - Celery
+      - Chart.js
+      - Leaflet
+      - Gov.uk components
+      - Google Workbox
+    databases:
+      - DynamoDB
+      - Redis
+      - SQL Server
+      - MongoDB
+      - Firebase
+      - Elasticsearch
+      - Amazon RDS
+    devOpsAndCloud:
+      - AWS
+      - AWS Lambda
+      - AWS API Gateway
+      - AWS Batch
+      - AWS Athena
+      - AWS SQS
+      - AWS SNS
+      - AWS EC2
+      - AWS S3
+      - AWS CloudFront
+      - AWS CloudFormation
+      - AWS CloudWatch
+      - AWS Route53
+      - AWS IoT Core
+      - AWS Cognito
+      - AWS Amplify
+      - AWS SAM
+      - AWS CDK
+      - Google Cloud Platform
+      - Google Kubernetes Engine (GKE Autopilot)
+      - Google App Engine
+      - Google Compute Engine
+      - Google Cloud Storage
+      - Google Cloud Build
+      - Google Cloud IAM
+      - Terraform
+      - GitHub Runner
+      - Azure DevOps
+      - Vercel
+      - Heroku
+      - Hetzner
+      - CI/CD pipelines
+      - Linux server management
+    toolsAndTechnologies:
+      - GraphQL
+      - REST APIs
+      - OpenAPI
+      - WebSockets
+      - JWT
+      - LDAP
+      - Azure AD
+      - Microsoft Active Directory
+      - Stripe SDK
+      - Kibana
+      - Storybook
+      - Selenium
+      - XenForo
+      - NX Console
+      - Vite
+      - esbuild
+      - webpack 5
+      - npm
+      - Jira
+      - Confluence
+      - Figma
+      - Miro
+      - Zeplin
+    operatingSystems:
+      - Linux
+    testingAndQA:
+      - Pytest
+      - Jest
+      - Cypress
+      - Unit testing
+      - Integration testing
+    specializedDomains:
+      - Healthcare and public sector digital services (NHS, UK government)
+      - Internal compliance applications
+      - Cloud-native platforms for automotive manufacturing
+      - IoT and smart city platforms
+      - Large-scale web scraping
+      - Payment processing and subscriptions
+    developmentMethodologies:
+      - Agile Scrum
+      - Microservices architecture
+      - Serverless architecture
+      - Infrastructure as code
+      - Semantic release
+    ai:
+      - AI-native development
+      - Cursor
+      - OpenAI API
+      - AWS Bedrock
+  soft:
+    - Stakeholder expectation management
+    - Collaboration with product owners and UI/UX designers
+    - Delivery under short deadlines
+    - Advocating agile scrum adoption
+    - Technical documentation
+
+education:
+  - level: bachelor
+    name: Bachelor of Science in Financial Engineering
+    institution: Bayes Business School - City, University of London
+    # TODO start: Missing in source; ask candidate. Field intentionally omitted.
+    end: "2017"
+  # TODO education/1: Confirm whether the BBA was awarded or was a study abroad /
+  # exchange period; the entry must not be presented as an obtained degree until confirmed.
+  - level: bachelor
+    name: Bachelor of Business Administration
+    institution: Goizueta Business School - Emory University
+    start: "2015"
+    end: "2016"
+
+experience:
+  - role: Lead Backend AWS/Python Developer
+    company: IBM
+    start: "2025/02"
+    end: "2025/04"
+    projects:
+      - name: NHS Notify Integration for the National Cervical Screening Platform
+        location: Remote
+        responsibilities:
+          - Supported the production release of the NHS Notify integration within the national cervical screening platform.
+          - Implemented bug fixes and new features with Pytest, using AWS Batch, large-scale DynamoDB tables, Athena, and SQS, as well as a complex Redis queue with Celery.
+          - Managed expectations with NHS stakeholders and wrote and maintained documentation on Confluence.
+          - Maintained CI/CD pipelines built with Terraform and GitHub Runner.
+        techStack:
+          - Python
+          - Pytest
+          - AWS Batch
+          - DynamoDB
+          - AWS Athena
+          - AWS SQS
+          - Redis
+          - Celery
+          - Terraform
+          - GitHub Runner
+          - Confluence
+
+  - role: Founder/CTO
+    company: Canary Wharfian
+    start: "2024/01"
+    end: "2024/07"
+    projects:
+      - name: B2C AI Web Application
+        location: Remote
+        responsibilities:
+          - Built a full stack B2C AI web application single-handedly with Next.js and NestJS, deployed on Vercel and AWS EC2 with RDS, achieving 5,000 unique visitors a month and $35,000 annual recurring revenue.
+          - Designed the backend, database schema, UI, and UX, and iterated the product based on user feedback.
+          - Integrated the XenForo community management platform.
+          - Used OpenAI and AWS Bedrock APIs to implement AI-based features.
+          - Built large-scale scrapers with Selenium and Python covering over 20 enterprise company job boards, with a Redis queue.
+        techStack:
+          - Next.js
+          - NestJS
+          - Vercel
+          - AWS EC2
+          - Amazon RDS
+          - XenForo
+          - OpenAI API
+          - AWS Bedrock
+          - Selenium
+          - Python
+          - Redis
+
+  - role: Senior Frontend React Developer (Contract)
+    company: Arm
+    start: "2022/09"
+    end: "2023/06"
+    projects:
+      - name: User-Based Licensing Portal Rebuild
+        location: Remote
+        responsibilities:
+          - Rebuilt a legacy CRA application into a modern, responsive, pixel-perfect web application for a user-based licensing portal from Miro and Figma designs.
+          - Advised the UI/UX designer on screens and workflows, including workarounds for limitations of the internal React library.
+          - Collaborated with the product owner on priorities and ways of working to meet ambitious deadlines.
+          - Designed and implemented React components using the company's own Storybook library and hooks, with Material UI theming and Material UI X Data Grid.
+          - Championed the integration of a backend GraphQL API with TanStack's react-query.
+          - Troubleshot CI/CD issues on Azure DevOps to achieve a robust, reliable deployment process for the frontend application.
+        techStack:
+          - React
+          - Storybook
+          - Material UI
+          - MUI X Data Grid
+          - GraphQL
+          - TanStack Query (react-query)
+          - Azure DevOps
+          - Figma
+          - Miro
+
+  - role: Senior Backend Developer (Contract)
+    company: Flier Mapper
+    start: "2021/10"
+    end: "2021/12"
+    projects:
+      - name: GPU-Heavy Image Processing Microservices Backend on GCP
+        location: Remote
+        responsibilities:
+          - Architected and implemented a microservices backend on GKE Autopilot to automate GPU-heavy image processing and a third-party Python SDK from Agisoft.
+          - Implemented payment processing and subscription plans with the Stripe SDK using Node.js and Firebase database and functions.
+          - Configured and deployed GCP resources, including Cloud Storage, App Engine, Compute Engine, and IAM.
+          - Implemented custom CI/CD pipelines for client and server applications using Cloud Build for Google Kubernetes Engine with spot instances (achieving a significant cost reduction) and RBAC, as well as for App Engine.
+          - Set up an Elasticsearch ingestion pipeline and implemented complex search queries.
+        techStack:
+          - GKE Autopilot
+          - Python
+          - Stripe SDK
+          - Node.js
+          - Firebase
+          - Google Cloud Storage
+          - Google App Engine
+          - Google Compute Engine
+          - Google Cloud IAM
+          - Google Cloud Build
+          - Elasticsearch
+
+  - role: Senior Full Stack Developer (Contract)
+    company: HSBC
+    start: "2021/09"
+    end: "2022/04"
+    projects:
+      - name: Internal Compliance Web Application
+        location: Remote
+        responsibilities:
+          - Implemented an internal compliance web application with React and Express.js, supporting workflows with Jira and powered by SQL Server and Microsoft Active Directory.
+          - Set and managed expectations for four business stakeholders, holding weekly progress demos, iterating software requirements in an agile manner, and providing UX improvement suggestions.
+          - Implemented JWT authentication with LDAP and Azure AD integration.
+          - Managed a custom production Linux server for secure deployments.
+          - Used Tailwind CSS for rapid frontend development and AG Grid Enterprise for displaying large amounts of tabular data.
+        techStack:
+          - React
+          - Express.js
+          - Jira
+          - SQL Server
+          - Microsoft Active Directory
+          - JWT
+          - LDAP
+          - Azure AD
+          - Linux
+          - Tailwind CSS
+          - AG Grid Enterprise
+
+  - role: Senior Full Stack Developer (Contract)
+    company: Publicis Sapient
+    start: "2021/08"
+    end: "2021/09"
+    projects:
+      - name: NX Console Generators for DevOps Templates and React Components
+        location: Remote
+        responsibilities:
+          - Developed bespoke generators for NX Console using Vite, esbuild, and webpack 5, enabling rapid creation and scaffolding of DevOps templates and React components.
+        techStack:
+          - NX Console
+          - Vite
+          - esbuild
+          - webpack 5
+          - React
+
+  - role: Senior Full Stack Developer (Contract)
+    company: Porsche
+    start: "2021/05"
+    end: "2021/06"
+    projects:
+      - name: IndustrialCloud Platform
+        location: Remote
+        responsibilities:
+          - Designed and developed IndustrialCloud, a cloud-native platform for the automotive manufacturing industry using Node.js, Angular, and React on AWS, with Terraform, SAM, and CDK as infrastructure-as-code tools.
+          - Used AWS services including API Gateway, DynamoDB, Lambda, and CloudFormation templates to build a serverless architecture, with DNS configuration through Route53 and storage via S3.
+          - Refactored legacy web applications and services into a white-label SaaS solution used across multiple automotive manufacturing facilities in Germany.
+        techStack:
+          - Node.js
+          - Angular
+          - React
+          - AWS
+          - Terraform
+          - AWS SAM
+          - AWS CDK
+          - AWS API Gateway
+          - DynamoDB
+          - AWS Lambda
+          - AWS CloudFormation
+          - AWS Route53
+          - AWS S3
+
+  - role: Senior Full Stack Developer (Contract)
+    company: Emotif.ai
+    start: "2021/03"
+    end: "2021/04"
+    projects:
+      - name: AI Startup Web Dashboard
+        location: Remote
+        responsibilities:
+          - Built a web dashboard application for an AI startup using React, TypeScript, and AWS Amplify, with functional components, Context API, hooks, and styled-components.
+          - Implemented Figma designs as pixel-perfect screens that meet design specifications.
+        techStack:
+          - React
+          - TypeScript
+          - AWS Amplify
+          - styled-components
+          - Figma
+
+  - role: Senior Backend Developer (Contract)
+    company: Mastek
+    start: "2021/02"
+    end: "2021/04"
+    projects:
+      - name: NHS Jobs 3 Reporting Journeys
+        location: Remote
+        responsibilities:
+          - Developed the user interface for six reporting journeys of NHS Jobs 3 in Node.js using Gov.uk components, with unit and integration tests, i18n, Cypress, and Jest.
+        techStack:
+          - Node.js
+          - Gov.uk components
+          - Cypress
+          - Jest
+
+  - role: Senior Full Stack Developer (Contract)
+    company: Foundry4
+    start: "2020/11"
+    end: "2021/02"
+    projects:
+      - name: Planning Inspectorate Document and Appeals Services
+        location: Remote
+        responsibilities:
+          - Implemented the Node.js backend for the Document Service with Express.js and multer in a microservices architecture.
+          - Implemented validation and unit test cases for the appeals service with Cypress and Jest in a DevOps environment.
+          - Followed agile scrum methodology and semantic release conventions within the Planning Inspectorate, a UK government agency.
+        techStack:
+          - Node.js
+          - Express.js
+          - multer
+          - Cypress
+          - Jest
+
+  - role: Senior Full Stack Developer (Contract)
+    company: We Are Savvy - Thirdway Interiors
+    start: "2020/09"
+    end: "2020/11"
+    projects:
+      - name: Property Management and Visitor Management Platforms
+        location: Remote
+        responsibilities:
+          - Designed and implemented new features for a property management platform and a visitor management system with React and Flexbox, fixed existing bugs, and maintained a private npm package.
+          - Converted Zeplin designs to pixel-perfect code for all screen sizes.
+          - Managed stakeholder expectations and delivered features on short deadlines.
+          - Implemented a Node.js service for consuming and aggregating Density.io data.
+          - Monitored application performance and managed deployments on Heroku.
+        techStack:
+          - Next.js
+          - MongoDB
+          - Mongoose
+          - Apollo GraphQL
+          - React
+          - Chart.js
+          - Express.js
+          - TypeScript
+          - Heroku
+          - Zeplin
+
+  - role: Senior Full Stack Developer (Contract)
+    company: The React Guys
+    start: "2020/04"
+    end: "2020/07"
+    projects:
+      - name: Marketplace Features, Search and Notifications
+        location: Remote
+        responsibilities:
+          - Implemented complex features such as best deals, Maps integration, authentication, chat notifications, and product pages with AWS Amplify, Material-UI, react-router-dom, Redux, AWS Cognito, and AWS SNS.
+          - Implemented a complex multi-filter homepage search with Elasticsearch, integrated with the react-infinite-scroll library, as well as the main homepage search with multiple filters.
+          - Proposed agile scrum methodology as a better way to manage the project and achieved full adoption.
+        techStack:
+          - AWS Amplify
+          - Material UI
+          - React Router
+          - Redux
+          - AWS Cognito
+          - AWS SNS
+          - Elasticsearch
+
+  - role: Senior Frontend React Developer (Contract)
+    company: Carphone Warehouse
+    start: "2019/09"
+    end: "2020/02"
+    projects:
+      - name: Web Shop Trade-Up, Product Description and Listing Pages
+        location: London, England
+        responsibilities:
+          - Implemented frontend features for the new trade-up feature on the main web shop and for product description and listing pages with React.
+          - Collaborated fully remotely with an offshore development team based in the Czech Republic.
+        techStack:
+          - React
+
+  - role: Senior Backend AWS Developer (Contract)
+    company: British Telecom
+    start: "2019/06"
+    end: "2019/09"
+    projects:
+      - name: Speedo Internet Speed Test API
+        location: Ipswich, England
+        responsibilities:
+          - Designed and implemented a RESTful web API service on AWS API Gateway with TypeScript and Node.js, using AWS Lambda, Route53, DynamoDB, IoT Core, CloudWatch triggers, and SNS.
+          - Achieved a 90% saving on the total AWS bill by publishing internet speed test results via WebSockets instead of an HTTP polling mechanism.
+          - Drew architectural diagrams, integrated data sources from legacy systems into Speedo, maintained the OpenAPI specification, and managed stakeholder expectations.
+        techStack:
+          - AWS API Gateway
+          - TypeScript
+          - Node.js
+          - AWS Lambda
+          - AWS Route53
+          - DynamoDB
+          - AWS IoT Core
+          - AWS CloudWatch
+          - AWS SNS
+          - WebSockets
+          - OpenAPI
+
+  - role: Senior Full Stack Developer (Contract)
+    company: Concentrix Tigerspike
+    start: "2019/02"
+    end: "2019/03"
+    projects:
+      - name: Smart Cities SSE Platform
+        location: London, England
+        responsibilities:
+          - Converted Zeplin designs to pixel-perfect code for all screen sizes with React, react-router-dom, Material-UI, and Leaflet.
+          - Designed and implemented the database schema and backend services via API Gateway in Node.js, using Elasticsearch to ingest data and create efficient queries with Kibana.
+          - Integrated AWS S3, AWS IoT Core, and AWS DynamoDB into the product.
+        techStack:
+          - React
+          - React Router
+          - Material UI
+          - Leaflet
+          - AWS API Gateway
+          - Node.js
+          - Elasticsearch
+          - Kibana
+          - AWS S3
+          - AWS IoT Core
+          - DynamoDB
+
+  - role: Full Stack Developer (Contract)
+    company: MullenLowe Profero
+    start: "2019/01"
+    end: "2019/02"
+    projects:
+      - name: Static Build Generation Service for Legacy Platform Integration
+        location: London, England
+        responsibilities:
+          - Implemented a backend Node.js service with logging for statically generating application builds for integration with a legacy infrastructure platform.
+          - Integrated the solution with AWS S3 and AWS CloudFront.
+          - Assisted with frontend tasks, such as fine-tuning Sass stylesheets and Preact components, and Google Workbox and Analytics integration.
+        techStack:
+          - Node.js
+          - AWS S3
+          - AWS CloudFront
+          - Sass
+          - Preact
+          - Google Workbox
+          - Google Analytics
+
+interests: []
