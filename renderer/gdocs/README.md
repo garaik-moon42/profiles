@@ -83,3 +83,46 @@ stílussal. A dokumentum azonosítóját és URL-jét a
 - A nyomtatás és a PDF-exportálás munkafolyamata.
 
 Ezek nyitott tervezési témák; konkrét technológiai vagy működési döntés még nem született.
+
+## Tapasztalatok a MOON42-sablon kézi kitöltéséből
+
+Egy agent a `profiles/bence-berenyi.yaml` alapján kézzel töltötte ki a
+„_TEMPLATE - MOON42” Google Docs-sablon egy másolatát (2026-10-15). Az alábbi
+megfeleltetést a felhasználó erre a profilra hagyta jóvá; a generátor
+kiindulópontjaként szolgálhat.
+
+### Megfeleltetés
+
+| Sablonelem | Profiladat |
+| --- | --- |
+| Név, titulus | `firstName lastName`, `title` |
+| Bemutatkozás | `introduction` harmadik személyben, névmás nélkül („Bence is…”) |
+| Languages | `personalData.languages` |
+| Programming, Databases, Testing, AI, Cloud | a megfelelő `skills.technical` kategória (Cloud: a felhőszolgáltatók) |
+| Frameworks | a teljes `frameworksAndLibraries`; a Libraries sor törlődik |
+| DevOps / IaC | `devOpsAndCloud` a felhőszolgáltatók nélkül |
+| Other | `toolsAndTechnologies`, `developmentMethodologies`, `specializedDomains` |
+| Soft skills | `skills.soft` |
+| Pozíciósor | `role`, `company`, `mm/yyyy – mm/yyyy` (folyamatban: `Present`) |
+| Projektsor | projektnév és `location`; projektdátum nincs, a helyszín jobbra igazítva |
+| Description | minden `responsibilities` elem külön bullet |
+| Tech stack | `techStack`; ha nincs, a bullet törlődik |
+| Education | **`name`,** `institution` ⇥ dátumok (csak év esetén csak év) |
+| Certificates | új H2-szakasz az Education után, az Education-bullet stílusával: **`name`,** `organization` ⇥ `date` |
+| Personal Interests | üres `interests` esetén a szakasz törlődik |
+| Contact | MOON42-es e-mail (`keresztnev.vezeteknev@moon42.com`, ékezetek nélkül) és a mobilszám; a többi elérhetőség kimarad |
+
+Az üres Skills-sorok törlődnek.
+
+### Technikai tanulságok
+
+- A sablon szerkezete fix indexekkel címezhető. A stílus megtartásához a cserét
+  a régi szöveg első karaktere után kell beszúrni, majd a régi szöveget törölni;
+  a `replaceAllText` a csereszöveg egészére az első illesztett karakter stílusát
+  alkalmazza.
+- A pozíció- és projektsor tabstopjai (36, 72, 108 pt, középre 261 pt, jobbra
+  553 pt) miatt a tabok száma a szöveg szélességétől függ; hosszú cég- vagy
+  projektnévnél a szöveg összeér vagy a dátum új sorba törik. Ezt csak a
+  renderelt PDF mutatja meg, ezért a generálás után vizuális ellenőrzés kell.
+- A Drive-connector PDF-exportja és a Docs-connector `update_doc` hívása
+  működött; a teljes kitöltés egyetlen, revízióval védett batch volt.
