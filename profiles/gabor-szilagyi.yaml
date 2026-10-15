@@ -1,0 +1,154 @@
+# yaml-language-server: $schema=../schemas/profile.schema.json
+metadata:
+  id: gabor-szilagyi
+  schemaVersion: "1.0"
+  language: en
+
+personalData:
+  firstName: Gábor
+  lastName: Szilágyi
+  title: Application Developer / Backend Engineer
+  introduction: >-
+    Backend and data engineer working with Go, Oracle PL/SQL, T-SQL, and
+    Python. Builds ETL processes, end-to-end data pipelines, ERP integrations,
+    database replication, and internal monitoring and reporting tools, with
+    experience in database performance tuning and data modeling across
+    trading, wholesale, consumer health, and manufacturing companies.
+  languages:
+    - Hungarian (native)
+    - English (professional working proficiency)
+  contacts:
+    - type: mobile
+      value: "+36-30-424-60-30"
+    - type: email
+      value: szilagyi.gabor739@gmail.com
+
+skills:
+  technical:
+    programmingLanguages:
+      - Go (Golang)
+      - C# (basics)
+      - SQL
+      - T-SQL
+      - PL/SQL
+      - Python
+      - Shell scripting
+    databases:
+      - Microsoft SQL Server
+      - Oracle Database
+      - PostgreSQL
+      - Snowflake
+      - Performance tuning
+      - Query optimization
+      - Data modeling
+      - Stored procedures
+    devOpsAndCloud:
+      - Docker
+      - Kubernetes (basics)
+      - CI/CD
+      - AWS
+      - GCP
+      - Azure
+      - Server monitoring
+    toolsAndTechnologies:
+      - ETL and data pipelines
+      - REST APIs
+      - System integrations
+      - Oracle – SQL Server real-time replication
+    specializedDomains:
+      - ERP system integration
+      - Commercial and trading data reporting
+      - Supply chain and logistics reporting
+      - Manufacturing analytics and real-time production monitoring
+    developmentMethodologies:
+      - Code reviews
+      - DEV/UAT/PROD deployment processes
+  soft:
+    - Mentoring university students in SQL, data structures, coding basics, and interview preparation
+    - Onboarding and technical guidance for junior colleagues
+    - Internal stakeholder communication
+    - Operational workflow coordination
+    - Requirement gathering
+
+education:
+  - level: bachelor
+    name: Bachelor of Business Administration and Management, Specialization in Data Engineering and Development
+    institution: EDUTUS College, Tatabánya
+    start: "2016"
+    end: "2021"
+
+experience:
+  - role: Application Developer / Backend Engineer
+    company: UBM Trade
+    start: "2023"
+    end: null
+    projects:
+      - name: Backend Development, ERP Integrations and Data Pipelines
+        location: Pilisvörösvár (hybrid)
+        responsibilities:
+          - Go development of microservices, internal tools, and integrations.
+          - Oracle SQL, PL/SQL, and T-SQL development.
+          - Built ETL processes and backend integrations for the ERP system.
+          - Developed end-to-end data pipelines.
+          - Developed a real-time Oracle – SQL Server replication solution.
+          - Built internal monitoring and reporting tools.
+          - Worked with CI/CD workflows, code reviews, deployment processes, and database optimization.
+        techStack:
+          - Go
+          - Oracle SQL
+          - PL/SQL
+          - T-SQL
+          - SQL Server
+
+  - role: Commercial Data Analyst / Data Engineer
+    company: METRO Cash&Carry
+    start: "2021"
+    end: "2023"
+    projects:
+      - name: Commercial Reporting Pipelines and Analytics Systems
+        location: Budaörs (hybrid / remote)
+        responsibilities:
+          - Developed SQL and Python ETL processes for commercial and trading data reporting.
+          - Built modular reporting pipelines and internal automation tools.
+          - Maintained and optimized enterprise reporting and analytics systems.
+          - Performed backend data processing for commercial reporting.
+          - Member of a cloud infrastructure (AWS, GCP, Azure) migration project team using Snowflake.
+          - Performed data modeling and database optimization.
+        techStack:
+          - SQL
+          - Python
+          - AWS
+          - GCP
+          - Azure
+          - Snowflake
+
+  - role: Data Analyst & Customer Service Coordinator
+    company: Haleon (formerly GSK)
+    start: "2020"
+    end: "2021"
+    projects:
+      - name: Reporting Tools and Operational Data Processing
+        location: Budapest (hybrid)
+        responsibilities:
+          - Developed internal ETL and reporting support tools.
+          - Supported enterprise reporting and operational data processing workflows.
+          - Supported database administration, query optimization, and data modeling.
+          - Supported supply chain and logistics reporting.
+          - Coordinated operational workflows and communicated with internal stakeholders.
+
+  - role: Process Data Engineer
+    company: AGC Glass Europe
+    start: "2017"
+    end: "2020"
+    projects:
+      - name: Production Monitoring and Manufacturing Analytics
+        location: Tatabánya (on-site)
+        responsibilities:
+          - Developed a real-time production monitoring system.
+          - Automated manufacturing analytics and reporting workflows.
+          - Supported DEV/UAT/PROD deployment processes for enterprise data systems.
+          - Developed stored procedures, aggregated views, and reporting structures.
+          - Participated in a production cost optimization project focused on process efficiency.
+          - Gathered requirements, automated reporting, and analyzed production data.
+
+interests: []

@@ -1,0 +1,144 @@
+# yaml-language-server: $schema=../schemas/profile.schema.json
+metadata:
+  id: adam-zoltan-sisak
+  schemaVersion: "1.0"
+  language: en
+
+personalData:
+  firstName: Ádám Zoltán
+  lastName: Sisák
+  title: Full-Stack Web Developer & DevOps
+  introduction: >-
+    Full-stack web developer with DevOps experience, working with Node.js
+    (TypeScript), Go, React, and Angular. Has built PSD2 financial
+    microservices, real-time banking dashboards, and Kubernetes-native GitOps
+    tooling, and maintains CI/CD pipelines, infrastructure configuration,
+    monitoring, and BDD-based end-to-end test automation.
+  languages:
+    - Hungarian (native)
+  contacts:
+    - type: email
+      value: adam.dzsak@gmail.com
+    - type: mobile
+      value: "+36 30 925 6225"
+    - type: linkedin
+      value: linkedin.com/in/adam-sisak
+    - type: github
+      value: github.com/dzsak
+
+skills:
+  technical:
+    programmingLanguages:
+      - TypeScript
+      - Go
+      - Bash
+    frameworksAndLibraries:
+      - Node.js
+      - Express
+      - React
+      - Redux
+      - Tailwind CSS
+      - Angular
+      - RxJS
+      - Socket.io
+    databases:
+      - MongoDB
+      - PostgreSQL
+      - SQLite
+    devOpsAndCloud:
+      - Kubernetes
+      - Docker
+      - FluxCD
+      - GitOps
+      - Jenkins
+      - GitHub Actions
+      - Prometheus
+      - Graylog
+      - CI/CD pipelines
+      - Infrastructure as code
+    toolsAndTechnologies:
+      - REST
+      - OpenAPI/Swagger
+      - Kong Gateway
+      - kubectl
+      - CLI tool development
+    testingAndQA:
+      - BDD
+      - Gherkin
+      - Cucumber
+      - End-to-end testing
+      - Regression testing
+    specializedDomains:
+      - PSD2 open banking (AISP/PISP)
+      - Financial data aggregation
+      - Kubernetes developer experience
+    developmentMethodologies:
+      - Agile (Scrum/Kanban)
+      - Microservices architecture
+  soft:
+    - Collaboration with customer support on incident resolution
+    - Code review in a collaborative team environment
+
+education: []
+
+certificates:
+  - name: Full-Stack Software Developer (800-hour intensive professional training)
+    organization: Flow Academy, Szeged
+    date: "2021"
+
+experience:
+  - role: Full-stack Software & DevOps
+    company: FintechX Technologies
+    start: "2024/06"
+    end: "2026/04"
+    projects:
+      - name: PSD2 Financial Engine and Banking Dashboards (Aggreg8 Ecosystem)
+        location: Szeged
+        responsibilities:
+          - Designed and developed Node.js-based microservices within the Aggreg8 ecosystem.
+          - Integrated AISP/PISP services, enabling real-time aggregation and synchronization of bank account data (balances, transaction history) for retail and corporate clients.
+          - Implemented responsive financial interfaces using Angular and RxJS, integrating Socket.io for instant, asynchronous display of banking data.
+          - Managed DevOps repositories; developed and fine-tuned infrastructure and application configurations (Bash scripts, CI/CD pipelines) to ensure stable release cycles.
+          - Provided L3 support, conducting system diagnostics and incident management with Graylog and Prometheus, and collaborated with Customer Support to resolve critical issues.
+          - Optimized high-traffic transactional MongoDB databases, ensuring scalable query performance and financial data consistency.
+          - Developed a comprehensive BDD-based end-to-end testing framework using Gherkin and Cucumber, validating complex banking workflows and UI consistency within Jenkins pipelines.
+        techStack:
+          - Node.js
+          - Angular
+          - RxJS
+          - Socket.io
+          - Bash
+          - CI/CD
+          - Graylog
+          - Prometheus
+          - MongoDB
+          - Gherkin
+          - Cucumber
+          - Jenkins
+
+  - role: Full-Stack Developer
+    company: Gimlet.io
+    start: "2022/01"
+    end: "2024/06"
+    projects:
+      - name: Kubernetes-Native GitOps Platform and CLI Tools
+        location: Szeged
+        responsibilities:
+          - Designed and implemented Go-based microservices and command-line interface (CLI) tools.
+          - Monitored cluster states and FluxCD resources to enhance developer experience (DX).
+          - Managed high-performance data streams using Go channels, streaming kubectl output and pod logs with low latency from the backend to client-side dashboards.
+          - Built responsive dashboards and UI components using React, Redux, and Tailwind CSS to visualize complex GitOps processes and cluster data.
+          - Established direct integrations with Kubernetes and FluxCD to support reliable and scalable application deployment workflows.
+          - Performed deep debugging on distributed cloud infrastructure and conducted daily open-source code reviews.
+          - Fully automated software release processes using GitHub Actions, ensuring stable, cross-platform distribution and versioning of Go-based tools.
+        techStack:
+          - Go
+          - Kubernetes
+          - FluxCD
+          - kubectl
+          - React
+          - Redux
+          - Tailwind CSS
+          - GitHub Actions
+
+interests: []

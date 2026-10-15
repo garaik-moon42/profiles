@@ -1,0 +1,295 @@
+# yaml-language-server: $schema=../schemas/profile.schema.json
+# DRAFT — candidate clarification pending; TODO comments identify unresolved data.
+#
+# EMAIL DRAFT — prepared for forwarding, not sent.
+# Subject: Clarifications for your professional profile
+#
+# Dear Kristóf,
+#
+# Thank you for sharing your CV. To complete your professional profile accurately,
+# could you please clarify the following points?
+# 1. Please provide the work location (city/country, or remote) for these positions:
+#    Pulselive (07/2025 – 04/2026), Telekom Hungary (03/2025 – 07/2025), and
+#    Medicover (09/2024 – 03/2025).
+# 2. In which year (and month, if known) did you start your BS in Computer Science
+#    at Eötvös Loránd University?
+#
+# Thank you for your help.
+# Best regards,
+# MOON42 team
+
+metadata:
+  id: kristof-kelemen
+  schemaVersion: "1.0"
+  language: en
+
+personalData:
+  firstName: Kristóf
+  lastName: Kelemen
+  title: Fullstack Engineer
+  introduction: >-
+    Fullstack engineer focused on shipping MVPs quickly and iterating under
+    real user feedback. Experienced across fintech systems and large-scale data
+    pipelines, with a strong emphasis on ownership, performance, and rapid
+    delivery in ambiguous environments.
+  languages:
+    - Hungarian (native)
+  contacts:
+    - type: email
+      value: a9dhov@gmail.com
+
+skills:
+  technical:
+    programmingLanguages:
+      - JavaScript (8 years)
+      - TypeScript (5 years)
+      - SQL (4 years)
+      - Python
+      - Java
+    frameworksAndLibraries:
+      - React (5 years)
+      - Node.js (3 years)
+      - Angular (1+ years)
+      - Vue (1 year)
+      - React Native (2 years)
+      - Next.js
+      - Redux
+      - Recoil
+      - React Query (TanStack Query)
+      - Tailwind
+      - Chakra UI
+      - Material UI
+      - TypeORM
+      - Sequelize
+      - Expo
+      - Vite
+      - GatsbyJS
+      - Laravel
+      - Java Spring Boot
+      - PySpark
+      - Freemarker
+    databases:
+      - PostgreSQL
+      - MongoDB
+      - Redis
+    devOpsAndCloud:
+      - Docker
+      - CI/CD
+      - Kubernetes
+      - CircleCI
+      - Jenkins
+      - DigitalOcean
+      - AWS SES
+      - pm2
+      - Git
+    toolsAndTechnologies:
+      - GraphQL
+      - Apache Kafka
+      - Twilio
+      - npm
+    operatingSystems:
+      - Ubuntu
+    testingAndQA:
+      - Jest
+      - Playwright
+      - Cypress
+      - Unit testing
+      - End-to-end testing
+    specializedDomains:
+      - Fintech systems
+      - Real-time telemetry stream processing
+      - Satellite communication dashboards
+    developmentMethodologies:
+      - MVP development
+      - Micro frontend architecture
+      - Pair programming
+  soft:
+    - Code ownership
+    - Mentoring junior developers
+    - Collaboration with backend developers, UI/UX designers, and stakeholders
+
+education:
+  - level: bachelor
+    name: BS in Computer Science
+    institution: Eötvös Loránd University
+    # TODO start: Missing in source; ask candidate. Field intentionally omitted.
+    end: "2021"
+
+experience:
+  - role: Frontend Engineer
+    company: Pulselive
+    start: "2025/07"
+    end: "2026/04"
+    projects:
+      - name: Legacy System Features, React Modernization and React Native MVP
+        # TODO location: Missing in source; ask candidate. Field intentionally omitted.
+        responsibilities:
+          - Built new features and promotions for an existing monolithic legacy system.
+          - Refactored old code to modern, standard React and TypeScript.
+          - Helped deliver an MVP written in React Native for another of the client's projects.
+          - Took ownership of own code, working in sync with backend developers, UI/UX designers, and stakeholders.
+        techStack:
+          - React
+          - React Native
+          - TypeScript
+          - Freemarker
+
+  - role: Big Data Engineer
+    company: Telekom Hungary
+    start: "2025/03"
+    end: "2025/07"
+    projects:
+      - name: Real-Time Telemetry Processing for a Smart Failure Prevention System
+        # TODO location: Missing in source; ask candidate. Field intentionally omitted.
+        responsibilities:
+          - Created a component of a large smart failure prevention system using Python, Apache Kafka, PySpark, and MongoDB.
+          - The repository processed 800,000 telemetry records in 15 minutes in real time from six different Kafka streams, using stateful micro-batch processing backed by MongoDB, with regular data clearing and output to another Kafka stream for further processing.
+        techStack:
+          - Python
+          - Apache Kafka
+          - PySpark
+          - PostgreSQL
+          - MongoDB
+          - CI/CD
+          - Kubernetes
+
+  - role: Frontend Engineer
+    company: Medicover
+    start: "2024/09"
+    end: "2025/03"
+    projects:
+      - name: CRM System MVP and Frontend Modernization
+        # TODO location: Missing in source; ask candidate. Field intentionally omitted.
+        responsibilities:
+          - Delivered a functional MVP for a CRM system using React.
+          - Modernized the codebase by introducing technologies such as Vite and TanStack Query, improving build speed by 54%.
+          - Collaborated closely with backend engineers to design efficient endpoints and interfaces, ensuring seamless integration across the system.
+          - Improved application performance and maintainability by eliminating inefficiencies through proper caching.
+          - Mentored a junior developer and raised the team's overall code quality.
+          - Enhanced UI/UX by implementing user-centric quality-of-life improvements.
+        techStack:
+          - React
+          - Vite
+          - Laravel
+          - Docker
+
+  - role: Fullstack Engineer
+    company: GiveFront Inc
+    start: "2024/01"
+    end: "2024/04"
+    projects:
+      - name: Financial Management System MVP
+        location: Remote (Delaware, US)
+        responsibilities:
+          - Delivered an MVP of a financial management system in three months, enabling early user testing and securing stakeholder approval for further development.
+          - Engineered efficient PostgreSQL database schemas, enabling seamless integration of new features and reducing query execution times by 10%.
+          - Enhanced system security by implementing endpoint protection, reducing vulnerability risks by applying Node.js best practices.
+          - Improved application performance by fine-tuning key features using React Query and Recoil, reducing user-reported lags.
+        techStack:
+          - React
+          - Next.js
+          - Node.js
+          - PostgreSQL
+          - Docker
+          - CI/CD
+
+  - role: Fullstack Engineer
+    company: Frontside LLC
+    start: "2023/06"
+    end: "2023/12"
+    projects:
+      - name: Backend Modernization, Infrastructure and Educational Game MVP
+        location: Remote
+        responsibilities:
+          - Modernized a legacy backend codebase to the latest Node.js version.
+          - Deployed new Ubuntu droplets, improving system reliability and reducing server downtime.
+          - Optimized and maintained CI/CD pipelines.
+          - Designed and implemented database schemas.
+          - Optimized database queries, reducing response times by 40%.
+          - Developed an MVP of an interactive educational game using React and React Native, achieving high user engagement in beta testing with an 88% satisfaction rate among testers.
+        techStack:
+          - Node.js
+          - CircleCI
+          - Docker
+          - PostgreSQL
+          - React
+          - Next.js
+          - React Native
+          - Java Spring Boot
+          - Vue
+          - Angular
+
+  - role: Frontend Engineer
+    company: ITware
+    start: "2021/11"
+    end: "2023/06"
+    projects:
+      - name: Micro Frontend Migration for Vodafone Germany (Outsourced)
+        location: Remote
+        responsibilities:
+          - Contributed to migrating a legacy codebase to a micro frontend architecture.
+          - Achieved 100% unit and end-to-end test coverage.
+          - Mentored five junior developers through pair programming, ensuring project milestones were met on time.
+        techStack:
+          - Angular
+          - Vue
+          - JavaScript
+          - TypeScript
+          - Jest
+          - Cypress
+          - Jenkins
+
+  - role: Fullstack Engineer
+    company: Biroda LLC
+    start: "2021/02"
+    end: "2021/10"
+    projects:
+      - name: Upsell System and Mobile App MVPs
+        location: Remote
+        responsibilities:
+          - Delivered a highly functional upsell system MVP for a major telecom client, resulting in a 13% increase in upsell revenue during pilot testing.
+          - Built a Tinder-like mobile app MVP using React Native, leading to a successful pilot launch.
+        techStack:
+          - React
+          - Next.js
+          - TypeScript
+          - React Native
+          - Node.js
+
+  - role: Frontend Engineer
+    company: C3S LLC
+    start: "2019"
+    end: "2021"
+    projects:
+      - name: Satellite Communication Dashboard and Frontend Architecture
+        location: Budapest, HU
+        responsibilities:
+          - Improved system performance by 30% through caching strategies and refactoring suboptimal React components.
+          - Published a private npm package to visualize satellite orbits and ground stations.
+          - Designed and created views of a dashboard for satellite communication.
+          - Split a monolithic codebase into a micro frontend architecture.
+        techStack:
+          - React
+          - GatsbyJS
+          - JavaScript
+          - TypeScript
+          - pm2
+          - Docker
+
+  - role: Junior Frontend Engineer
+    company: Mindtech
+    start: "2018"
+    end: "2019"
+    projects:
+      - name: Client Web and Mobile Projects
+        location: Budapest, HU
+        responsibilities:
+          - Learned React, React Native, JavaScript, and Node.js through several projects.
+          - Built a web app single-handedly to MVP for one of the company's clients.
+        techStack:
+          - React
+          - React Native
+          - Node.js
+          - JavaScript
+
+interests: []
