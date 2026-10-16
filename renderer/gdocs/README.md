@@ -1,57 +1,18 @@
 # Google Docs renderer
 
-Ez a dokumentum a Google Docs-generátor terveinek és a később meghozott
-döntéseknek a gyűjtőhelye. A jelenlegi első változat egy „Hello World!”
-dokumentummal ellenőrzi a teljes API-kapcsolatot és OAuth 2.0 folyamatot.
-
-## Cél
-
-A repóban tárolt YAML-formátumú szakmai profilokból Google Docs-dokumentumot
-előállítani, amely nyomtatható és PDF-be exportálható.
-
-## Elhelyezés
-
-A `renderer/` könyvtár alatt több generátor is létezhet egymás mellett,
-mindegyik saját alkönyvtárban. Az első renderer a Google Docs-dokumentumokat
-előállító `gdocs`, amelynek tervei és megvalósítása ebbe a könyvtárba kerülnek.
+A generátor a „_TESLA Candidates” Google Sheets-táblázat „Candidates” fülje
+alapján, a repóban tárolt YAML-profilokból MOON42-formátumú Google
+Docs-dokumentumot készít a „_TEMPLATE - MOON42” sablon másolatából. A
+dokumentum nyomtatható és PDF-be exportálható.
 
 ## Kiindulópont
 
-- A [közös rendererszabályok](../README.md) szerint parancssorból is futtatható
-  program, amely egy bemeneti fájlparamétert kap.
-- Bemenet: a repó YAML-formátumú szakmai profiljai.
+- A [közös rendererszabályoktól](../README.md) eltérően nem egy bemeneti
+  fájlt kap: a táblázat a munkasor, a profilokat a `profiles/` könyvtárból
+  olvassa.
 - Adatmodell: a [profil séma](../../schemas/profile.schema.json) szerinti 1.0-s verzió.
-- Kimenet: Google Docs-dokumentum, nyomtatásra és PDF-exportálásra alkalmas elrendezéssel.
-- A helyi kimeneti nyugta a repo gyökerében lévő `target/gdocs/` könyvtárba kerül.
+- A kimenetek a repo gyökerében lévő `target/gdocs/` alá kerülnek.
 - A profiladatok szerkesztési szabályait a [repo útmutatója](../../README.md) rögzíti.
-
-## Konfiguráció
-
-A renderer beállításait a mellette található [`config.yaml`](config.yaml) fájl
-tartalmazza. A `targetFolderId` értékébe annak a Google Drive-mappának az
-azonosítója kerül, amelyben a generált dokumentumokat létre kell hozni:
-
-```yaml
-targetFolderId: "1AbCdEfGhIjKlMnOpQrStUvWxYz"
-```
-
-Az azonosító a mappa URL-jének `/folders/` utáni része. A hiányzó, üres vagy
-`null` értéket a generátor hibának tekinti. A fájlba hitelesítési adat vagy
-privát kulcs nem kerülhet.
-
-## OAuth 2.0 beállítása
-
-1. Hozz létre vagy válassz ki egy projektet a Google Cloud Console-ban.
-2. Engedélyezd a Google Docs API-t és a Google Drive API-t.
-3. Állítsd be az OAuth consent screent, majd hozz létre egy **Desktop app**
-   típusú OAuth client ID-t.
-4. Töltsd le a kliens JSON-fájlját, és mentsd
-   `renderer/gdocs/credentials.json` néven.
-
-A `credentials.json` és az első sikeres belépés után létrejövő
-`target/gdocs/token.json` hitelesítési adatot tartalmaz, ezért egyik sem kerül
-verziókezelésbe. A renderer csak a `drive.file` scope-ot kéri: az általa
-létrehozott fájlokhoz fér hozzá, nem a felhasználó teljes Drive-tartalmához.
 
 ## Futtatás
 
@@ -62,67 +23,170 @@ python3 -m venv .venv
 .venv/bin/python -m pip install -r renderer/gdocs/requirements.txt
 ```
 
-A renderer egy profilfájlt kap paraméterül:
+Futtatás (bemeneti fájl nélkül):
 
 ```bash
-.venv/bin/python renderer/gdocs/render.py profiles/athukoralage-chamith-udayanga.yaml
+.venv/bin/python renderer/gdocs/render.py [--dry-run] [--config <útvonal>]
 ```
 
-Az első futtatás megnyitja a Google OAuth jóváhagyási folyamatát. A program a
-profilból olvassa ki a dokumentum címét, majd létrehozza azt a konfigurált Drive
-mappában. A jelenlegi változat `Hello World!` szöveget ír bele Heading 1
-stílussal. A dokumentum azonosítóját és URL-jét a
-`target/gdocs/<profilazonosító>.json` nyugtafájlba menti.
+- `--dry-run`: csak listáz. Kiírja a jogosult sorokat, a hozzájuk illesztett
+  profilt és a létrejövő dokumentum nevét (a `[DRAFT]` jelölésű profilokat
+  jelölve), a kihagyott sorokat és a figyelmeztetéseket; nem hoz létre
+  dokumentumot, és nem ír a táblázatba, sem nyugtát.
+- `--config <útvonal>`: másik konfigurációs fájl az alapértelmezett
+  [`config.yaml`](config.yaml) helyett, például tesztfuttatáshoz a `target/`
+  alatt (más mappával és táblázattal).
 
-## Később kidolgozandó tervek
+Az első futtatás megnyitja a Google OAuth jóváhagyási folyamatát.
 
-- A dokumentum megjelenése, szerkezete és oldaltördelése.
-- A megjelenítendő profiladatok és az opcionális szakaszok kezelése.
-- A hiányos, munkapéldányként jelölt profilok kezelése.
-- A végleges hitelesítési mód és üzemeltetési környezet.
-- A nyomtatás és a PDF-exportálás munkafolyamata.
+## A táblázat mint munkasor
 
-Ezek nyitott tervezési témák; konkrét technológiai vagy működési döntés még nem született.
+A „Candidates” fül fejlécének tartalmaznia kell a `Name`, `Status`, `Mobile`,
+`Email` és `MOON42 Profile` oszlopot; hiányzó fejléc hibát okoz.
 
-## Tapasztalatok a MOON42-sablon kézi kitöltéséből
+- **Jogosult sor:** a `Status` értéke „in progress” (a szélső szóközök és a
+  kis/nagybetű nem számít), és a `MOON42 Profile` cella üres (nincs szöveg, chip vagy link).
+- **Újragenerálás:** a sor `MOON42 Profile` cellájának kiürítése után a
+  következő futtatás újra elkészíti a dokumentumot. A korábbi dokumentum nem
+  törlődik; az azonosítója a nyugta `previousDocuments` listájába kerül.
+- **Sor–profil illesztés:** a `Name` cella szavai (ékezet-, kis/nagybetű-
+  érzéketlenül, szóköz, pont és kötőjel mentén szétvágva) mind szerepelnek a
+  profil `firstName` és `lastName` szavai között. Pontosan egy profil
+  illeszkedhet.
+- **Kihagyott sor (nem hiba):** üres név, nincs illeszkedő profil, vagy több
+  profil illeszkedik; részleges névegyezésnél figyelmeztetés sorolja fel a
+  jelölt profilokat.
+- **Hiba:** ha több jogosult sor illeszkedik ugyanarra a profilra, mindegyik
+  hibás; hibás (nem olvasható) profilfájl is hiba.
+- **Visszaírás:** siker után a program a sor `MOON42 Profile` cellájába írja a
+  dokumentum Drive-chipjét. Írás előtt újraolvassa a fejlécet és a sort: ha az
+  oszlopok elmozdultak, a sorban más név áll, vagy a cella közben megtelt,
+  nem ír, és ezt jelzi. Ha a chip írását a Sheets elutasítja, hiperhivatkozás
+  kerül a cellába. Más cellát a program nem módosít.
 
-Egy agent a `profiles/bence-berenyi.yaml` alapján kézzel töltötte ki a
-„_TEMPLATE - MOON42” Google Docs-sablon egy másolatát (2026-10-15). Az alábbi
-megfeleltetést a felhasználó erre a profilra hagyta jóvá; a generátor
-kiindulópontjaként szolgálhat.
+## Konfiguráció
 
-### Megfeleltetés
+A [`config.yaml`](config.yaml) három kötelező kulcsot tartalmaz; a hiányzó vagy
+üres érték hiba:
+
+- `targetFolderId`: a Drive-mappa azonosítója („MOON42 Profiles”), ahová a
+  dokumentumok kerülnek (az URL `/folders/` utáni része).
+- `templateId`: a MOON42-sablon azonosítója. A sablonra csak olvasó és másoló
+  hívás megy, soha nem módosul.
+- `spreadsheetId`: a jelölteket nyilvántartó táblázat azonosítója.
+
+A fájlba hitelesítési adat nem kerülhet.
+
+## OAuth 2.0 beállítása
+
+1. Hozz létre vagy válassz ki egy projektet a Google Cloud Console-ban.
+2. Engedélyezd a Google Docs, a Google Drive és a Google Sheets API-t.
+3. Állítsd be az OAuth consent screent, majd hozz létre egy **Desktop app**
+   típusú OAuth client ID-t.
+4. Töltsd le a kliens JSON-fájlját, és mentsd
+   `renderer/gdocs/credentials.json` néven.
+
+A `credentials.json` és a belépés után létrejövő `target/gdocs/token.json`
+hitelesítési adatot tartalmaz, ezért egyik sem kerül verziókezelésbe.
+
+**Scope-ok:**
+
+- `drive.file`: a renderer által létrehozott (másolt) fájlok olvasása és írása;
+- `drive.readonly`: a (nem a renderer által létrehozott) sablon és táblázat olvasása;
+- `spreadsheets`: a táblázat olvasása és a `MOON42 Profile` cella írása.
+
+Ha a mentett token scope-listája eltér a fentitől (pl. a scope-ok változtak),
+vagy a refresh token lejárt vagy visszavonták, a program új jóváhagyást kér
+(böngészős belépés). External/Testing consent módban a refresh token 7 nap
+után lejár, ezért legfeljebb hetente új belépés kell; Internal módban vagy
+publikált alkalmazásnál ez nem áll fenn.
+
+## Kimenetek
+
+- **Nyugta:** `target/gdocs/<profilazonosító>.json`; mezői: `documentId`,
+  `name`, `url`, `parentFolderIds`, `sheetRow`, `draft`, `issues` (figyelmeztetések,
+  tördelési és táblázatírási problémák), `previousDocuments` (a korábbi
+  futtatásokból származó `documentId`/`url` párok). Hibás kitöltésnél is
+  készül nyugta, ha a másolat már létezik.
+- **PDF:** `target/gdocs/pdf/<Keresztnév Vezetéknév> - MOON42.pdf`, a tördelés
+  ellenőrzéséhez exportált példány.
+- **Dokumentumnév:** `<firstName> <lastName> - MOON42`, a `config.yaml`-ban
+  megadott mappában.
+- **Stdout:** összesítő a jogosult sorok számáról, majd „Generált”,
+  „Kihagyott” és „Hibás” lista (dokumentum-URL-ek, figyelmeztetések,
+  tördelési problémák).
+- **Kilépési kód:** `0`, ha nincs hibás sor és nincs probléma; `1`, ha bármely
+  sor hibás, a visszaírás vagy a nyugta sikertelen, tördelési probléma van,
+  vagy a futás hibával állt le (konfiguráció, hitelesítés, API). Dry-run
+  esetén `1` hibás profil vagy hibás illesztés esetén.
+
+### Tördelési jelentés
+
+A generálás után a program PDF-be exportálja a dokumentumot, és ellenőrzi a
+pozíció- és projektsorokat. Ha egy sor szövege nem található a PDF-ben, több
+sorba tört, a részei között a távolság 6 pt-nál kisebb, vagy a középre/jobbra
+igazított rész eltér a tabstoptól, a sor „kézi döntés kell” megjegyzéssel
+„Tördelési probléma”-ként szerepel az stdoutban és a nyugta `issues`
+mezőjében. A dokumentum ilyenkor is megmarad; a sort kézzel kell javítani. Ha
+maga az ellenőrzés nem futott le, ez is problémaként jelenik meg.
+
+## Megfeleltetés
 
 | Sablonelem | Profiladat |
 | --- | --- |
 | Név, titulus | `firstName lastName`, `title` |
-| Bemutatkozás | `introduction` harmadik személyben, névmás nélkül („Bence is…”) |
+| Bemutatkozás | `personalData.introductionThirdPerson`; ha hiányzik, az `introduction` változatlanul, figyelmeztetéssel |
 | Languages | `personalData.languages` |
 | Programming, Databases, Testing, AI, Cloud | a megfelelő `skills.technical` kategória (Cloud: a felhőszolgáltatók) |
 | Frameworks | a teljes `frameworksAndLibraries`; a Libraries sor törlődik |
 | DevOps / IaC | `devOpsAndCloud` a felhőszolgáltatók nélkül |
-| Other | `toolsAndTechnologies`, `developmentMethodologies`, `specializedDomains` |
+| Other | `toolsAndTechnologies`, `operatingSystems`, `developmentMethodologies`, `specializedDomains` |
 | Soft skills | `skills.soft` |
-| Pozíciósor | `role`, `company`, `mm/yyyy – mm/yyyy` (folyamatban: `Present`) |
+| Pozíciósor | `role`, `companyShortName` (hiányában `company`), `mm/yyyy – mm/yyyy` (folyamatban: `Present`) |
 | Projektsor | projektnév és `location`; projektdátum nincs, a helyszín jobbra igazítva |
 | Description | minden `responsibilities` elem külön bullet |
 | Tech stack | `techStack`; ha nincs, a bullet törlődik |
 | Education | **`name`,** `institution` ⇥ dátumok (csak év esetén csak év) |
-| Certificates | új H2-szakasz az Education után, az Education-bullet stílusával: **`name`,** `organization` ⇥ `date` |
+| Certificates | új H2-szakasz az Education után (oktatás nélkül az Education címsor lesz „Certificates”), az Education-bullet stílusával: **`name`,** `organization` ⇥ `date` |
 | Personal Interests | üres `interests` esetén a szakasz törlődik |
-| Contact | MOON42-es e-mail (`keresztnev.vezeteknev@moon42.com`, ékezetek nélkül) és a mobilszám; a többi elérhetőség kimarad |
+| Contact | e-mail és mobilszám (lent); a többi elérhetőség kimarad |
 
 Az üres Skills-sorok törlődnek.
 
-### Technikai tanulságok
+**E-mail:** ha a táblázat `Email` cellája `@moon42.com`-ra végződik, az kerül
+a dokumentumba; különben a program származtatja:
+`keresztnev.vezeteknev@moon42.com` (a `firstName` első szava, ékezetek
+nélkül). Összetett vagy pontot tartalmazó névnél figyelmeztetés kéri a cím
+ellenőrzését.
 
-- A sablon szerkezete fix indexekkel címezhető. A stílus megtartásához a cserét
-  a régi szöveg első karaktere után kell beszúrni, majd a régi szöveget törölni;
-  a `replaceAllText` a csereszöveg egészére az első illesztett karakter stílusát
-  alkalmazza.
+**Mobil:** a YAML `contacts` listájának `mobile` eleme, ennek hiányában a
+`phone`, ennek hiányában a táblázat `Mobile` cellája (változatlanul); ha
+egyik sincs, a Mobile sor törlődik.
+
+## Technikai tanulságok
+
+- A teljes kitöltés egyetlen `batchUpdate`, `requiredRevisionId`-val védve a
+  másolat betöltött revíziójára; így a dokumentum vagy teljesen kitöltött,
+  vagy a hiba jelenik meg (a másolat ilyenkor megmarad, URL-jével jelezve).
+- A Docs API nem tud tabstopot írni vagy bekezdést másolni, ezért minden új
+  sor a sablon megfelelő bekezdésének elejére beszúrt szövegként készül, és
+  örökli annak bekezdésstílusát és tabstopjait. Kivételek: a Work
+  Experience bulletjei `createParagraphBullets`-szel készülnek, a
+  Certificates címsor pedig `updateParagraphStyle`-lal kapja az Education
+  címsor stílusát. A régi tartalom
+  törlése és a szövegstílusok alkalmazása ugyanebben a batchben történik. A
+  kérések a dokumentum végétől az eleje felé haladnak, hogy a korábbi indexek
+  érvényesek maradjanak.
 - A pozíció- és projektsor tabstopjai (36, 72, 108 pt, középre 261 pt, jobbra
-  553 pt) miatt a tabok száma a szöveg szélességétől függ; hosszú cég- vagy
-  projektnévnél a szöveg összeér vagy a dátum új sorba törik. Ezt csak a
-  renderelt PDF mutatja meg, ezért a generálás után vizuális ellenőrzés kell.
-- A Drive-connector PDF-exportja és a Docs-connector `update_doc` hívása
-  működött; a teljes kitöltés egyetlen, revízióval védett batch volt.
+  553 pt) miatt a tabok száma a szöveg szélességétől függ. A tabok számát és
+  a középső rész elé tett kitöltő szóközöket a program a rögzített
+  (2.138-as, sha256-tal ellenőrzött, `target/gdocs/fonts/` alatt gyorsítótárazott)
+  Roboto-metrikából számolja; kerning nélkül, ezért a PDF-ellenőrzés marad az
+  utolsó szó.
+- A szövegcsere a régi szöveg első karaktere stílusát hordozza; ezért a
+  generátor minden futáshoz a sablonból kiolvasott stílust állítja be
+  explicit módon a beszúrt szövegekre.
+- A Sheets fájlchipje `@` helykitöltő szövegként és `chipRuns` mezővel
+  írható; ha ezt a Sheets elutasítja, hiperhivatkozás a tartalék.
+- Az API-hívások 429-es és 5xx hibánál legfeljebb 5 kísérlettel, növekvő
+  várakozással újrapróbálkoznak.
