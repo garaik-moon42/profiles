@@ -5,11 +5,13 @@ Decision log: docs/specs/gdocs-moon42-generator.decisions.md
 
 ## Goal
 
-A `renderer/gdocs/render.py` a „_TESLA Candidates” táblázat alapján egy
+A `renderer/gdocs/tesla_candidates.py` a „_TESLA Candidates” táblázat alapján egy
 futásban elkészíti a soron következő jelöltek MOON42-profilját Google Docsban,
 a „_TEMPLATE - MOON42” sablon másolatából, a YAML-profil tartalmával, kézi
 utómunka nélkül átadható formában, majd a doksit beírja a táblázatba. Ahol a
-tördelés kézi döntést igényel, ezt egyértelműen jelzi.
+tördelés kézi döntést igényel, ezt egyértelműen jelzi. A dokumentumot a
+`renderer/gdocs/render.py` alap generátor állítja elő, amely önállóan is
+futtatható egy profilfájlra és egy tetszőleges Drive-mappára.
 
 ## Users & Use Cases
 
@@ -23,11 +25,16 @@ tördelés kézi döntést igényel, ezt egyértelműen jelzi.
   régi doksit a felhasználó maga kezeli.
 - **UC-3 – Előnézet:** `--dry-run` megmutatja, kiknek készülne doksi, és
   melyik YAML-ből, írás nélkül.
+- **UC-4 – Egy profil tetszőleges mappába:** a felhasználó egy YAML-profilból
+  a táblázattól függetlenül készít doksit egy általa megadott Drive-mappába
+  (pl. tesztmappába).
 
 ## Scope
 
 **In:**
 - Táblázatvezérelt kötegelt futás, `--dry-run` mód.
+- Egyfájlos alap generátor (`render.py <profil.yaml> <mappaazonosító>`),
+  amelyet a táblázatvezérelt futás is használ.
 - Sablonmásolás a célmappába, kitöltés a jóváhagyott megfeleltetés szerint.
 - Tabszámítás fontmetrikával, automatikus PDF-alapú tördelésellenőrzés.
 - A MOON42 Profile cella kitöltése Drive file chippel.
@@ -45,19 +52,21 @@ tördelés kézi döntést igényel, ezt egyértelműen jelzi.
 - Hiányzó YAML-adatok pótlása, a harmadik személyű bemutatkozás és a rövid
   cégnevek megírása (más profiloknál ez szerkesztői feladat a YAML-ben).
 - PDF mint leszállítandó kimenet (a PDF csak ellenőrzésre szolgál).
-- Egyfájlos (`render.py profiles/<id>.yaml`) mód; a `flat` és a LaTeX
-  renderer változtatása.
+- A `flat` és a LaTeX renderer változtatása.
 - Futtatás szerveren, ütemezve vagy CI-ban.
 
 ## Affected Areas
 
 - `renderer/gdocs/render.py` – újraírás (jelenleg „Hello World” doksit hoz
-  létre). Szükség szerint további modulok a `renderer/gdocs/` alatt.
+  létre): az egyfájlos alap generátor. Szükség szerint további modulok a
+  `renderer/gdocs/` alatt.
+- `renderer/gdocs/tesla_candidates.py` – a táblázatvezérelt generátor.
 - `renderer/gdocs/config.yaml` – `targetFolderId` a „MOON42 Profiles”
   mappára; új kulcsok: `templateId`, `spreadsheetId`.
 - `renderer/gdocs/requirements.txt` – PDF-szövegkinyerő és fontmetrika-függőség.
 - `renderer/gdocs/README.md`, `renderer/README.md` – futtatás, scope-ok,
-  konfiguráció; a gdocs kivétel az „egy bemeneti fájl” szabály alól.
+  konfiguráció; a TESLA Candidates generátor kivétel az „egy bemeneti fájl”
+  szabály alól.
 - `schemas/profile.schema.json` – két opcionális mező.
 - `profiles/bence-berenyi.yaml` – az új mezők kitöltése a referencia alapján.
 - Új: `renderer/gdocs/tests/` (stdlib `unittest`).
@@ -65,12 +74,13 @@ tördelés kézi döntést igényel, ezt egyértelműen jelzi.
 ## Functional Requirements
 
 ### Futtatás és konfiguráció
-- **FR-1:** Indítás: `.venv/bin/python renderer/gdocs/render.py [--dry-run]
-  [--config <path>]`. Bemeneti fájlparamétert nem kap. A `--config`
+- **FR-1:** Indítás: `.venv/bin/python renderer/gdocs/tesla_candidates.py
+  [--dry-run] [--config <path>]`. Bemeneti fájlparamétert nem kap. A `--config`
   alapértéke `renderer/gdocs/config.yaml`; más fájllal (pl. teszt-táblázat és
   -mappa) ugyanazok a szabályok érvényesek. A konfiguráció kötelező kulcsai:
   `targetFolderId`, `templateId`, `spreadsheetId`. Hiányzó, üres vagy `null`
-  érték: `Hiba: …`, exit 1, semmilyen API-írás nélkül.
+  érték: `Hiba: …`, exit 1, semmilyen API-írás nélkül. Az egyfájlos módot az
+  FR-22 írja le.
 - **FR-2:** OAuth-scope-ok: `drive.file`, `drive.readonly`, `spreadsheets`. Ha
   a mentett token scope-jai ettől eltérnek, a program új jóváhagyást kér (a
   régi token nem okozhat hibát). A build első munkacsomagja élesben
@@ -166,7 +176,8 @@ tördelés kézi döntést igényel, ezt egyértelműen jelzi.
   folytatódik. Hibás jelöltnél nincs táblázatírás; a már létrejött doksi
   megmarad, és az összesítő az URL-jét is közli.
 - **FR-17:** Nyugta jelöltenként: `target/gdocs/<profilazonosító>.json`
-  (`documentId`, `name`, `url`, `parentFolderIds`, `sheetRow`, `draft`,
+  (`documentId`, `name`, `url`, `parentFolderIds`, `sheetRow` (csak a
+  táblázatvezérelt futásnál), `draft`,
   `issues`: figyelmeztetések és tördelési problémák, `previousDocuments`:
   a korábbi generálások `documentId` + `url` párjai, újrageneráláskor
   bővítve). A problémákat későbbi futás nem jelenti újra. Futási
@@ -187,7 +198,23 @@ tördelés kézi döntést igényel, ezt egyértelműen jelzi.
 - **FR-21:** A `renderer/gdocs/README.md` leírja a futtatást, a `--dry-run`-t,
   a scope-okat, a konfigurációt és a tördelési jelentést; a „Hello World”
   szöveg és az elavult tervek kikerülnek. A `renderer/README.md` jelzi, hogy a
-  gdocs a táblázatból dolgozik.
+  TESLA Candidates generátor a táblázatból dolgozik.
+
+### Egyfájlos mód (alap generátor)
+- **FR-22:** Indítás: `.venv/bin/python renderer/gdocs/render.py
+  <profil.yaml> <mappaazonosító> [--config <path>]`. Egy profilból egy doksit
+  készít a megadott Drive-mappába az FR-7–FR-14 szerint; a táblázatot nem
+  olvassa és nem írja. A konfigurációból csak a `templateId` kötelező; a
+  scope-ok és a token azonosak a táblázatvezérelt futáséval. E-mail: a névből
+  származtatott `@moon42.com`-cím; mobil: a YAML `mobile`, ennek híján `phone`
+  elérhetősége. Nyugta az FR-17 szerint, `sheetRow` nélkül; a stdout a doksi
+  URL-jét, a DRAFT jelölést, a figyelmeztetéseket és a tördelési problémákat
+  tartalmazza. Exit 1 hibás profil, konfiguráció vagy üres mappaazonosító
+  (API-hívás nélkül), sikertelen generálás, tördelési probléma vagy sikertelen
+  nyugtaírás esetén; egyébként 0.
+- **FR-23:** A táblázatvezérelt generátor minden párosított sorra az alap
+  generátor függvényét hívja (`targetFolderId`, a sor `Email` és `Mobile`
+  értéke, sorszám); a generálás logikája csak az alap generátorban van.
 
 ## Non-Functional Requirements
 
@@ -213,6 +240,11 @@ tördelés kézi döntést igényel, ezt egyértelműen jelzi.
   üres cella” szabály teszi idempotenssé az újrafuttatást. Elvetve: egyfájlos
   CLI (az ötletfájl és a `renderer/README.md` szabálya; a felhasználói döntés
   felülírja), mindig új doksi.
+- **Alap generátor + táblázatvezérelt generátor** (2026-10-16) — a
+  generátor két belépési pontra vált: az egyfájlos `render.py` bármely
+  mappába generál, a `tesla_candidates.py` ezt hívja, így nincs funkcionális
+  duplikáció. Ez visszahozza az eredetileg elvetett egyfájlos CLI-t, a
+  táblázatvezérelt futás változatlan marad.
 - **Sor–YAML párosítás tokenrészhalmazzal** — minden mostani sort helyesen
   párosít, új oszlop nélkül. Elvetve: profilazonosító-oszlop a táblázatban.
 - **Párosítatlan sor nem hiba** — a táblázatban vannak YAML nélküli „in
@@ -264,7 +296,7 @@ tördelés kézi döntést igényel, ezt egyértelműen jelzi.
 
 ## Acceptance Criteria
 
-- **AC-1 (dry-run):** `render.py --dry-run` a mostani táblázatra kilistázza a
+- **AC-1 (dry-run):** `tesla_candidates.py --dry-run` a mostani táblázatra kilistázza a
   jogosult sorokat, párosításukat vagy a kihagyás okát; utána a táblázat
   értékei és a célmappa fájllistája változatlan, a `target/gdocs/` alatt nincs
   új nyugta.
@@ -309,6 +341,11 @@ tördelés kézi döntést igényel, ezt egyértelműen jelzi.
   `spreadsheetId` esetén `Hiba: …`, exit 1, API-hívás nélkül; régi
   (`drive.file`-only) tokennel a program új jóváhagyást kér, nem hibával áll
   le.
+- **AC-13 (egyfájlos mód):** `render.py <profil.yaml> <tesztmappa>` a
+  tesztmappába hozza létre a doksit, a táblázat változatlan, a nyugtában nincs
+  `sheetRow`, exit 0; hibás profil vagy üres mappaazonosító esetén `Hiba: …`,
+  exit 1, API-hívás nélkül. A táblázatvezérelt futás unit tesztjei
+  változatlan elvárásokkal zöldek.
 
 ## Open Questions
 
