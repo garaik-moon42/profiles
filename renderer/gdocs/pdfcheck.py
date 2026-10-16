@@ -9,6 +9,7 @@ ALIGN_TOLERANCE = 3.0  # pt: allowed deviation from the center/right tab stops
 CENTER_STOP = 261  # pt from the left margin (template tab stops)
 RIGHT_STOP = 553
 HINT = "kézi döntés kell"
+LEFT_MARGIN = 28.35  # pt: the template's left page margin (rows start there)
 PAGE_STRIDE = 100000  # makes `top` unique across pages
 
 
@@ -53,13 +54,18 @@ def analyze_rows(words, rows):
     Returns (issues, right_edges): Hungarian issue strings identifying the row
     (each ends with „kézi döntés kell”), and per row the x1 of its last word
     (None if the row was not found). Checks: one line, minimum gap between the
-    parts, center part midpoint within ±3 pt of margin+261, right part's right
-    edge within ±3 pt of margin+553 (margin = x0 of the left part)."""
+    parts, center part midpoint not more than 3 pt left of margin+261 (right of
+    it is allowed: a long left part pushes it), right part's right edge
+    within ±3 pt of margin+553 (margin = x0 of the left part, or LEFT_MARGIN
+    without one). A row without any text is skipped (edge None)."""
     issues, right_edges = [], []
     pos = 0
     for row in rows:
         slots = [_norm(p).split() if p and p.strip() else [] for p in row.parts]
         tokens = [t for part in slots for t in part]
+        if not tokens:  # nothing to look for
+            right_edges.append(None)
+            continue
         start = _find(words, tokens, pos)
         if start is None:
             issues.append(f"{row.label}: a sor szövege nem található a PDF-ben, {HINT}.")
@@ -87,12 +93,14 @@ def analyze_rows(words, rows):
                               f"(távolság {next_start - prev_end:.1f} pt), {HINT}.")
                 touching = True
                 break
-        if touching or 0 not in spans:
+        if touching:
             continue
-        margin = spans[0][0]
+        margin = spans[0][0] if 0 in spans else LEFT_MARGIN
         if 1 in spans:
             mid = (spans[1][0] + spans[1][1]) / 2
-            if abs(mid - (margin + CENTER_STOP)) > ALIGN_TOLERANCE:
+            # a center part pushed right by a long left part is fine (the gap
+            # was checked above); left of the stop means a missing tab
+            if mid - (margin + CENTER_STOP) < -ALIGN_TOLERANCE:
                 issues.append(f"{row.label}: a középső rész nincs a középső tabstopon "
                               f"(eltérés {mid - margin - CENTER_STOP:+.1f} pt), {HINT}.")
         if 2 in spans:

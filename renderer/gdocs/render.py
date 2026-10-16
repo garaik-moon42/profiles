@@ -143,7 +143,7 @@ def _finish(row, profile_id, drafts, ctx, report, label, doc, email_warning):
     draft = drafts[profile_id]
     notes = [f"{label}: {doc.url}" + (" [DRAFT]" if draft else "")]
     notes += [f"      Figyelmeztetés: {w}" for w in warnings]
-    notes += [f"      Tördelési probléma: {i} (kézi döntés kell)"
+    notes += [f"      Tördelési probléma: {i}"
               for i in doc.layout_issues]
     ok = not doc.layout_issues
     try:

@@ -54,6 +54,38 @@ class AnalyzeRowsTests(unittest.TestCase):
         self.assertEqual(len(issues), 1)
         self.assertIn("középső", issues[0])
 
+    def test_center_pushed_right_with_gap(self):
+        # long left part: the center part cannot be centered and follows it
+        words = good_words()
+        words[1] = word("Developer", 74, 250)
+        words[2:4] = [word("Acme", 257, 300), word("Corp", 304, 350)]  # gap 7, midpoint +6.5
+        self.assertEqual(pdfcheck.analyze_rows(words, [ROW])[0], [])
+
+    def test_center_pushed_right_touching(self):
+        words = good_words()
+        words[1] = word("Developer", 74, 255)
+        words[2:4] = [word("Acme", 257, 300), word("Corp", 304, 350)]  # gap 2
+        issues, _ = pdfcheck.analyze_rows(words, [ROW])
+        self.assertEqual(len(issues), 1)
+        self.assertIn("összeérnek", issues[0])
+
+    def test_row_without_left_part_is_still_aligned(self):
+        # margin falls back to the page margin: center 28.35 + 261 = 289.35,
+        # right 28.35 + 553 = 581.35
+        words = [word("Acme", 277, 302), word("01/2020", 520, 560), word("–", 564, 570),
+                 word("Present", 574, 575)]
+        row = RowSpec("no role", [None, "Acme", "01/2020 – Present"])
+        issues, _ = pdfcheck.analyze_rows(words, [row])
+        self.assertEqual(len(issues), 1)
+        self.assertIn("jobb szél", issues[0])
+        words[-1]["x1"] = 581.0
+        self.assertEqual(pdfcheck.analyze_rows(words, [row])[0], [])
+
+    def test_row_without_text_is_skipped(self):
+        issues, edges = pdfcheck.analyze_rows(good_words(), [RowSpec("empty", [None, " ", None]), ROW])
+        self.assertEqual(issues, [])
+        self.assertEqual(edges[0], None)
+
     def test_right_edge_misplaced(self):
         words = good_words()
         for w in words[-3:]:

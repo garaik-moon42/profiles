@@ -210,6 +210,7 @@ class SkillSplitTests(unittest.TestCase):
             "devOpsAndCloud": ["Git", "Docker", "AWS", "AWS Lambda", "Azure DevOps", "GCP",
                                "Google Cloud Platform", "Terraform"],
             "toolsAndTechnologies": ["REST API"],
+            "operatingSystems": ["Linux"],
             "developmentMethodologies": ["Scrum"],
             "specializedDomains": ["eSIM"],
             "testingAndQA": ["Jest"],
@@ -218,7 +219,7 @@ class SkillSplitTests(unittest.TestCase):
         split = logic.split_skills(technical)
         self.assertEqual(split["cloud"], ["AWS", "GCP", "Google Cloud Platform"])
         self.assertEqual(split["devops"], ["Git", "Docker", "AWS Lambda", "Azure DevOps", "Terraform"])
-        self.assertEqual(split["other"], ["REST API", "Scrum", "eSIM"])
+        self.assertEqual(split["other"], ["REST API", "Linux", "Scrum", "eSIM"])
         self.assertEqual(split["testing"], ["Jest"])
         self.assertEqual(split["programming"], ["Go"])
         self.assertEqual(split["databases"], [])

@@ -15,45 +15,68 @@ class RowTabsTests(unittest.TestCase):
         left = [Run("Short", 12, True)]
         center = [Run("Company", 10)]  # 35 pt: starts at 243.5, fits
         date = [Run("01/2020 – Present", 10, True)]
-        c, r = layout.row_tabs(left, center, date, fake_width)
+        c, r, _ = layout.row_tabs(left, center, date, fake_width)
         self.assertEqual(c, 4)
         # center ends at 261 + 17.5 = 278.5 -> only the right stop (553) remains
         self.assertEqual(r, 1)
 
     def test_left_past_a_stop_uses_fewer_tabs(self):
         left = [Run("A" * 10, 12, True)]  # 66 pt: stops 72, 108, 261 -> 3
-        c, r = layout.row_tabs(left, [Run("X", 10)], [Run("d", 10)], fake_width)
+        c, r, _ = layout.row_tabs(left, [Run("X", 10)], [Run("d", 10)], fake_width)
         self.assertEqual(c, 3)
 
     def test_left_exactly_on_stop_goes_to_next(self):
         left = [Run("A" * 14, 10), Run("AA", 2)]  # 70 + 2 = 72 pt: exactly on the 72 stop
         self.assertEqual(layout.runs_width(left, fake_width), 72)
-        c, _ = layout.row_tabs(left, [Run("X", 10)], None, fake_width)
+        c, _, _ = layout.row_tabs(left, [Run("X", 10)], None, fake_width)
         self.assertEqual(c, 2)  # 108, 261 (the 72 stop is not reused)
 
     def test_project_row_without_center(self):
         left = [Run("Project", 12, True)]  # 46.2 pt
-        c, r = layout.row_tabs(left, None, [Run("Budapest", 10)], fake_width)
+        c, r, _ = layout.row_tabs(left, None, [Run("Budapest", 10)], fake_width)
         self.assertIsNone(c)
         self.assertEqual(r, 4)  # 72, 108, 261, 553
 
     def test_long_left_past_center_stop(self):
         left = [Run("A" * 60, 12, True)]  # 396 pt: only the right stop remains
-        _, r = layout.row_tabs(left, None, [Run("d", 10)], fake_width)
+        _, r, _ = layout.row_tabs(left, None, [Run("d", 10)], fake_width)
         self.assertEqual(r, 1)
 
     def test_past_center_stop_center_part_lands_on_right_stop(self):
         left = [Run("A" * 40, 12, True)]  # 264 pt, past the center stop
         center = [Run("B" * 10, 10)]  # 50 pt
         date = [Run("d", 10)]
-        c, r = layout.row_tabs(left, center, date, fake_width)
+        c, r, _ = layout.row_tabs(left, center, date, fake_width)
         self.assertEqual(c, 1)  # the tab goes to the right stop (553), text ends there
         self.assertEqual(r, 1)  # nothing left beyond 553
         # same layout without center: the right part simply takes the next stop
-        self.assertEqual(layout.row_tabs(left, None, date, fake_width), (None, 1))
+        self.assertEqual(layout.row_tabs(left, None, date, fake_width), (None, 1, 0))
+
+    def test_center_that_fits_needs_no_padding(self):
+        # left 33 pt, center 35 pt starts at 243.5: far enough from the left part
+        self.assertEqual(layout.row_tabs([Run("Short", 12, True)], [Run("Company", 10)],
+                                         None, fake_width)[2], 0)
+
+    def test_padding_when_center_cannot_be_centered(self):
+        # left 198 pt (12 pt bold, space 6.6 pt); center 200 pt would start at
+        # 161, so it follows the tab directly: one space gives a 6.6 pt gap
+        left = [Run("A" * 30, 12, True)]
+        center = [Run("B" * 40, 10)]
+        c, r, spaces = layout.row_tabs(left, center, [Run("d", 10)], fake_width)
+        self.assertEqual((c, spaces), (1, 1))
+        self.assertEqual(r, 1)
+
+    def test_padding_when_centered_text_comes_too_close(self):
+        # left 30 * 5 = 150 pt (10 pt regular, space 5 pt); center 216 pt is
+        # centered at 153..369, only 3 pt from the left part. Spaces widen the
+        # centered block: 1 space -> text at 155.5 (5.5 pt), 2 -> 160 (10 pt)
+        left = [Run("A" * 30, 10)]
+        center = [Run("B" * 43, 10), Run("x", 2)]  # 215 + 1 = 216 pt
+        _, _, spaces = layout.row_tabs(left, center, None, fake_width)
+        self.assertEqual(spaces, 2)
 
     def test_no_parts(self):
-        self.assertEqual(layout.row_tabs([Run("x")], None, None, fake_width), (None, None))
+        self.assertEqual(layout.row_tabs([Run("x")], None, None, fake_width), (None, None, 0))
 
     def test_runs_width_sums_sizes_and_weights(self):
         runs = [Run("ab", 12, True), Run("cd", 10)]

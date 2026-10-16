@@ -179,6 +179,7 @@ def split_skills(technical):
         "ai": get("ai"),
         "cloud": cloud,
         "devops": [s for s in dev_ops if s not in cloud],
-        "other": (get("toolsAndTechnologies") + get("developmentMethodologies")
+        "other": (get("toolsAndTechnologies") + get("operatingSystems")
+                  + get("developmentMethodologies")
                   + get("specializedDomains")),
     }

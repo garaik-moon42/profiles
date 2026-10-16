@@ -152,7 +152,7 @@ class RenderTest(unittest.TestCase):
 
     def test_layout_issue_exit_1_but_chip_written(self):
         sheets = FakeSheets([row("Kiss Anna")])
-        code, out, _ = self.run_main([], sheets, fake_docfill(["sor törik"])[0])
+        code, out, _ = self.run_main([], sheets, fake_docfill(["sor törik, kézi döntés kell."])[0])
         self.assertEqual(code, 1)
         self.assertEqual(len(sheets.updates), 1)
         self.assertIn("kézi döntés kell", out)
