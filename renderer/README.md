@@ -15,6 +15,8 @@ alkalmas kimenetet készítenek. Minden renderer saját alkönyvtárban találha
 ## Generátorok
 
 - [flat](flat/README.md): tabbal elválasztott útvonal–érték párok szövegfájlban.
-- [gdocs](gdocs/README.md): MOON42 Google Docs-dokumentumok előállítása. Kivétel
-  az „egy bemeneti fájl” szabály alól: a „_TESLA Candidates” táblázatból
-  dolgozik, a profilokat a `profiles/` könyvtárból olvassa.
+- [gdocs](gdocs/README.md): MOON42 Google Docs-dokumentum előállítása egy
+  profilból a megadott Drive-mappába. A hozzá tartozó TESLA Candidates
+  generátor kivétel az „egy bemeneti fájl” szabály alól: a „_TESLA
+  Candidates” táblázatból dolgozik, a profilokat a `profiles/` könyvtárból
+  olvassa.

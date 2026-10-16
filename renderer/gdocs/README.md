@@ -1,15 +1,21 @@
 # Google Docs renderer
 
-A generátor a „_TESLA Candidates” Google Sheets-táblázat „Candidates” fülje
-alapján, a repóban tárolt YAML-profilokból MOON42-formátumú Google
-Docs-dokumentumot készít a „_TEMPLATE - MOON42” sablon másolatából. A
-dokumentum nyomtatható és PDF-be exportálható.
+A renderer YAML-profilokból MOON42-formátumú Google Docs-dokumentumot készít
+a „_TEMPLATE - MOON42” sablon másolatából. A dokumentum nyomtatható és PDF-be
+exportálható. Két belépési pontja van:
+
+- **Alap generátor** (`render.py`): egy profilfájlból egy dokumentumot készít
+  a megadott Drive-mappába.
+- **TESLA Candidates generátor** (`tesla_candidates.py`): a „_TESLA
+  Candidates” Google Sheets-táblázat „Candidates” fülét munkasorként
+  feldolgozva minden jogosult sorra az alap generátort hívja, majd a
+  dokumentum chipjét visszaírja a táblázatba.
 
 ## Kiindulópont
 
-- A [közös rendererszabályoktól](../README.md) eltérően nem egy bemeneti
-  fájlt kap: a táblázat a munkasor, a profilokat a `profiles/` könyvtárból
-  olvassa.
+- Az alap generátor a [közös rendererszabályok](../README.md) szerint egy
+  bemeneti fájlt kap; a TESLA Candidates generátor a táblázatból dolgozik, a
+  profilokat a `profiles/` könyvtárból olvassa.
 - Adatmodell: a [profil séma](../../schemas/profile.schema.json) szerinti 1.0-s verzió.
 - A kimenetek a repo gyökerében lévő `target/gdocs/` alá kerülnek.
 - A profiladatok szerkesztési szabályait a [repo útmutatója](../../README.md) rögzíti.
@@ -23,10 +29,25 @@ python3 -m venv .venv
 .venv/bin/python -m pip install -r renderer/gdocs/requirements.txt
 ```
 
-Futtatás (bemeneti fájl nélkül):
+Az alap generátor futtatása egy profilra:
 
 ```bash
-.venv/bin/python renderer/gdocs/render.py [--dry-run] [--config <útvonal>]
+.venv/bin/python renderer/gdocs/render.py <profil.yaml> <Drive-mappa azonosító> [--config <útvonal>]
+```
+
+- `<Drive-mappa azonosító>`: a célmappa azonosítója (az URL `/folders/` utáni
+  része). A dokumentum ide kerül, a táblázat nem módosul.
+- Az e-mail-cím a névből képzett moon42.com-cím, a telefonszám a profil
+  `mobile`, ennek hiányában `phone` kapcsolata.
+- Stdout: a dokumentum URL-je, a figyelmeztetések és a tördelési problémák;
+  hiba esetén a stderr-re „Hiba: …” kerül.
+- Kilépési kód: `0` siker esetén; `1` hibás profil vagy konfiguráció,
+  sikertelen generálás, tördelési probléma vagy sikertelen nyugtaírás esetén.
+
+A TESLA Candidates generátor futtatása (bemeneti fájl nélkül):
+
+```bash
+.venv/bin/python renderer/gdocs/tesla_candidates.py [--dry-run] [--config <útvonal>]
 ```
 
 - `--dry-run`: csak listáz. Kiírja a jogosult sorokat, a hozzájuk illesztett
@@ -37,9 +58,9 @@ Futtatás (bemeneti fájl nélkül):
   [`config.yaml`](config.yaml) helyett, például tesztfuttatáshoz a `target/`
   alatt (más mappával és táblázattal).
 
-Az első futtatás megnyitja a Google OAuth jóváhagyási folyamatát.
+Mindkét program ugyanazt a konfigurációt és tokent használja. Az első futtatás megnyitja a Google OAuth jóváhagyási folyamatát.
 
-## A táblázat mint munkasor
+## A táblázat mint munkasor (TESLA Candidates generátor)
 
 A „Candidates” fül fejlécének tartalmaznia kell a `Name`, `Status`, `Mobile`,
 `Email` és `MOON42 Profile` oszlopot; hiányzó fejléc hibát okoz.
@@ -66,14 +87,15 @@ A „Candidates” fül fejlécének tartalmaznia kell a `Name`, `Status`, `Mobi
 
 ## Konfiguráció
 
-A [`config.yaml`](config.yaml) három kötelező kulcsot tartalmaz; a hiányzó vagy
-üres érték hiba:
+A [`config.yaml`](config.yaml) kulcsai; a hiányzó vagy üres kötelező érték hiba:
 
-- `targetFolderId`: a Drive-mappa azonosítója („MOON42 Profiles”), ahová a
-  dokumentumok kerülnek (az URL `/folders/` utáni része).
-- `templateId`: a MOON42-sablon azonosítója. A sablonra csak olvasó és másoló
-  hívás megy, soha nem módosul.
-- `spreadsheetId`: a jelölteket nyilvántartó táblázat azonosítója.
+- `templateId` (mindkét programnak kötelező): a MOON42-sablon azonosítója. A
+  sablonra csak olvasó és másoló hívás megy, soha nem módosul.
+- `targetFolderId` (a TESLA Candidates generátornak kötelező): a Drive-mappa
+  azonosítója („MOON42 Profiles”), ahová a dokumentumok kerülnek (az URL
+  `/folders/` utáni része). Az alap generátor a mappát paraméterként kapja.
+- `spreadsheetId` (a TESLA Candidates generátornak kötelező): a jelölteket
+  nyilvántartó táblázat azonosítója.
 
 A fájlba hitelesítési adat nem kerülhet.
 
@@ -93,7 +115,8 @@ hitelesítési adatot tartalmaz, ezért egyik sem kerül verziókezelésbe.
 
 - `drive.file`: a renderer által létrehozott (másolt) fájlok olvasása és írása;
 - `drive.readonly`: a (nem a renderer által létrehozott) sablon és táblázat olvasása;
-- `spreadsheets`: a táblázat olvasása és a `MOON42 Profile` cella írása.
+- `spreadsheets`: a táblázat olvasása és a `MOON42 Profile` cella írása (az
+  alap generátor nem használja, de a közös token miatt ő is kéri).
 
 Ha a mentett token scope-listája eltér a fentitől (pl. a scope-ok változtak),
 vagy a refresh token lejárt vagy visszavonták, a program új jóváhagyást kér
@@ -104,18 +127,20 @@ publikált alkalmazásnál ez nem áll fenn.
 ## Kimenetek
 
 - **Nyugta:** `target/gdocs/<profilazonosító>.json`; mezői: `documentId`,
-  `name`, `url`, `parentFolderIds`, `sheetRow`, `draft`, `issues` (figyelmeztetések,
-  tördelési és táblázatírási problémák), `previousDocuments` (a korábbi
-  futtatásokból származó `documentId`/`url` párok). Hibás kitöltésnél is
+  `name`, `url`, `parentFolderIds`, `sheetRow` (csak a TESLA Candidates
+  generátornál), `draft`, `issues` (figyelmeztetések, tördelési és
+  táblázatírási problémák), `previousDocuments` (a korábbi futtatásokból – akár
+  a másik programéból – származó `documentId`/`url` párok). Hibás kitöltésnél is
   készül nyugta, ha a másolat már létezik.
 - **PDF:** `target/gdocs/pdf/<Keresztnév Vezetéknév> - MOON42.pdf`, a tördelés
   ellenőrzéséhez exportált példány.
-- **Dokumentumnév:** `<firstName> <lastName> - MOON42`, a `config.yaml`-ban
-  megadott mappában.
-- **Stdout:** összesítő a jogosult sorok számáról, majd „Generált”,
+- **Dokumentumnév:** `<firstName> <lastName> - MOON42`, az alap generátornál a
+  paraméterként, a TESLA Candidates generátornál a `config.yaml`-ban megadott
+  mappában.
+- **Stdout (TESLA Candidates generátor):** összesítő a jogosult sorok számáról, majd „Generált”,
   „Kihagyott” és „Hibás” lista (dokumentum-URL-ek, figyelmeztetések,
   tördelési problémák).
-- **Kilépési kód:** `0`, ha nincs hibás sor és nincs probléma; `1`, ha bármely
+- **Kilépési kód (TESLA Candidates generátor):** `0`, ha nincs hibás sor és nincs probléma; `1`, ha bármely
   sor hibás, a visszaírás vagy a nyugta sikertelen, tördelési probléma van,
   vagy a futás hibával állt le (konfiguráció, hitelesítés, API). Dry-run
   esetén `1` hibás profil vagy hibás illesztés esetén.
