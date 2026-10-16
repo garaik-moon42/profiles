@@ -40,11 +40,6 @@ def format_date_range(start, end=MISSING):
     return f"{format_date(start)} – {format_date(end)}"
 
 
-def join_parts(parts, separator):
-    """Join the non-empty parts; missing parts take their separator with them."""
-    return separator.join(p for p in parts if p and str(p).strip())
-
-
 # --- E-mail and mobile (FR-8) ----------------------------------------------
 
 def _letters(text):

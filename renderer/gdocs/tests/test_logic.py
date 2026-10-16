@@ -36,12 +36,6 @@ class DateTests(unittest.TestCase):
         self.assertEqual(logic.format_date_range(None, logic.MISSING), "")
         self.assertEqual(logic.format_date_range(None), "")
 
-    def test_join_parts_drops_separators(self):
-        self.assertEqual(logic.join_parts(["BSc", "ELTE"], ", "), "BSc, ELTE")
-        self.assertEqual(logic.join_parts(["BSc", None], ", "), "BSc")
-        self.assertEqual(logic.join_parts([None, "ELTE", ""], "\t"), "ELTE")
-        self.assertEqual(logic.join_parts([None, None], " – "), "")
-
 
 class EmailTests(unittest.TestCase):
     def test_derived(self):
