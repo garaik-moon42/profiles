@@ -1,4 +1,11 @@
 # Annak a Google Drive-mappának az azonosítója, amelybe az elkészült
-# Google Docs-dokumentumok kerülnek.
-targetFolderId: 1j0w3gE7JsD1999KFav7o5BDxO2H27fib
+# Google Docs-dokumentumok kerülnek ("MOON42 Profiles").
+targetFolderId: 149J47yBwm5ZAh5Yp4HKzb57I9VIErERL
 
+# A MOON42 profilsablon Google Docs-dokumentumának azonosítója.
+# A program csak olvassa és másolja, soha nem módosítja.
+templateId: 1MdRqUIGpKxIVUKjNMxMoj6jOi7P5p6ch-GQwQQfdTf4
+
+# A jelölteket nyilvántartó Google Sheets-táblázat azonosítója
+# (a "Candidates" fül a munkasor).
+spreadsheetId: 1dz4PE6uPZiUcCC6J7xuM7INf8GLvTcuXQft49MISWDk

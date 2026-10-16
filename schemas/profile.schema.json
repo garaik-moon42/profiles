@@ -44,6 +44,10 @@
         "introduction": {
           "$ref": "#/$defs/nonEmptyString"
         },
+        "introductionThirdPerson": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Introduction written in the third person, using the person's first name. Optional."
+        },
         "languages": {
           "type": "array",
           "items": {
@@ -278,6 +282,10 @@
         },
         "company": {
           "$ref": "#/$defs/nonEmptyString"
+        },
+        "companyShortName": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Short company name for compact displays, e.g. without former legal entity names. Optional."
         },
         "start": {
           "$ref": "#/$defs/date"

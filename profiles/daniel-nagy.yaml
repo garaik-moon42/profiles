@@ -1,0 +1,307 @@
+# yaml-language-server: $schema=../schemas/profile.schema.json
+# DRAFT — candidate clarification pending; TODO comments identify unresolved data.
+#
+# EMAIL DRAFT — prepared for forwarding, not sent.
+# Subject: Clarifications for your professional profile
+#
+# Dear Dániel,
+#
+# Thank you for sharing your CV. To complete your professional profile accurately,
+# could you please clarify the following points?
+# 1. Under which employer or engagement did you work on the Public Broker Company
+#    Trading Automation Platform (Sep 2025 – Apr 2026) and the Polyax MRP System
+#    (May 2024 – Jan 2025)? For example, were they Inline Studio client projects?
+# 2. What was the work location (city/country, or remote) for each of these two projects?
+# 3. What qualification or certificate, if any, did you obtain from the International
+#    Course at the University of Bedfordshire (2010 – 2011)?
+#
+# Thank you for your help.
+# Best regards,
+# MOON42 team
+
+metadata:
+  id: daniel-nagy
+  schemaVersion: "1.0"
+  language: en
+
+personalData:
+  firstName: Dániel
+  lastName: Nagy
+  title: Lead Backend Engineer
+  introduction: >-
+    Lead Backend Engineer with 10+ years of experience building and modernizing
+    production applications, with hands-on experience in Node.js, TypeScript,
+    and Laravel/PHP. Work includes distributed services, real-time
+    communication, API integrations, and asynchronous processing across
+    logistics, trading, and business applications. Leads a team of 10+
+    developers while remaining directly involved in architecture and
+    implementation, with responsibilities including technical planning,
+    interviews, code reviews, mentoring, and legacy system migrations. Takes
+    features from business requirements through technical design,
+    development, deployment, and production support, and uses AI-assisted
+    development tools such as Codex and Claude to improve code quality.
+  languages:
+    - Hungarian (native)
+  contacts:
+    - type: website
+      value: inlinestudio.hu
+    - type: mobile
+      value: "+36 30 / 416 0766"
+
+skills:
+  technical:
+    programmingLanguages:
+      - JavaScript
+      - TypeScript
+      - PHP
+    frameworksAndLibraries:
+      - Node.js
+      - Laravel
+      - React
+      - Vue.js
+      - jQuery
+    databases:
+      - PostgreSQL
+      - MySQL
+      - Redis
+      - Data migrations
+      - Data optimization
+    devOpsAndCloud:
+      - AWS
+      - Docker
+      - Kubernetes
+      - CI/CD
+      - Nginx
+      - Load balancing
+      - SSL configuration
+    toolsAndTechnologies:
+      - REST APIs
+      - API integrations
+      - Queues
+      - WebSockets
+      - Background processing
+      - MetaTrader 5
+      - Salesforce
+      - Android PDA applications
+    operatingSystems:
+      - Linux
+    specializedDomains:
+      - Logistics and fulfillment platforms
+      - Warehouse management
+      - Vehicle routing and delivery planning
+      - Customs systems
+      - Online trading platforms and trade automation
+      - ERP, warehouse, and billing system integration
+    developmentMethodologies:
+      - Software architecture
+      - Technical planning
+      - Code reviews
+      - Legacy system migration and incremental modernization
+      - Distributed systems
+    ai:
+      - Codex
+      - Claude
+      - AI-assisted development
+      - AI-based route optimization
+      - Predictive models
+  soft:
+    - Leading a team of 10+ developers
+    - Team coordination
+    - Mentoring developers
+    - Technical interviews
+    - Translating client requirements into working applications
+
+education:
+  - level: bachelor
+    name: BSc in Computer Science Engineering
+    institution: Dennis Gabor University | Gábor Dénes Egyetem
+    start: "2026"
+    end: null
+  - level: secondary
+    name: Secondary Education - Mechanical Engineering
+    institution: Technical School for Energetics
+    start: "2005"
+    end: "2009"
+
+certificates:
+  - name: Salesforce Certified Platform Developer
+    organization: Salesforce
+    date: "2015/09"
+  - name: Salesforce Certified Administrator
+    organization: Salesforce
+    date: "2015/04"
+
+experience:
+  - role: Lead Software Engineer
+    company: Hungarian Post - Magyar Posta
+    start: "2023"
+    end: "2026"
+    projects:
+      - name: Engineering Leadership and Legacy System Modernization
+        location: Budapest, Hungary (remote)
+        responsibilities:
+          - Led a team of 10+ developers, coordinating development work and guiding architectural decisions while remaining hands-on with implementation.
+          - Conducted technical interviews, reviewed code, and mentored developers.
+          - Planned and delivered legacy system migrations and incremental modernization.
+      - name: Smart by MPL Fulfillment Platform
+        location: Budapest, Hungary (remote)
+        start: "2023/10"
+        end: "2025/12"
+        responsibilities:
+          - Led end-to-end development of the Smart by MPL fulfillment platform, covering the front office, back office, and warehouse PDA application.
+          - Developed core Laravel backend services for order intake, inventory handling, warehouse processing, and shipment management.
+          - Built integrations connecting order processing, inventory management, warehouse operations, and external logistics services.
+          - Integrated external transport management systems and partner APIs, using queues and database optimizations to support reliable data synchronization.
+          - Built internal administration tools and an Android PDA application for warehouse scanning and item management.
+        techStack:
+          - Laravel
+          - Queues
+          - Android
+      - name: Vehicle Routing System
+        location: Budapest, Hungary (remote)
+        start: "2025/01"
+        end: "2026/02"
+        responsibilities:
+          - Designed and developed an AI-based route optimization tool for parcel delivery.
+          - Designed and implemented a vehicle routing system for delivery planning and estimated delivery times.
+          - Applied routing algorithms and predictive models to support route optimization and delivery-window planning.
+
+  - role: Owner & Lead Software Engineer
+    company: Inline Studio
+    start: "2021/01"
+    end: "2026/06"
+    projects:
+      - name: Client Software Development
+        location: Budapest, Hungary (remote)
+        responsibilities:
+          - Ran own software development business alongside full-time employment, translating client requirements into working applications.
+          - Developed backend services using Node.js, TypeScript, and Laravel, including APIs, integrations, and asynchronous workflows.
+          - Designed database schemas and data synchronization between business systems.
+          - Developed a production weighing application for Coca-Cola to measure material quantities used in manufacturing.
+          - Delivered React and Vue.js interfaces where projects required full-stack development.
+          - Managed technical delivery from planning through deployment and production support using Docker, AWS, and CI/CD pipelines.
+        techStack:
+          - Node.js
+          - TypeScript
+          - Laravel
+          - React
+          - Vue.js
+          - Docker
+          - AWS
+          - CI/CD
+      # TODO projects/1: Employer/engagement not stated in source; provisionally placed under
+      # Inline Studio based on the date range. Confirm with the candidate.
+      - name: Public Broker Company - Trading Automation Platform
+        # TODO location: Missing in source; ask candidate. Field intentionally omitted.
+        start: "2025/09"
+        end: "2026/04"
+        responsibilities:
+          - Designed and developed a distributed platform using Laravel and Node.js, integrating multiple Dockerized MetaTrader 5 instances.
+          - Implemented a central control service and worker nodes for trade execution, copy trading, and account synchronization.
+          - Built workspace-based account management and a separate AI analysis layer that aggregated signals from five strategies into a dashboard.
+        techStack:
+          - Laravel
+          - Node.js
+          - Docker
+          - MetaTrader 5
+      # TODO projects/2: Employer/engagement not stated in source; provisionally placed under
+      # Inline Studio based on the date range. Confirm with the candidate.
+      - name: Polyax - MRP System
+        # TODO location: Missing in source; ask candidate. Field intentionally omitted.
+        start: "2024/05"
+        end: "2025/01"
+        responsibilities:
+          - Developed a Laravel and TypeScript integration platform connecting ERP, warehouse, and billing systems.
+          - Automated data synchronization and standardized data formats across external systems, replacing manual data transfers.
+        techStack:
+          - Laravel
+          - TypeScript
+
+  - role: Senior Developer
+    company: DPD Hungary Kft.
+    start: "2018/10"
+    end: "2020/09"
+    projects:
+      - name: Customs and Logistics Applications
+        location: Budapest, Hungary (hybrid)
+        responsibilities:
+          - Developed a Duties & Taxes module using Laravel and Vue.js.
+          - Refactored international customs systems and maintained integrations with external services.
+          - Maintained and extended production logistics applications supporting daily operations.
+        techStack:
+          - Laravel
+          - Vue.js
+
+  - role: Senior Developer
+    company: Voodoo Park Ltd.
+    start: "2017/08"
+    end: "2018/10"
+    projects:
+      - name: Node.js Applications and AWS-Based Systems
+        location: London, United Kingdom (remote)
+        responsibilities:
+          - Developed Node.js applications and worked with AWS-based systems.
+          - Delivered backend and frontend functionality and integrations between applications.
+        techStack:
+          - Node.js
+          - AWS
+
+  - role: Software Developer
+    company: Telenor Hungary
+    start: "2015/02"
+    end: "2017/02"
+    projects:
+      - name: Internal Tools, Chatbots and Customer Service Platform
+        location: Törökbálint, Hungary (on-site)
+        responsibilities:
+          - Developed internal tools and chatbot applications using Node.js and AWS.
+          - Integrated internal systems and services to support business workflows.
+          - Contributed to a Salesforce-based customer service platform.
+        techStack:
+          - Node.js
+          - AWS
+          - Salesforce
+
+  - role: Web Developer
+    company: Purple 24 Ltd.
+    start: "2013/04"
+    end: "2015/01"
+    projects:
+      - name: White-Label Online Trading Platform
+        location: London, United Kingdom
+        responsibilities:
+          - Developed an online trading platform with backend services, frontend interfaces, MetaTrader integration, and live price feeds.
+          - Built Node.js and WebSocket functionality for real-time data delivery across white-label platform instances.
+          - Worked with MySQL, Nginx, and AWS across a distributed architecture.
+          - Developed CRM, CMS, and reporting tools, and configured load balancing, server redundancy, and SSL.
+        techStack:
+          - Node.js
+          - WebSockets
+          - MetaTrader
+          - MySQL
+          - Nginx
+          - AWS
+
+  - role: Junior Web Developer
+    company: 3TG Brokers
+    start: "2011/11"
+    end: "2013/01"
+    projects:
+      - name: Trading Support Tools and Frontend Interfaces
+        location: Budapest, Hungary
+        responsibilities:
+          - Developed frontend interfaces using JavaScript, jQuery, and CSS.
+          - Built an internal support ticketing system and integrated MetaTrader with MySQL.
+          - Worked with load balancing and SSL configuration.
+        techStack:
+          - JavaScript
+          - jQuery
+          - CSS
+          - MetaTrader
+          - MySQL
+
+interests: []
+
+# SOURCE INFORMATION PENDING CLARIFICATION / EDITORIAL DECISION
+# TODO education: University of Bedfordshire, International Course, 2010 - 2011. Level and
+# qualification are not stated in the source; ask candidate before adding an education entry.
