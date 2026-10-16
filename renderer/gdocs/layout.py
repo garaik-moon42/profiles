@@ -24,6 +24,10 @@ FONT_DIR = Path(__file__).resolve().parents[2] / "target" / "gdocs" / "fonts"
 LEFT_STOPS = (36, 72, 108)
 CENTER_STOP = 261
 RIGHT_STOP = 553
+# A stop this close behind the measured x still counts as ahead: the kerned
+# metrics match Docs to ~0.01 pt, and a text ending on a stop (71.994 pt
+# rendered, 72.006 pt measured) still tabs to it.
+STOP_EPSILON = 0.1
 
 
 @dataclass(frozen=True)
@@ -51,13 +55,46 @@ def fetch_font(bold, font_dir=FONT_DIR):
 _font_cache = {}
 
 
+def _kern_subtables(font):
+    """PairPos subtables of the GPOS 'kern' feature (Google Docs applies
+    pair kerning, e.g. "C"+"T" in Roboto Bold is -0.17 pt at 12 pt)."""
+    gpos = font["GPOS"].table
+    indices = sorted({i for record in gpos.FeatureList.FeatureRecord
+                      if record.FeatureTag == "kern" for i in record.Feature.LookupListIndex})
+    return [subtable for i in indices for subtable in gpos.LookupList.Lookup[i].SubTable
+            if subtable.LookupType == 2] if indices else []
+
+
+def _pair_kern(subtables, first, second):
+    """X advance adjustment of a glyph pair in font units (first match wins,
+    as in OpenType layout)."""
+    for subtable in subtables:
+        coverage = subtable.Coverage.glyphs
+        if first not in coverage:
+            continue
+        if subtable.Format == 1:
+            pairs = subtable.PairSet[coverage.index(first)].PairValueRecord
+            for record in pairs:
+                if record.SecondGlyph == second:
+                    return getattr(record.Value1, "XAdvance", 0) or 0
+        else:
+            class1 = subtable.ClassDef1.classDefs.get(first, 0)
+            class2 = subtable.ClassDef2.classDefs.get(second, 0)
+            value = subtable.Class1Record[class1].Class2Record[class2].Value1
+            return getattr(value, "XAdvance", 0) or 0
+    return 0
+
+
 def roboto_width(text, size, bold):
-    """Advance width of `text` in pt (no kerning), from Roboto metrics."""
+    """Advance width of `text` in pt with pair kerning, from Roboto metrics."""
     if bold not in _font_cache:
         font = TTFont(fetch_font(bold))
-        _font_cache[bold] = (font.getBestCmap(), font["hmtx"], font["head"].unitsPerEm)
-    cmap, hmtx, upem = _font_cache[bold]
-    total = sum(hmtx[cmap.get(ord(c), ".notdef")][0] for c in text)
+        _font_cache[bold] = (font.getBestCmap(), font["hmtx"], font["head"].unitsPerEm,
+                             _kern_subtables(font))
+    cmap, hmtx, upem, kern = _font_cache[bold]
+    glyphs = [cmap.get(ord(c), ".notdef") for c in text]
+    total = sum(hmtx[g][0] for g in glyphs)
+    total += sum(_pair_kern(kern, a, b) for a, b in zip(glyphs, glyphs[1:]))
     return total * size / upem
 
 
@@ -68,14 +105,14 @@ def runs_width(runs, width_fn=roboto_width):
 def _place(x, width, target, stops, space=0.0):
     """Place a part of `width` after position x using tabs aimed at stop
     `target`. Returns (tabs, spaces, end_x). A tab advances to the next stop
-    beyond the current position, so if `target` is already behind x the first
+    beyond the current position (minus STOP_EPSILON), so if `target` is already behind x the first
     tab lands on the next stop (whatever its kind); center/right text is
     aligned to the stop it lands on, unless it does not fit, in which case it
     starts at x. Beyond the last stop the text simply follows x (one tab).
     A center part that would come closer than MIN_GAP to x gets padding
     spaces (of width `space`) after the tab: they belong to the centered
     block, so the text starts after them."""
-    ahead = [s for s in stops if s > x]
+    ahead = [s for s in stops if s > x - STOP_EPSILON]
     if not ahead:
         return 1, 0, x + width
     tabs = ahead.index(target) + 1 if target in ahead else 1

@@ -6,6 +6,8 @@ import time
 
 from google.auth.exceptions import RefreshError
 from google.auth.transport.requests import Request
+from google_auth_httplib2 import AuthorizedHttp
+import httplib2
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
@@ -24,6 +26,7 @@ SCOPES = [
 
 MAX_ATTEMPTS = 5
 BACKOFF_SECONDS = (4, 8, 16, 32)  # ~60 s in total
+HTTP_TIMEOUT_SECONDS = 180  # files.copy of the template can take long
 
 
 def _saved_scopes_match():
@@ -62,7 +65,8 @@ def authenticate():
 def build_services(credentials):
     """Return (drive v3, docs v1, sheets v4) clients."""
     return tuple(
-        build(name, version, credentials=credentials, cache_discovery=False)
+        build(name, version, cache_discovery=False,
+              http=AuthorizedHttp(credentials, http=httplib2.Http(timeout=HTTP_TIMEOUT_SECONDS)))
         for name, version in (("drive", "v3"), ("docs", "v1"), ("sheets", "v4"))
     )
 

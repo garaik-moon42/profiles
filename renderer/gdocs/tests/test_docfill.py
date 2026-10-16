@@ -363,6 +363,32 @@ class GenerateDocumentTests(unittest.TestCase):
         self.assertEqual((caught.exception.document_id, caught.exception.url), ("doc-1", "https://doc/1"))
         self.assertIn("boom", str(caught.exception))
 
+    def test_copy_timeout_reports_the_orphan_copy(self):
+        self.drive.results["copy"] = TimeoutError("The read operation timed out")
+        self.drive.results["list"] = {"files": [{"id": "orphan", "webViewLink": "https://doc/o"}]}
+        with self.assertRaises(docfill.GenerationError) as caught:
+            self.generate()
+        self.assertEqual((caught.exception.document_id, caught.exception.url), ("orphan", "https://doc/o"))
+        query = [kwargs for name, kwargs in self.drive.calls if name == "list"][0]["q"]
+        for part in ("name = 'Anna Kovács - MOON42'", "'folder' in parents", "trashed = false",
+                     "createdTime >= '"):
+            self.assertIn(part, query)
+        self.assertEqual([name for name, _ in self.drive.calls].count("copy"), 1)  # no blind retry
+
+    def test_copy_timeout_without_a_copy(self):
+        self.drive.results["copy"] = TimeoutError("timed out")
+        self.drive.results["list"] = {"files": []}
+        with self.assertRaises(docfill.GenerationError) as caught:
+            self.generate()
+        self.assertIsNone(caught.exception.document_id)
+
+    def test_copy_client_error_does_not_look_up(self):
+        from googleapiclient.errors import HttpError
+        self.drive.results["copy"] = HttpError(mock.Mock(status=404, reason="nf"), b"")
+        with self.assertRaises(docfill.GenerationError):
+            self.generate()
+        self.assertNotIn("list", [name for name, _ in self.drive.calls])
+
     def test_failed_pdf_check_is_a_layout_issue(self):
         self.drive.results["export"] = RuntimeError("export down")
         result = self.generate()

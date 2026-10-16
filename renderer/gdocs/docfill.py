@@ -15,9 +15,12 @@ The whole fill is one batchUpdate guarded by the copy's revision (NFR-2).
 """
 
 from dataclasses import dataclass, field
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from renderer.gdocs import layout, logic, pdfcheck
+from googleapiclient.errors import HttpError
+
 from renderer.gdocs.auth import OUTPUT_DIR, execute
 
 PDF_DIR = OUTPUT_DIR / "pdf"
@@ -404,14 +407,20 @@ def generate_document(drive, docs, *, template_id, folder_id, profile, email, mo
     template (NFR-1)."""
     personal = profile["personalData"]
     name = f"{personal['firstName']} {personal['lastName']} - MOON42"
+    started = datetime.now(timezone.utc)
     try:
         copy = execute(drive.files().copy(
             fileId=template_id, body={"name": name, "parents": [folder_id]},
             fields="id,name,webViewLink,parents", supportsAllDrives=True))
     except Exception as error:
-        raise GenerationError(f"A sablon másolása sikertelen ({name}): {error}") from error
-    document_id = copy["id"]
-    url = copy.get("webViewLink") or f"https://docs.google.com/document/d/{document_id}/edit"
+        message = f"A sablon másolása sikertelen ({name}): {error}"
+        if _maybe_created(error):  # the copy may exist server-side anyway
+            orphan = _find_copy(drive, folder_id, name, started)
+            if orphan:
+                raise GenerationError(message + " – a másolat ennek ellenére létrejött, "
+                                      "kitöltetlen.", orphan["id"], _url(orphan)) from error
+        raise GenerationError(message) from error
+    document_id, url = copy["id"], _url(copy)
     try:
         document = execute(docs.documents().get(documentId=document_id))
         requests, rows, warnings = build_requests(document, profile, email, mobile)
@@ -429,6 +438,33 @@ def generate_document(drive, docs, *, template_id, folder_id, profile, email, mo
                          f"{pdfcheck.HINT}."]
     return GeneratedDoc(document_id, name, url, copy.get("parents", [folder_id]),
                         warnings, layout_issues)
+
+
+def _url(file):
+    return file.get("webViewLink") or f"https://docs.google.com/document/d/{file['id']}/edit"
+
+
+def _maybe_created(error):
+    """A timeout or a 5xx answer does not tell whether the copy happened."""
+    if isinstance(error, HttpError):
+        return error.resp.status >= 500
+    return isinstance(error, TimeoutError)
+
+
+def _find_copy(drive, folder_id, name, started, clock_skew=timedelta(seconds=10)):
+    """The newest non-trashed file `name` in the folder created since
+    `started` (minus clock skew), or None; a failed lookup also gives None."""
+    since = (started - clock_skew).strftime("%Y-%m-%dT%H:%M:%SZ")
+    quoted = name.replace("\\", "\\\\").replace("'", "\\'")
+    query = (f"name = '{quoted}' and '{folder_id}' in parents and trashed = false "
+             f"and createdTime >= '{since}'")
+    try:
+        files = execute(drive.files().list(
+            q=query, orderBy="createdTime desc", fields="files(id,name,webViewLink)",
+            supportsAllDrives=True, includeItemsFromAllDrives=True)).get("files", [])
+    except Exception:
+        return None
+    return files[0] if files else None
 
 
 def export_pdf(drive, document_id, path):

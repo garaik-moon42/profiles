@@ -88,5 +88,15 @@ class ExecuteTest(unittest.TestCase):
         self.assertEqual(request.execute.call_count, 1)
 
 
+
+class BuildServicesTest(unittest.TestCase):
+    def test_clients_use_the_long_http_timeout(self):
+        with mock.patch.object(auth, "build") as build:
+            auth.build_services(mock.Mock())
+        self.assertEqual(build.call_count, 3)
+        for call in build.call_args_list:
+            self.assertEqual(call.kwargs["http"].http.timeout, auth.HTTP_TIMEOUT_SECONDS)
+
+
 if __name__ == "__main__":
     unittest.main()

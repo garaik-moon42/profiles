@@ -25,11 +25,26 @@ class RowTabsTests(unittest.TestCase):
         c, r, _ = layout.row_tabs(left, [Run("X", 10)], [Run("d", 10)], fake_width)
         self.assertEqual(c, 3)
 
-    def test_left_exactly_on_stop_goes_to_next(self):
-        left = [Run("A" * 14, 10), Run("AA", 2)]  # 70 + 2 = 72 pt: exactly on the 72 stop
-        self.assertEqual(layout.runs_width(left, fake_width), 72)
-        c, _, _ = layout.row_tabs(left, [Run("X", 10)], None, fake_width)
-        self.assertEqual(c, 2)  # 108, 261 (the 72 stop is not reused)
+    def test_width_at_or_near_a_stop_still_takes_it(self):
+        # Docs: "Founder/CTO" (12 pt bold) renders 71.994 pt wide and its tab
+        # goes to the 72 stop; the metric may land a hair beyond it
+        for left_width in (71.9, 71.95, 72.0, 72.05, 72.09):
+            widths = {"L": left_width, "X": 5, " ": 3}
+            c, _, _ = layout.row_tabs([Run("L")], [Run("X")], None, lambda t, size, b: widths[t])
+            self.assertEqual(c, 3, left_width)  # 72, 108, 261
+
+    def test_width_clearly_past_a_stop_skips_it(self):
+        c, _, _ = layout.row_tabs([Run("A" * 12, 12), Run("x", 0.4)], [Run("X", 10)], None, fake_width)
+        self.assertEqual(c, 2)  # 72.2 pt: 108, 261
+
+    def test_kerning_matches_docs(self):
+        try:
+            width = layout.roboto_width("Founder/CTO", 12, True)
+        except OSError as e:
+            self.skipTest(f"font not available: {e}")
+        self.assertAlmostEqual(width, 71.994, delta=0.05)  # measured in the Docs PDF export
+        self.assertLess(layout.roboto_width("CT", 12, True),
+                        layout.roboto_width("C", 12, True) + layout.roboto_width("T", 12, True))
 
     def test_project_row_without_center(self):
         left = [Run("Project", 12, True)]  # 46.2 pt
